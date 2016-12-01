@@ -1,0 +1,20 @@
+<launch>
+  <!-- arecord -l will show available input devices, use the car number as
+      the first number and the subdevice number as the second in a string
+      like plughw:1,0 -->
+  <arg name="block_size" default="3200"/> 
+  <arg name="name" default="plughw:3,0"/>
+  <arg name="channels" default="1"/>
+  <arg name="depth" default="16"/>
+  <arg name="sample_rate" default="16000"/>
+
+  <node name="audio_capture" pkg="audio_capture" type="audio_capture" output="screen">
+    <param name="name" value="$(arg name)"/>
+    <param name="channels" value="$(arg channels)"/>
+     <param name="depth" value="$(arg depth)"/>
+    <param name="sample_rate" value="$(arg sample_rate)"/>
+     <param name="block_size" value="$(arg block_size)"/>
+  </node>
+
+
+</launch>

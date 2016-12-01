@@ -1,0 +1,11 @@
+/.settings/
+/build/
+/catkin/
+/catkin_generated/
+/CMakeFiles/
+/devel/
+/git_bk/
+/gtest/
+/test_results/
+
+

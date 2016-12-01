@@ -1,0 +1,58 @@
+{
+  "robotName" : "黄豆",
+  "offLineCmd": ["学习动作","演示","关机","休眠"],
+  "mac_address" : "00:e0:4c:06:a6:56",
+
+  "audioInfo" : {
+    "channel" : 1,
+    "sample"  : 16.0,
+    "rate"  :   16000
+  },
+
+  "audioDevice" : {
+    "recorder" : {
+    	"usekinect" : true  ,
+	    "kinect" : "plughw:2,0",
+	    "logitech" : "plughw:1,0"
+    },
+    "player" : "default"
+  },
+
+	"userWordsFilePath" : "/home/hntea/sofeWareDesign/rosProject/src/kinect_speech/src/config/userwords.txt",
+
+  "speechServer" : {
+
+    "xunfei" : {
+      "use" : true,
+      "loginParams" : "appid = 578352a8, work_dir = .",
+      "onlineasr":{
+      	"session_begin_params" : "sub = iat, domain = iat, language = zh_cn, accent = mandarin, sample_rate = 16000, result_type = plain, result_encoding = utf8"
+      },
+       "localasr":{
+       		"engine_type" : "local",
+       		"sample_rate" : 16000,
+       		"result_type" : "xml",
+       		"result_encoding" : "UTF-8", 
+       		"asr_res_path" : "fo|/home/hntea/sofeWareDesign/rosProject/src/kinect_speech/msc/localasr/asr/common.jet",
+       		"grm_build_path" : "/home/hntea/sofeWareDesign/rosProject/src/kinect_speech/msc/localasr/asr/GrmBuilld",
+       		"bnf_file_path" : "/home/hntea/sofeWareDesign/rosProject/src/kinect_speech/src/config/call.bnf"
+       }
+    },
+
+    "baidu":{
+      "use" : false,
+      "appid" : "8377372",
+      "apikey" : "ZQKcC2sLgwEOlVWSknxVaEbk",
+      "secretkey" : "36b1d1cf593247838cc4246d337544a7",
+      "serverForASR" : "http://vop.baidu.com/server_api",
+      "serverForTTS" : "http://tsn.baidu.com/text2audio"
+    },
+
+    "tuling":{
+      "use" : false,
+      "server" : "http://www.tuling123.com/openapi/api",
+      "apikey" : "a939719f726e49ec02587eb42a6cd4f7"
+    }
+
+  }
+}

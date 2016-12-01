@@ -1,0 +1,10 @@
+<launch>
+  <!--  cfgpath is config.json file absolute path, you can copy config.json file to what you want
+  		  defalut path is: ~/.SpeechSystem/config -->
+   <arg cfgpath="cfgpath" default="~/.SpeechSystem/config/config.json"/> 
+
+  <node name="speech_asr_online" pkg="speech_asr_online" type="speech_asr_online" output="screen">
+    <param name="cfgpath" value="$(arg cfgpath)"/>
+  </node>
+
+</launch>
