@@ -17,7 +17,16 @@ public:
 		ros::param::param("~cfgpath",_cfgfile,path);
 		RosAsrOnline::asrInit(_cfgfile);
 		//配置节点
-		_sb = _nh.subscribe("audio_data",50,chapterCallback);
+		string hw;
+		ros::param::get("/audio_capture/name",hw);
+
+		if(hw == "plughw:3,0"){
+			cout<<"Subscribe from [ audio_kinect_data ]      Using kinect2.0 [ plughw:3,0] !"<<endl;
+			_sb = _nh.subscribe("audio_kinect_data",50,chapterCallback);
+		}else{
+			_sb = _nh.subscribe("audio_data",50,chapterCallback);
+		}
+
 		_pb = _nh.advertise<std_msgs::String>("asr_online_result",10);
 		//等待回调
 		ros::spin();
@@ -72,7 +81,7 @@ int main (int argc, char **argv){
 
 	  printf("\n=============================================================\n"
 			      "                       ROS Topic: asr_online                               \n"
-			      "                       ROS Sub : audio_data                               \n"
+			      "                       ROS Sub : audio_data\audio_kinect_data                               \n"
 			      "                       ROS Pub : asr_online_result                       "
 			      "\n=============================================================\n");
 
