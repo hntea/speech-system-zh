@@ -133,8 +133,8 @@ include_directories(
 ## Declare a C++ executable
 add_executable(speech_asr_online 
 	src/asr_online.cpp
-	../speech_server_bace/src/xf_server/XunFeiServer.cpp
-	../speech_server_bace/src/config/ConfigParser.cpp
+	../lib/speech_server_bace/src/xf_server/XunFeiServer.cpp
+	../lib/speech_server_bace/src/config/ConfigParser.cpp
 	)
 
 

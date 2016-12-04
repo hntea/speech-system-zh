@@ -4,8 +4,8 @@
 #include <sys/types.h>
 #include <pwd.h>
 #include "audio_msgs/AudioData.h"
-#include "../../speech_server_bace/include/xf_server/XunFeiServer.h"
-#include "../../speech_server_bace/include/config/ConfigParser.h"
+#include "../../lib/speech_server_bace/include/xf_server/XunFeiServer.h"
+#include "../../lib/speech_server_bace/include/config/ConfigParser.h"
 
 
 std::string path;

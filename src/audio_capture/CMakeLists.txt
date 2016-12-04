@@ -48,7 +48,7 @@ include_directories(
 
 add_executable(audio_capture 
 	src/audio_capture.cpp
-	../audio_bace/src/AudioDeviceBace.cpp
+	../lib/audio_bace/src/AudioDeviceBace.cpp
 	)
 
  target_link_libraries(audio_capture

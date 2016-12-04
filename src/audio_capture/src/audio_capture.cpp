@@ -1,4 +1,4 @@
-#include "../../audio_bace/include/AudioDeviceBace.h"
+#include "../../lib/audio_bace/include/AudioDeviceBace.h"
 #include <ros/ros.h>
 #include "audio_msgs/AudioData.h"
 
