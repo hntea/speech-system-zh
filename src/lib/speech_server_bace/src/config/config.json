@@ -1,6 +1,5 @@
 {
   "robotName" : "黄豆",
-  "offLineCmd": ["学习动作","演示","关机","休眠"],
   "mac_address" : "00:e0:4c:06:a6:56",
 
   "audioInfo" : {

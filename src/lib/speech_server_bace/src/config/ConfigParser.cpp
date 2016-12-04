@@ -71,12 +71,12 @@ void  ConfigParser::process(){
 		_tuling_cfg.serverURL = jload["speechServer"]["tuling"]["server"];
 	}
 
-	// add an array that is stored as std::vector (using an initializer list)
-	auto tmp  = jload["offLineCmd"];
-	//将控制命令加入容器中。
-	for(int i=0;i< tmp.size();i++){
-		_offline_cmd.push_back(tmp[i]);
-	}
+//	// add an array that is stored as std::vector (using an initializer list)
+//	auto tmp  = jload["offLineCmd"];
+//	//将控制命令加入容器中。
+//	for(int i=0;i< tmp.size();i++){
+//		_offline_cmd.push_back(tmp[i]);
+//	}
 
 
 }
@@ -131,9 +131,9 @@ string  ConfigParser::getXFonlineSessionBeginParams(){
 string  ConfigParser::getUserWordFile(){
 	return this->_user_words_file;
 }
-vector<string>  ConfigParser::getLocalCMD(){
-	return this->_offline_cmd;
-}
+//vector<string>  ConfigParser::getLocalCMD(){
+//	return this->_offline_cmd;
+//}
 
 string  ConfigParser::getLocalAsrResPath(){
 	return _localasr.asr_res_path;

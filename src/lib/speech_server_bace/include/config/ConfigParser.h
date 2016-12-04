@@ -97,7 +97,7 @@ private:
 	XFeiLocalAsr _localasr;
 	BaiDu _baidu_cfg;
 	Tuling _tuling_cfg;
-	vector<string> _offline_cmd;
+//	vector<string> _offline_cmd;
 };
 
 #endif /* SRC_KINECT_SPEECH_SRC_CONFIG_CONFIGPARSER_H_ */
