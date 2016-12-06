@@ -4,6 +4,7 @@ project(audio_msgs)
 
 find_package(catkin REQUIRED
    message_generation
+   std_msgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -46,7 +47,11 @@ add_message_files(
 )
 
 
-generate_messages( )
+## Generate added messages and services with any dependencies listed here
+ generate_messages(
+  DEPENDENCIES
+   std_msgs
+ )
 
 
 ###################################

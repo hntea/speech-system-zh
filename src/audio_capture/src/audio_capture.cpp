@@ -63,7 +63,7 @@ private:
 
 int main (int argc, char **argv)
 {
-	ROS_INFO ("Ros Node Name : audio_capture");
+ ROS_INFO ("Ros Node Name : audio_capture");
   ROS_INFO("Ros Node Publish Topic : audio_data");
   ros::init(argc, argv, "audio_capture");
   RosAudioCapture server;
