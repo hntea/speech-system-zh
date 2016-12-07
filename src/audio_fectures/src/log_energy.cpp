@@ -6,8 +6,8 @@
  */
 
 #include <ros/ros.h>
-#include <audio_msgs/AudioData.h>
-#include <audio_msgs/TimeFeature.h>
+#include "audio_msgs/AudioData.h"
+#include "audio_msgs/TimeFeature.h"
 #include <vector>
 #include <aquila/source/window/HammingWindow.h>
 
@@ -36,7 +36,7 @@ public:
 	    //分割数据
 	    for(int i=0;i<(msgs.data_size/320);i++){
 	    	for(int j=0;j<_win_len;j++){
-	    		 energy.feature += ( (iter[j+_win_len*i]*iter[j+_win_len*i]) * (_hanming_iter[j]) );
+	    		 energy.feature += ( ( iter[j+_win_len*i]*iter[j+_win_len*i] ) * (_hanming_iter[j]) );
 	    	}
 	    	energy.feature = log(energy.feature);
 //	    	std::cout<<"log(energy) = "<<log(energy.feature)<<std::endl;
