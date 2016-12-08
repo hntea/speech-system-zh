@@ -20,11 +20,11 @@ public:
 	~RosZeroCrossing(){}
 
 	static void  chapterCallback(const audio_msgs::AudioData &msgs){
-		audio_msgs::TimeFeature feature;
+		audio_msgs::TimeFeature zero_rate;
 		std::vector<int16_t> msg(msgs.data);
 		msg.resize(msgs.data_size);
-		feature.feature = zerroRate(msg);
-		_pub.publish(feature);
+		zero_rate.feature = zerroRate(msg);
+		_pub.publish(zero_rate);
 	}
 
 	/*

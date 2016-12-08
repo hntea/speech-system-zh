@@ -146,6 +146,14 @@ target_link_libraries(audio_zero_crossing
  )
 
 
+
+add_executable(audio_AMDF 
+	src/short_AMDF.cpp
+)
+target_link_libraries(audio_AMDF
+   ${catkin_LIBRARIES}
+ )
+
 #############
 ## Install ##
 #############

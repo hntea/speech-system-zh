@@ -65,18 +65,6 @@ public:
 		for(int i=0;i<_step_size;i++){
 			p_iter[i] =  src_iter[i+_step_size];
 		}
-
-
-//		audio_msgs::TimeFeature energy;
-//	    //分割数据
-//	    for(int i=0;i<(msgs.data_size/320);i++){
-//	    	for(int j=0;j<_win_len;j++){
-//	    		 energy.feature += ( ( iter[j+_win_len*i]*iter[j+_win_len*i] ) * (_hanming_iter[j]) );
-//	    	}
-//	    	energy.feature = log(energy.feature);
-//	    	_pub.publish(energy);
-//	    	energy.feature=0;
-//	    }
 	}
 
 
@@ -121,12 +109,9 @@ private:
     ros::Subscriber _sb;
     static ros::Publisher _pub;
     static std::size_t _win_len;
-
     static uint64_t		_step_size;
     static std::vector<int16_t> _pbuf;
     static std::vector<int16_t> _lbuf;
-
-
     static std::vector<double> _hanming_win_data;
     static std::vector<double>::iterator _hanming_iter;
 
@@ -134,12 +119,12 @@ private:
 };
 
 uint64_t   RosLogEnergy::_step_size ;
+std::size_t RosLogEnergy::_win_len;
 std::vector<int16_t> RosLogEnergy::_pbuf;
 std::vector<int16_t> RosLogEnergy::_lbuf;
-ros::Publisher RosLogEnergy::_pub;
-std::size_t RosLogEnergy::_win_len;
 std::vector<double> RosLogEnergy::_hanming_win_data;
 std::vector<double>::iterator RosLogEnergy::_hanming_iter;
+ros::Publisher RosLogEnergy::_pub;
 
 int main (int argc, char **argv)
 {
