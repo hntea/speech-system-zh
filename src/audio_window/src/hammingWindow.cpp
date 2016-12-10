@@ -57,7 +57,7 @@ public:
 			}
 			//每次移动完成后计算加窗值
 			listToMsg(_pr_source_buf,new_msg);
-			std::cout<<"Publish Times[ "<< ++id <<"]"<<std::endl;
+			//std::cout<<"Publish Times[ "<< ++id <<"]"<<std::endl;
 			_pub.publish(new_msg);
 		}
 
