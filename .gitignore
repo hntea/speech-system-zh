@@ -10,4 +10,11 @@
 /test_results/
 /src/lib/aquila/
 /src/lib/vamp/
+/.catkin_workspace
+/.cproject
+/.project
+/CATKIN_IGNORE
+/cmake_install_cmake
+/CMakeCache.txt
+/Makefile
 
