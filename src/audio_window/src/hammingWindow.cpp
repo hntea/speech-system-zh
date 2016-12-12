@@ -41,7 +41,7 @@ public:
 		int id = 0;
 		audio_msgs::AudioData new_msg;
 		new_msg.data.resize(msgs.data_size);
-
+		new_msg.data_size = msgs.data_size;
 		//获取源数据
 		std::vector<int16_t> src(msgs.data);
 		src.resize(msgs.data_size);
