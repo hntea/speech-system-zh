@@ -29,7 +29,7 @@ public:
 	RosPowerSpectrum(){
 
 		_sb = _nh.subscribe("fft_result",50,chapterCallback);
-		_pub = _nh.advertise<audio_msgs::TimeFeature>("audio_power",1000);
+		_pub = _nh.advertise<audio_msgs::AudioFeature>("audio_power",1000);
 		ros::spin();
 	}
 	virtual ~RosPowerSpectrum(){
@@ -37,9 +37,18 @@ public:
 	}
 
 	static void  chapterCallback(const audio_msgs::FreqData &msgs){
+		std::vector<double> image(msgs.image);
+		std::vector<double> real(msgs.real);
+		audio_msgs::AudioFeature power;
 
+		for(int i=0;i<image.size();i++){
+			power.feature = 20*log(std::pow(image[i],2)+std::pow(real[i],2))/(image.size()/2);
+			usleep(62.5);
+			_pub.publish(power);
+		}
 
 	}
+
 
 private:
 	ros::NodeHandle _nh;
@@ -52,10 +61,11 @@ ros::Publisher RosPowerSpectrum::_pub;
 }
 int main (int argc, char **argv)
 {
-  ROS_INFO ("Ros Node Name : audio_fft_factory");
-  ROS_INFO ("Ros Node Subscribe : audio_pre_emphasis");
-  ROS_INFO ("Ros Node Publish Topic : fft_result");
-  ros::init(argc, argv, "audio_power");
+  ROS_INFO ("Ros Node Name : audio_power_spectrum");
+  ROS_INFO ("Ros Node Subscribe : fft_result");
+  ROS_INFO ("Ros Node Publish Topic : audio_power");
+  ros::init(argc, argv, "audio_power_spectrum");
+  Hntea::RosPowerSpectrum power;
 
 }
 
