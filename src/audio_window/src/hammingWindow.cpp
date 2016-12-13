@@ -15,6 +15,8 @@
 /*
  * 帧移动相当于一个先进先出的队列，每个队列长度与窗口长度相等。
  * 窗长度和帧移可通过启动参数配置
+ *
+ * 注意：帧移最好是可以被块大小整除
  * */
 namespace Hntea{
 
@@ -32,7 +34,7 @@ public:
 
 
 		_sb = _nh.subscribe("audio_pre_emphasis",50,chapterCallback);
-		_pub = _nh.advertise<audio_msgs::AudioData>("audio_window",1000);
+		_pub = _nh.advertise<audio_msgs::AudioData>("hamming_window",1000);
 		ros::spin();
 	}
 	~Hamming(){}
@@ -50,14 +52,11 @@ public:
 		for(int i=0,cur = 0;(cur +=_step) <= msgs.data_size;i++){
 			//每次更新缓存数据，更新长度即为帧移
 			for(int j=0;j<_step;j++){
-				//删除缓存头部
-				_pr_source_buf.pop_front();
-				//尾部添加新元素，保持缓存数据长度不变
-				_pr_source_buf.push_back(src_iter[j+_step*i]);
+				_pr_source_buf.pop_front();						//删除缓存头部
+				_pr_source_buf.push_back(src_iter[j+_step*i]);	//尾部添加新元素，保持缓存数据长度不变
 			}
-			//每次移动完成后计算加窗值
-			listToMsg(_pr_source_buf,new_msg);
-			//std::cout<<"Publish Times[ "<< ++id <<"]"<<std::endl;
+
+			listToMsg(_pr_source_buf,new_msg);						//每次移动完成后计算加窗值
 			_pub.publish(new_msg);
 		}
 
@@ -104,7 +103,7 @@ int main (int argc, char **argv)
   ROS_INFO ("Ros Node Publish Topic : hamming_window");
   int winlen;
   ros::init(argc, argv, "hamming_window");
-  ros::param::param<int>("~winlen",winlen,320);
+  ros::param::param<int>("~winlen",winlen,512);
   Hntea::Hamming window(winlen);
 }
 
