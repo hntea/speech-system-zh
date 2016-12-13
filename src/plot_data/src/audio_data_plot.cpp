@@ -11,9 +11,8 @@
 class RosAudioPlot{
 public:
 	RosAudioPlot(){
-		//接收到的消息以16kHz发布
 		_sb = _nh.subscribe("audio_data",50,chapterCallback);
-		_pub = _nh.advertise<audio_msgs::PlotData>("audio_data_plot",3200);
+		_pub = _nh.advertise<audio_msgs::PlotData>("audio_data_plot",5120);
 		ros::spin();
 	}
 	~RosAudioPlot(){}
@@ -27,19 +26,16 @@ public:
 		for(int i=0;i<msgs.data_size;i++){
 			plot.src_data = iter[i];
 			_pub.publish(plot);
-//			_loop_rate.sleep();
-			usleep(62.5);
+			usleep(62.5);		//接收到的消息以16kHz发布
 		}
 	}
 
 private:
 	ros::NodeHandle _nh;
     ros::Subscriber _sb;
-  //  static ros::Rate _loop_rate;
     static ros::Publisher _pub;
 };
 ros::Publisher RosAudioPlot::_pub;
-//ros::Rate RosAudioPlot::_loop_rate(16000);
 
 int main (int argc, char **argv)
 {

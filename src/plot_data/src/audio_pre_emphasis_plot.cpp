@@ -11,9 +11,8 @@
 class RosAudioPlot{
 public:
 	RosAudioPlot(){
-
 		_sb = _nh.subscribe("audio_pre_emphasis",50,chapterCallback);
-		_pub = _nh.advertise<audio_msgs::PlotData>("audio_pre_emphasis_plot",3200);
+		_pub = _nh.advertise<audio_msgs::PlotData>("audio_pre_emphasis_plot",5120);
 		ros::spin();
 	}
 	~RosAudioPlot(){}
