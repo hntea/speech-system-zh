@@ -2,7 +2,7 @@
   <!-- arecord -l will show available input devices, use the car number as
       the first number and the subdevice number as the second in a string
       like plughw:1,0 -->
-  <arg name="block_size" default="320"/> 
+  <arg name="block_size" default="512"/> 
   <arg name="name" default="plughw:2,0"/>
   <arg name="channels" default="1"/>
   <arg name="depth" default="16"/>

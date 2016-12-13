@@ -7,7 +7,7 @@ public:
 	RosAudioCapture(){
 
 		//使用参数解析器，初始化块大小 200ms
-        ros::param::param<int>("~block_size", _size, 3200);
+        ros::param::param<int>("~block_size", _size, 512);
         ros::param::param<int>("~channels", _channle, 1);
         ros::param::param<int>("~depth", _sample, 16);
         ros::param::param< int>("~sample_rate", _rate, 16000);
