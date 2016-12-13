@@ -1,2 +1,2 @@
-float64 real
-float64 image
+float64[] real
+float64[] image

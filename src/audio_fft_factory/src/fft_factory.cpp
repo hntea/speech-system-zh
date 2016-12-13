@@ -8,7 +8,6 @@
 
 #include <ros/ros.h>
 #include "audio_msgs/AudioData.h"
-#include "audio_msgs/TimeFeature.h"
 #include "audio_msgs/FreqData.h"
 #include <vector>
 #include <aquila/global.h>
@@ -70,17 +69,10 @@ Aquila::SampleType *RosFftFactory::_sample;
 }
 int main (int argc, char **argv)
 {
-  int winlen;
+  int winlen = 512;
   ROS_INFO ("Ros Node Name : audio_fft_factory");
   ROS_INFO ("Ros Node Subscribe : audio_pre_emphasis");
   ROS_INFO ("Ros Node Publish Topic : fft_result");
   ros::init(argc, argv, "audio_fft_factory");
-  bool yes = ros::param::get("/audio_capture/block_size",winlen);
-  if(yes){
-	  std::cout<<"Set FFT block size from [/audio_capture/block_size],is ["<<winlen<<"]"<<std::endl;
-  }else{
-	  std::cout<<"Set FFT block size from [launch file],default size [320]"<<std::endl;
-	  ros::param::param<int>("~winlen",winlen,512);
-  }
   Hntea::RosFftFactory factory(winlen);
 }

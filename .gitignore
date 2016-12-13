@@ -8,7 +8,7 @@
 /git_bk/
 /gtest/
 /test_results/
-/src/lib/aquila/
+
 /src/lib/vamp/
 /.catkin_workspace
 /.cproject

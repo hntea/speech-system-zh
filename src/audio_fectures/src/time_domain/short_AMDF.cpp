@@ -13,13 +13,13 @@
  */
 #include <ros/ros.h>
 #include "audio_msgs/AudioData.h"
-#include "audio_msgs/TimeFeature.h"
+#include "audio_msgs/AudioFeature.h"
 
 class RosAMDF{
 public:
 	RosAMDF(){
 		_sb = _nh.subscribe("audio_pre_emphasis",50,chapterCallback);
-		_pub = _nh.advertise<audio_msgs::TimeFeature>("audio_AMDF",1000);
+		_pub = _nh.advertise<audio_msgs::AudioFeature>("audio_AMDF",1000);
 		ros::spin();
 	}
 	~RosAMDF(){}
@@ -31,7 +31,7 @@ public:
 	static void f_AMDF(const audio_msgs::AudioData &msgs){
 		std::vector<int16_t> msg(msgs.data);
 		std::vector<int16_t>::iterator msg_iter = msg.begin();
-		audio_msgs::TimeFeature amdf;
+		audio_msgs::AudioFeature amdf;
 		//计算完就发送
 		for(int k=0;k<msgs.data_size;k++){
 			for(int m=0;m<msgs.data_size-1-k;m++){

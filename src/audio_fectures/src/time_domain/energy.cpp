@@ -12,7 +12,7 @@
 
 #include <ros/ros.h>
 #include "audio_msgs/AudioData.h"
-#include "audio_msgs/TimeFeature.h"
+#include "audio_msgs/AudioFeature.h"
 #include <vector>
 
 
@@ -22,7 +22,7 @@ public:
 	RosEnergy(){
 
 		_sb = _nh.subscribe("audio_window",50,chapterCallback);
-		_pub = _nh.advertise<audio_msgs::TimeFeature>("audio_energy",1000);
+		_pub = _nh.advertise<audio_msgs::AudioFeature>("audio_energy",1000);
 		ros::spin();
 	}
 	~RosEnergy(){}
@@ -31,7 +31,7 @@ public:
 	static void  chapterCallback(const audio_msgs::AudioData &msgs){
 		ROS_INFO_THROTTLE(60, "Audio [audio_energy], everything is OK ! ");
 
-		audio_msgs::TimeFeature energy;
+		audio_msgs::AudioFeature energy;
 
 		std::vector<int16_t> src(msgs.data);
 		std::vector<int16_t>::iterator src_iter = src.begin();

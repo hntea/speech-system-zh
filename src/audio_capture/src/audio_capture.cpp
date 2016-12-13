@@ -32,7 +32,6 @@ public:
         //重新消息定义数组大小
        msg.data.resize(_size);
 	   msg.data_size = _size;
-	   //msg.header.stamp = ros::Time::now();
         uint64_t count = 0;
         while(ros::ok())
         {

@@ -6,7 +6,7 @@
  */
 #include <ros/ros.h>
 #include "audio_msgs/AudioData.h"
-#include "audio_msgs/TimeFeature.h"
+#include "audio_msgs/AudioFeature.h"
 #include <vector>
 
 
@@ -14,13 +14,13 @@ class RosZeroCrossing{
 public:
 	RosZeroCrossing(){
 		_sb = _nh.subscribe("audio_pre_emphasis",50,chapterCallback);
-		_pub = _nh.advertise<audio_msgs::TimeFeature>("audio_zero_crossing",1000);
+		_pub = _nh.advertise<audio_msgs::AudioFeature>("audio_zero_crossing",1000);
 		ros::spin();
 	}
 	~RosZeroCrossing(){}
 
 	static void  chapterCallback(const audio_msgs::AudioData &msgs){
-		audio_msgs::TimeFeature zero_rate;
+		audio_msgs::AudioFeature zero_rate;
 		std::vector<int16_t> msg(msgs.data);
 		msg.resize(msgs.data_size);
 		zero_rate.feature = zerroRate(msg);
@@ -47,6 +47,7 @@ public:
 			}
 			prev = sample;
 		}
+		//放大20倍，不然太小不好分析
 		return 20*count/(2*msgs.size());
 	}
 

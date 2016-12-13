@@ -6,7 +6,7 @@
  */
 #include <ros/ros.h>
 #include "audio_msgs/AudioData.h"
-#include "audio_msgs/TimeFeature.h"
+#include "audio_msgs/AudioFeature.h"
 #include <vector>
 #include <list>
 #include <aquila/source/window/HammingWindow.h>

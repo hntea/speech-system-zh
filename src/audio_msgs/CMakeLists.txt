@@ -44,7 +44,7 @@ find_package(catkin REQUIRED
 add_message_files(
    FILES
    AudioData.msg
-   TimeFeature.msg
+   AudioFeature.msg
    PlotData.msg
    FreqData.msg
 )
