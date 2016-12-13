@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(audio_pre_emphasis)
+project(audio_filter)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
@@ -102,7 +102,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES audio_pre_emphasis
+#  LIBRARIES audio_filter
 #  CATKIN_DEPENDS audio_msgs roscpp rospy std_msgs
 #  DEPENDS system_lib
 )
@@ -119,27 +119,30 @@ include_directories(
 )
 
 ## Declare a C++ library
-# add_library(audio_pre_emphasis
-#   src/${PROJECT_NAME}/audio_pre_emphasis.cpp
+# add_library(audio_filter
+#   src/${PROJECT_NAME}/audio_filter.cpp
 # )
 
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
 ## either from message generation or dynamic reconfigure
-# add_dependencies(audio_pre_emphasis ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+# add_dependencies(audio_filter ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
-## Declare a C++ executable
-add_executable(audio_pre_emphasis
- src/audio_pre_emphasis.cpp
+
+add_definitions(-std=c++11)
+add_executable(pre_emphasis
+ src/pre_emphasis/pre_emphasis.cpp
+ )
+target_link_libraries(pre_emphasis
+ ${catkin_LIBRARIES} 
  )
 
-## Add cmake target dependencies of the executable
-## same as for the library above
-# add_dependencies(audio_pre_emphasis_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-
-## Specify libraries to link a library or executable target against
-target_link_libraries(audio_pre_emphasis
+add_executable(hammingwindow
+ src/window/hammingWindow.cpp
+ )
+target_link_libraries(hammingwindow
  ${catkin_LIBRARIES} 
+     libAquila.a
  )
 
 #############
@@ -157,7 +160,7 @@ target_link_libraries(audio_pre_emphasis
 # )
 
 ## Mark executables and/or libraries for installation
-# install(TARGETS audio_pre_emphasis audio_pre_emphasis_node
+# install(TARGETS audio_filter audio_filter_node
 #   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
 #   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
 #   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
@@ -182,7 +185,7 @@ target_link_libraries(audio_pre_emphasis
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_audio_pre_emphasis.cpp)
+# catkin_add_gtest(${PROJECT_NAME}-test test/test_audio_filter.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()
