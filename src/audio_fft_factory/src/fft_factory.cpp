@@ -43,8 +43,8 @@ public:
 		audio_msgs::FreqData data;
 		data.real.resize(msgs.data_size);
 		data.image.resize(msgs.data_size);
-		//变换后的数据是对称的，只需要取一半。
-		for(int i=0;i<spectrum.size()/2;i++){
+
+		for(int i=0;i<spectrum.size();i++){
 			data.image[i] = std::imag(iter[i]);
 			data.real[i] = std::real(iter[i]);
 		}

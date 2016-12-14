@@ -41,6 +41,7 @@ public:
 		std::vector<double> real(msgs.real);
 		audio_msgs::AudioFeature power;
 
+		/*每个点的功率强度占用 1/N * Fs 的带宽，处理时可以使用前N/2，因为是对称的*/
 		for(int i=0;i<image.size();i++){
 			power.feature = 20*log(std::pow(image[i],2)+std::pow(real[i],2))/(image.size()/2);
 			usleep(62.5);

@@ -159,6 +159,15 @@ target_link_libraries(audio_AMDF
    ${catkin_LIBRARIES}
  )
 
+
+
+add_executable(power_spectrum 
+	src/frequency_domain/power_spectrum.cpp
+)
+target_link_libraries(power_spectrum
+   ${catkin_LIBRARIES}
+ )
+
 #############
 ## Install ##
 #############
