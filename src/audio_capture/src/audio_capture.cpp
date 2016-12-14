@@ -31,16 +31,35 @@ public:
         audio_msgs::AudioData msg;
         //重新消息定义数组大小
        msg.data.resize(_size);
+
 	   msg.data_size = _size;
         uint64_t count = 0;
         while(ros::ok())
         {
 			_dev.read(_data,_size);
-			memcpy(&msg.data[0],_data,_size);
+
+//			for(int i=0;i<_size;i++){
+//				std::cout<<_data[i] <<"  ";
+//			}
+//
+//			std::cout<<std::endl;
+//			std::cout<<std::endl;
+//
+//			std::cout<<"========================================="<<std::endl;
+
+			std::memcpy(&msg.data[0],_data,_size*2);
 			_pub.publish(msg);
 			//	ROS_INFO("audio data block [%d] " ,count);
 			ROS_INFO_THROTTLE(60, "Audio capture, everything is OK ! Have got audio data block [%d]",count);
         	count++;
+
+//    		for(int i=0;i<_size;i++){
+//    				std::cout<<msg.data[i] <<"  ";
+//    			}
+//			std::cout<<std::endl;
+//			std::cout<<std::endl;
+//
+//			std::cout<<"========================================="<<std::endl;
         	//查询有没有回调
 			ros::spinOnce();
         }
