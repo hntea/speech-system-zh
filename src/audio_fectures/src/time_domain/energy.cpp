@@ -21,7 +21,7 @@ class RosEnergy{
 public:
 	RosEnergy(){
 
-		_sb = _nh.subscribe("audio_window",50,chapterCallback);
+		_sb = _nh.subscribe("hamming_window",50,chapterCallback);
 		_pub = _nh.advertise<audio_msgs::AudioFeature>("audio_energy",1000);
 		ros::spin();
 	}
