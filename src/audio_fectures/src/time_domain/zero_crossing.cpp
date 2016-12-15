@@ -13,7 +13,7 @@
 class RosZeroCrossing{
 public:
 	RosZeroCrossing(){
-		_sb = _nh.subscribe("audio_pre_emphasis",50,chapterCallback);
+		_sb = _nh.subscribe("rectangle_window",50,chapterCallback);
 		_pub = _nh.advertise<audio_msgs::AudioFeature>("audio_zero_crossing",1000);
 		ros::spin();
 	}
