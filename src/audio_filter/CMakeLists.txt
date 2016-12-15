@@ -144,6 +144,14 @@ target_link_libraries(hammingwindow
  ${catkin_LIBRARIES} 
      libAquila.a
  )
+ 
+ add_executable(rectangleWindow
+ src/window/rectangleWindow.cpp
+ )
+target_link_libraries(rectangleWindow
+ ${catkin_LIBRARIES} 
+ )
+ 
 
 #############
 ## Install ##
