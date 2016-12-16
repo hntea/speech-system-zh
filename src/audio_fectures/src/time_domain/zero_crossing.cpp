@@ -9,7 +9,7 @@
 #include "audio_msgs/AudioFeature.h"
 #include <vector>
 
-
+namespace Hntea{
 class RosZeroCrossing{
 public:
 	RosZeroCrossing(){
@@ -47,26 +47,27 @@ public:
 			}
 			prev = sample;
 		}
-		//放大20倍，不然太小不好分析
-		return 20*count/(2*msgs.size());
-	}
 
+		//return 20*count/(2*msgs.size());
+		return count;
+	}
 
 private:
 	ros::NodeHandle _nh;
     ros::Subscriber _sb;
     static ros::Publisher _pub;
 
+
 };
 ros::Publisher RosZeroCrossing::_pub;
-
+}
 int main (int argc, char **argv)
 {
   ROS_INFO ("Ros Node Name : audio_zero_crossing");
   ROS_INFO ("Ros Node Subscribe : audio_pre_emphasis");
   ROS_INFO ("Ros Node Publish Topic : audio_zero_crossing");
   ros::init(argc, argv, "audio_zero_crossing");
-  RosZeroCrossing zerocrossing;
+  Hntea::RosZeroCrossing zerocrossing;
 }
 
 
