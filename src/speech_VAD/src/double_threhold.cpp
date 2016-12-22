@@ -28,8 +28,8 @@
  * */
 namespace Hntea{
 
-static const float _IF = 120.0 ;	//检测清音帧的全局域值（基于对清音过零率的长时间统计）
-static const float _ITU = 17.0;		//能量高保守阈值。历史平均加上 4～5
+//static const float _IF = 120.0 ;	//检测清音帧的全局域值（基于对清音过零率的长时间统计）
+//static const float _ITU = 17.0;		//能量高保守阈值。历史平均加上 4～5
 
 
 //存放历史均值最高与最低
@@ -50,6 +50,11 @@ public:
 		path+="/.SpeechSystem/statistic-features/eg_zc_average.json";
 		ros::param::param<std::string>("~jsonfile",_jsonfile,path);
 		ros::param::param<int>("~history_size",len,10);
+
+
+		ros::param::param<float>("~energyUpthreshold",_ITU,17.0);
+		ros::param::param<float>("~zeroUpthreshold",_IF,120.0);
+
 		_zclist.resize(len);
 		_eglist.resize(len);
 
@@ -192,11 +197,6 @@ public:
 			}
 		}
 
-//		printf("\n<<<<<<<< IS START POINT >>>>>>>>\n"
-//				"eg_avg = %f,zc_avg = %f\n"
-//				"eg_low = %f,zc_low = %f\n",
-//				eg_avg,zc_avg,eg_low,zc_low);
-
 
 		//门限判别
 		if( eg_start && zc_start){
@@ -243,12 +243,6 @@ public:
 		zc_average = zc/zclist.size();
 
 
-//		printf("\n<<<<<<<< IS End POINT >>>>>>>>\n"
-//				"eg_avg = %f,zc_avg = %f\n"
-//				"eg_low = %f,zc_up = %f\n"
-//				"eg_up = %f,zc_low = %f\n",
-//				eg_average,zc_average,eg_low,zc_low,eg_up,zc_up);
-
 
 		//静音判别,局部均值位于历史静音区间则判定为静音
 		if((eg_average<eg_up) && (zc_low < zc_average)){
@@ -269,18 +263,13 @@ public:
 		 _enoise.low = *(std::min_element(eglist.begin(),eglist.end()));
 		 _znoise.up = *(std::max_element(zclist.begin(),zclist.end()));
 		 _znoise.low = *(std::min_element(zclist.begin(),zclist.end()));
-
-		 printf("\n========== History Noise Leve =========\n"
-				 "_znoise.up = %f    _znoise.low = %f\n"
-				 "_enoise.up = %f     _enoise.low = %f\n",
-				 _znoise.up,_znoise.low,_enoise.up,_enoise.low);
 	}
 
 	/*
 	 * 函数功能：缓冲一段时间并设置噪声水平
 	 * 启动时先让缓存装满
 	 * */
-	void noistLevelSet(){
+	void noistLeveSetWithoutJson(){
 		int count = 0;
 		while(ros::ok()){
 			if(_zc_flash){
@@ -303,8 +292,9 @@ public:
 		if(!ifs)
 		{
 			std::cerr<<"Can not open "<<_jsonfile<<" !"<<std::endl;
-			return;
-		}
+			std::cout<<"It will initial by itself!"<<std::endl;
+			noistLeveSetWithoutJson();
+		}else{
 		json jload;
 		ifs>>jload;
 		ifs.close();
@@ -312,11 +302,16 @@ public:
 		 _enoise.low = jload["eg_min_avg"];
 		 _znoise.up = jload["zc_max_avg"];
 		 _znoise.low = jload["zc_min_avg"];
+		}
 
 		 printf("\n========== History Noise Leve =========\n"
 				 "_znoise.up = %f    _znoise.low = %f\n"
 				 "_enoise.up = %f     _enoise.low = %f\n",
 				 _znoise.up,_znoise.low,_enoise.up,_enoise.low);
+
+		 printf("\nRecommend you seting as follow:\n"
+				 "				[energyUpthreshold] = [%f]\n"
+				 "				[zeroUpthreshhold] = [%f]\n",_enoise.up+4,_znoise.up/2);
 
 	}
 
@@ -325,7 +320,6 @@ public:
 	 * */
 	void runDetector(){
 
-		//noistLevelSet();
 		noiseLevelInit();
 
 		static bool start = false;
@@ -366,7 +360,8 @@ private:
 
     static bool _eg_flash , _eglow_over,_zc_flash,_zrlow_over;
     static int _egover_id,_zcover_id;
-
+    float _IF = 120.0 ;					//检测清音帧的全局域值（基于对清音过零率的长时间统计）
+    float _ITU = 17.0;					//能量高保守阈值。历史平均加上 4～5
     static float _IZCT, _ITR;					//低保守阈值
     static std::list<float> _zclist,_eglist;		//数据缓存
     static ros::Publisher _pub;
@@ -393,9 +388,6 @@ int RosDoubleThrehold::_egover_id,
 std::list<float>  RosDoubleThrehold::_zclist,
 				  RosDoubleThrehold::_eglist;
 
-
-
-//std::mutex  RosDoubleThrehold::mt1,RosDoubleThrehold::mt2;
 }
 
 
