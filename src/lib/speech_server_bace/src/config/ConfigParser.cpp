@@ -33,12 +33,10 @@ void  ConfigParser::process(){
 
 	bool usekinect =  jload["audioDevice"]["recorder"]["usekinect"];
 	if(usekinect ){
-//		cout<<"Use kinect audio device!" << endl;
 		_device.recorder =	jload["audioDevice"]["recorder"]["kinect"];
 	}else{
 		_device.recorder = jload["audioDevice"]["recorder"]["logitech"];
 	}
-//	cout<<"_device.recorder is :"<<_device.recorder<<endl;
 	_device.player = jload["audioDevice"]["player"];
 
 	_info.channel = jload["audioInfo"]["channel"];
