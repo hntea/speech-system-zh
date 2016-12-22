@@ -146,21 +146,21 @@ class AvergyLevel:
         #若同时收敛，则写如json 文件并且发布消息
         if((-0.01<eg_err and eg_err<0.01) and (-1<zc_err and zc_err<1)):
             with open(os.path.join(self.wkdir,"eg_zc_average.json"),'w') as fd:
-                 self.ezdir["eg_total_avg"] = self.db['eg_total_avg']    
-                 self.ezdir['eg_min_avg'] = self.db['eg_min_avg']
-                 self.ezdir['eg_max_avg'] = self.db['eg_max_avg']
-                 self.ezdir["zc_total_avg"] = self.db['zc_total_avg']    
-                 self.ezdir['zc_min_avg'] = self.db['zc_min_avg']
-                 self.ezdir['zc_max_avg'] = self.db['zc_max_avg']
+                 self.ezdir["eg_total_avg"] = float(self.db['eg_total_avg'])    
+                 self.ezdir['eg_min_avg'] = float(self.db['eg_min_avg'])
+                 self.ezdir['eg_max_avg'] = float(self.db['eg_max_avg'])
+                 self.ezdir["zc_total_avg"] = float(self.db['zc_total_avg'])    
+                 self.ezdir['zc_min_avg'] = float(self.db['zc_min_avg'])
+                 self.ezdir['zc_max_avg'] = float(self.db['zc_max_avg'])
                  fd.write(json.dumps(self.ezdir))       
                  fd.close()        
             self.state = True
         
         if self.state:
-            rospy.loginfo("Publish msg and goto sleep about 5 min")
+            rospy.loginfo("Publish msg and goto sleep about 1 s")
             self.pub.publish("update")
             self.state = False
-            sleep(300)
+            sleep(1)
         
         self.db.close()
     
@@ -195,14 +195,6 @@ class AvergyLevel:
         #创建配置文件
         if not os.path.isfile(os.path.join(self.wkdir,"eg_zc_average.json")):
             print "No "+os.path.join(self.wkdir,"eg_zc_average.json")+"file,Creating...."
-#             ezdir = {
-#                 'zc_total_avg' : 0,
-#                 'zc_min_avg' : 0,
-#                 'zc_max_avg' : 0,
-#                 'eg_total_avg' : 0,
-#                 'eg_min_avg' : 0,
-#                 'eg_max_avg' : 0
-#             }
             with open(os.path.join(self.wkdir,"eg_zc_average.json"),'w') as fd:
                 fd.write(json.dumps(self.ezdir))
                 fd.close()
@@ -238,11 +230,6 @@ class AvergyLevel:
             self.zc_max_sum += max(self.zc_circle_buffer)
             self.zc_min_sum +=  min(self.zc_circle_buffer)
 
-
-        
-
-
-                
 
 if __name__ == '__main__':
     avg = AvergyLevel()
