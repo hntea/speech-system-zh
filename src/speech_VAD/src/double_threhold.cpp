@@ -3,6 +3,9 @@
  *
  *  Created on: 2016年12月14日
  *      Author: hntea
+ *
+ *  文件功能：用于语音端点检测
+ *  需要辅助节点：energy_and_zero_average.py 提供历史统计信息
  */
 #include <ros/ros.h>
 #include "audio_msgs/AudioData.h"
@@ -27,9 +30,6 @@
  *
  * */
 namespace Hntea{
-
-//static const float _IF = 120.0 ;	//检测清音帧的全局域值（基于对清音过零率的长时间统计）
-//static const float _ITU = 17.0;		//能量高保守阈值。历史平均加上 4～5
 
 
 //存放历史均值最高与最低
@@ -220,6 +220,7 @@ public:
 	 * 			up :  历史局部静音的平均最高值
 	 * 			low : 历史局部静音的平均最低值
 	 * 策略： 假设能量值与过零同时落入静音历史区间
+	 * 		   使用时只用到过零的最低，于能量的最高
 	 * */
 	bool isEndpoint( std::list<float>& eglist,
 					const float eg_up,const float eg_low,
