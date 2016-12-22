@@ -15,7 +15,11 @@
 #include <cmath>
 #include <mutex>
 #include <ros/timer.h>
-
+#include "nlohmann/json.hpp"
+#include <fstream>
+#include <unistd.h>
+#include <sys/types.h>
+#include <pwd.h>
 
 /*
  * 能量：用于限制声场距离。
@@ -39,7 +43,12 @@ class RosDoubleThrehold{
 public:
 	RosDoubleThrehold(){
 		int len = 0;
-
+		  //获取home 路径
+		struct passwd *pw = getpwuid(getuid());
+		const char *homedir = pw->pw_dir;
+		std::string path = homedir;
+		path+="/.SpeechSystem/statistic-features/eg_zc_average.json";
+		ros::param::param<std::string>("~jsonfile",_jsonfile,path);
 		ros::param::param<int>("~history_size",len,10);
 		_zclist.resize(len);
 		_eglist.resize(len);
@@ -47,7 +56,8 @@ public:
 
 		_sb = _nh.subscribe("audio_zero_crossing",50,zeroCall);
 		_sb2 = _nh.subscribe("audio_energy",50,energyCall);
-		_pub = _nh.advertise<std_msgs::String>("double_threshold_result",1000);
+		_sb3 = _nh.subscribe("static_eg_zc_average",2,avgCall);
+		_pub = _nh.advertise<std_msgs::String>("double_threshold_result",20);
 
 	}
 	virtual ~RosDoubleThrehold(){
@@ -70,6 +80,28 @@ public:
 		_zclist.push_back(msgs.feature);
 		_zc_flash = true;
 
+	}
+
+	/*更新噪声水平*/
+	static void avgCall(const std_msgs::String &msgs){
+		using json = nlohmann::json;
+		std::ifstream ifs(_jsonfile);
+		if(!ifs)
+		{
+			std::cerr<<"Can not open "<<_jsonfile<<" !"<<std::endl;
+		}
+		json jload;
+		ifs>>jload;
+		ifs.close();
+		 _enoise.up = jload["eg_max_avg"];
+		 _enoise.low = jload["eg_min_avg"];
+		 _znoise.up = jload["zc_max_avg"];
+		 _znoise.low = jload["zc_min_avg"];
+
+//		 printf("\n========== Update Noise Leve =========\n"
+//				 "_znoise.up = %f    _znoise.low = %f\n"
+//				 "_enoise.up = %f     _enoise.low = %f\n",
+//				 _znoise.up,_znoise.low,_enoise.up,_enoise.low);
 	}
 
 	/*
@@ -106,11 +138,8 @@ public:
 	    eg_sum = std::sqrt(eg_sum/N);
 
 		_IZCT = std::max(_IF,zc_avg - 10*zc_sum);
-
 		_ITR = std::max(_ITU-4,eg_avg+eg_sum);
 
-//		ROS_INFO("\n<<<< Dynamic low threshold level >>>>");
-//		ROS_INFO("_IZCT = %f ,_ITR = %f\n",_IZCT,_ITR);
 	}
 
 
@@ -146,7 +175,6 @@ public:
 
 			if(_egover_id >= 3){
 				eg_start = true;
-				//printf("Energy,Recording....\n");
 			}
 		}
 
@@ -161,7 +189,6 @@ public:
 
 			if((zc_avg < zc_low) && (*--zclist.end() < zc_up)){
 				zc_start = true;
-				//printf("Zero crossing ,Recording....zc_avg = %f , new = %f\n",zc_avg,*--zclist.end());
 			}
 		}
 
@@ -176,7 +203,7 @@ public:
 			is_start = true;
 			zc_start = false;
 			eg_start = false;
-			printf("\n<<<<<<<< IS START POINT >>>>>>>>\n");
+			ROS_INFO("Recording..");
 		}else{
 			is_start = false;
 		}
@@ -216,8 +243,6 @@ public:
 		zc_average = zc/zclist.size();
 
 
-
-
 //		printf("\n<<<<<<<< IS End POINT >>>>>>>>\n"
 //				"eg_avg = %f,zc_avg = %f\n"
 //				"eg_low = %f,zc_up = %f\n"
@@ -226,15 +251,10 @@ public:
 
 
 		//静音判别,局部均值位于历史静音区间则判定为静音
-		if(((eg_low < eg_average) && (eg_average<eg_up)) &&
-				((zc_low < zc_average) && (zc_average<zc_up))){
-				printf("\n================Ending===============\n");
+		if((eg_average<eg_up) && (zc_low < zc_average)){
+				ROS_INFO("End\n");
 				is_endpoint = true;
-				//调整门限
-				searchNoiseSection(eglist,zclist);
-
 		}
-
 
 		return is_endpoint;
 	}
@@ -277,26 +297,56 @@ public:
 		searchNoiseSection(_eglist,_zclist);
 	}
 
+	void noiseLevelInit(){
+		using json = nlohmann::json;
+		std::ifstream ifs(_jsonfile);
+		if(!ifs)
+		{
+			std::cerr<<"Can not open "<<_jsonfile<<" !"<<std::endl;
+			return;
+		}
+		json jload;
+		ifs>>jload;
+		ifs.close();
+		 _enoise.up = jload["eg_max_avg"];
+		 _enoise.low = jload["eg_min_avg"];
+		 _znoise.up = jload["zc_max_avg"];
+		 _znoise.low = jload["zc_min_avg"];
+
+		 printf("\n========== History Noise Leve =========\n"
+				 "_znoise.up = %f    _znoise.low = %f\n"
+				 "_enoise.up = %f     _enoise.low = %f\n",
+				 _znoise.up,_znoise.low,_enoise.up,_enoise.low);
+
+	}
 
 	/*
 	 *函数功能：端点检测
 	 * */
 	void runDetector(){
 
-		noistLevelSet();
+		//noistLevelSet();
+		noiseLevelInit();
 
-		static bool flash = false;
+		static bool start = false;
+		std_msgs::String msgs ;
 		while(ros::ok()){
 			//前端检测
-			if(isStartPoint(_eglist,_ITU,_ITR,_zclist,_IF,_IZCT) && !flash)
-			{
-				flash = true;
+
+			if(!start){
+				if(isStartPoint(_eglist,_ITU,_ITR,_zclist,_IF,_IZCT)){
+					start = true;
+					msgs.data = "start";
+					_pub.publish(msgs);
+				}
 			}
 
-			if (flash){
+			if(start){
 				if(isEndpoint(_eglist,_enoise.up,_enoise.low,
 						_zclist,_znoise.up,_znoise.low)){
-					flash = false;
+					start = false;
+					msgs.data = "end";
+					_pub.publish(msgs);
 				}
 			}
 
@@ -309,13 +359,14 @@ public:
 
 private:
 	ros::NodeHandle _nh;
-    ros::Subscriber _sb,_sb2;
-    NoiseAverage _enoise;
-    NoiseAverage _znoise;
-
+    ros::Subscriber _sb,_sb2,_sb3;
+    static NoiseAverage _enoise;
+    static NoiseAverage _znoise;
+    static std::string _jsonfile;
 
     static bool _eg_flash , _eglow_over,_zc_flash,_zrlow_over;
-    static int _count,_egover_id,_zcover_id;
+    static int _egover_id,_zcover_id;
+
     static float _IZCT, _ITR;					//低保守阈值
     static std::list<float> _zclist,_eglist;		//数据缓存
     static ros::Publisher _pub;
@@ -329,12 +380,14 @@ bool  RosDoubleThrehold::_eg_flash = false,
 	  RosDoubleThrehold::_zc_flash = false,
 	  RosDoubleThrehold::_zrlow_over = false;
 
+NoiseAverage RosDoubleThrehold::_enoise;
+NoiseAverage RosDoubleThrehold::_znoise;
+std::string RosDoubleThrehold::_jsonfile;
 
 float RosDoubleThrehold::_IZCT,
       RosDoubleThrehold::_ITR;
 
-int RosDoubleThrehold::_count,
-	RosDoubleThrehold::_egover_id,
+int RosDoubleThrehold::_egover_id,
 	RosDoubleThrehold::_zcover_id;
 
 std::list<float>  RosDoubleThrehold::_zclist,
@@ -345,9 +398,9 @@ std::list<float>  RosDoubleThrehold::_zclist,
 //std::mutex  RosDoubleThrehold::mt1,RosDoubleThrehold::mt2;
 }
 
+
 int main (int argc, char **argv)
 {
-
   printf ("\nRos Node Name : double_threshold_VAD\n");
   printf ("Ros Node Subscribe : audio_energy and audio_zero_crossing\n");
   printf ("Ros Node Publish Topic : double_threhold_result\n\n");
