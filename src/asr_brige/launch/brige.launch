@@ -1,0 +1,15 @@
+<launch>
+
+  	<!-- -->
+  	<node name="cache_manager" pkg="asr_brige" type="cache_manager" output="screen">
+    	<param name="delay_ms" value="200"/>
+    	<param name="signal_subscriber" value="audio_data"/>
+    	<param name="vad_subscriber" value="double_threshold_result"/>
+  	</node>
+
+	<node name="file_manager" pkg="asr_brige" type="file_manager" output="screen">
+		<param name="workspace" value="/home/hntea/.SpeechSystem/audio-file/"/>
+  	</node>
+
+  	
+</launch>
