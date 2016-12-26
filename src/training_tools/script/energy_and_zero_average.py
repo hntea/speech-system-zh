@@ -31,7 +31,7 @@ class AvergyLevel:
         }
         #创建工作空间
         self.wkdir = os.path.join(os.environ["HOME"],".SpeechSystem/statistic-features")
-        self.wkdir = rospy.get_param("~wkdir",self.wkdir)
+        self.wkdir = rospy.get_param("~workspace",self.wkdir)
         self.initWorkSpace()
         
         #创建永久词典,两个属性共用一个词典
