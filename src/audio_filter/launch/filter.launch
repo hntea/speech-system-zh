@@ -1,0 +1,18 @@
+<launch>
+
+  	<!--u is the argument that use to H(Z) = 1-uZ^{-1} -->
+  	<node name="pre_emphasis" pkg="audio_filter" type="pre_emphasis" output="screen">
+    	<param name="u" value="0.9378"/>
+  	</node>
+
+	<node name="hammingwindow" pkg="audio_filter" type="hammingwindow" output="screen">
+    	<param name="step" value="256"/>
+    	<param name="winlen" value="512"/>
+  	</node>
+
+	<node name="rectangleWindow" pkg="audio_filter" type="rectangleWindow" output="screen">
+    	<param name="step" value="256"/>
+    	<param name="winlen" value="512"/>
+  	</node>
+  	
+</launch>
