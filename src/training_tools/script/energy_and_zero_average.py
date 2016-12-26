@@ -51,11 +51,11 @@ class AvergyLevel:
         
 
         
-        rospy.init_node('energy_average', anonymous=True)
+        rospy.init_node('eg_zc_average', anonymous=True)
         rospy.Subscriber("audio_zero_crossing",audio_msgs.msg.AudioFeature, self.zeroCallback)
         rospy.Subscriber("audio_energy",audio_msgs.msg.AudioFeature, self.energyCallback)
         rospy.Timer(rospy.Duration(5), self.timer_callback)
-        self.pub = rospy.Publisher('static_eg_zc_average', String, queue_size=5)
+        self.pub = rospy.Publisher('eg_zc_average', String, queue_size=5)
         rospy.spin()
       
       

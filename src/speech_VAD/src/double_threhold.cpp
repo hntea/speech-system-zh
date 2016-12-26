@@ -220,7 +220,7 @@ public:
 	 * 			up :  历史局部静音的平均最高值
 	 * 			low : 历史局部静音的平均最低值
 	 * 策略： 假设能量值与过零同时落入静音历史区间
-	 * 		   使用时只用到过零的最低，于能量的最高
+	 * 		   使用时只用到过零的最低，能量的最高
 	 * */
 	bool isEndpoint( std::list<float>& eglist,
 					const float eg_up,const float eg_low,
