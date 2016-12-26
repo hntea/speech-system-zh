@@ -1,0 +1,7 @@
+<launch>
+
+  	<node name="audio_fft_factory" pkg="audio_fft_factory" type="audio_fft_factory" output="screen">
+    	<param name="window" value="hamming_window"/>
+	</node>
+ 
+ </launch>

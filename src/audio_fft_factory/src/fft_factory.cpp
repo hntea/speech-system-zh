@@ -16,13 +16,14 @@
 #include "aquila/transform/OouraFft.h"
 namespace Hntea{
 /*
- * 需要定义一个循环缓冲区，每次只变换512字节。
+ * 注意：每次只变换512字节。
  * */
 class RosFftFactory{
 public:
 	RosFftFactory(std::size_t length){
 		_sample = new double[512]{0};
-		_sb = _nh.subscribe("hamming_window",50,chapterCallback);
+		ros::param::param<std::string>("~window",_subname,"hamming_window");
+		_sb = _nh.subscribe(_subname,50,chapterCallback);
 		_pub = _nh.advertise<audio_msgs::FreqData>("fft_result",1000);
 		ros::spin();
 	}
@@ -61,6 +62,7 @@ public:
 private:
 	ros::NodeHandle _nh;
     ros::Subscriber _sb;
+    std::string _subname;
     static ros::Publisher _pub;
     static Aquila::SampleType *_sample;
 };
