@@ -1,0 +1,18 @@
+<launch>
+
+  	<!-- -->
+  	<node name="audio_energy" pkg="audio_fectures" type="audio_energy" output="screen">
+    	<param name="window" value="hamming_window"/>
+  	</node>
+
+	<node name="audio_zero_crossing" pkg="audio_fectures" type="audio_zero_crossing" output="screen">
+		<param name="window" value="rectangle_window"/>
+  	</node>
+
+  	<!-- 
+		<node name="audio_AMDF" pkg="audio_fectures" type="audio_AMDF" output="screen" />
+  	-->
+  	
+	<node name="power_spectrum" pkg="audio_fectures" type="power_spectrum" output="screen"/>
+  	
+</launch>

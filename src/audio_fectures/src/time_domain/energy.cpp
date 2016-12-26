@@ -21,7 +21,8 @@ class RosEnergy{
 public:
 	RosEnergy(){
 
-		_sb = _nh.subscribe("hamming_window",50,chapterCallback);
+		ros::param::param<std::string>("~window",_subname,"hamming_window");
+		_sb = _nh.subscribe(_subname,50,chapterCallback);
 		_pub = _nh.advertise<audio_msgs::AudioFeature>("audio_energy",1000);
 		ros::spin();
 	}
@@ -56,6 +57,7 @@ public:
 private:
 	ros::NodeHandle _nh;
     ros::Subscriber _sb;
+    std::string _subname;
     static ros::Publisher _pub;
 
 };

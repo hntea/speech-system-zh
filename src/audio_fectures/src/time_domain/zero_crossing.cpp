@@ -13,7 +13,8 @@ namespace Hntea{
 class RosZeroCrossing{
 public:
 	RosZeroCrossing(){
-		_sb = _nh.subscribe("rectangle_window",50,chapterCallback);
+		ros::param::param<std::string>("~window",_subname,"rectangle_window");
+		_sb = _nh.subscribe(_subname,50,chapterCallback);
 		_pub = _nh.advertise<audio_msgs::AudioFeature>("audio_zero_crossing",1000);
 		ros::spin();
 	}
@@ -55,6 +56,7 @@ public:
 private:
 	ros::NodeHandle _nh;
     ros::Subscriber _sb;
+    std::string _subname;
     static ros::Publisher _pub;
 
 
