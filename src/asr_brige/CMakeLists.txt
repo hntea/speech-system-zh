@@ -128,10 +128,22 @@ include_directories(
 ## either from message generation or dynamic reconfigure
 # add_dependencies(asr_brige ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
-add_executable(cache_manager src/audio_cache_manager.cpp)
+
+add_definitions(-std=c++11)
+
+add_executable(cache_manager src/cache_manager.cpp)
 target_link_libraries(cache_manager
    ${catkin_LIBRARIES}
 )
+
+
+add_executable(file_manager src/file_manager.cpp)
+target_link_libraries(file_manager
+   ${catkin_LIBRARIES}
+   libAquila.a
+)
+
+
 
 #############
 ## Install ##
