@@ -56,7 +56,7 @@ public:
 
 
 	static void  audioDataCallback(const audio_msgs::AudioData &msgs){
-		ROS_INFO_THROTTLE(60,"Flash data");
+		ROS_INFO_THROTTLE(60,"Cache manager,everything is ok!");
 		std::vector<int16_t> vec(msgs.data);
 		audio_msgs::AudioData delay_msgs;
 		delay_msgs.data.resize(msgs.data_size);
@@ -75,8 +75,8 @@ public:
 		}
 		//在接到后端点状态后，延时发送状态
 		if(_end_state){
-			_end_setp+=delay_msgs.data_size;
-			if(_end_setp >= _lcache.size()*2){
+			_end_setp+=msgs.data_size;
+			if(_end_setp >= _lcache.size()){
 				std_msgs::String end;
 				end.data = "cache_end";
 				_pub2.publish(end);
@@ -98,26 +98,6 @@ public:
 			_end_state = true;
 		}
 	}
-
-//	static void writeCache(std::list<int16_t>& lcache,const std::string& file){
-//		using namespace std;
-//		//以输出方式打开文件流，若文件不存在则创建
-//		std::fstream ofs(file.c_str(),ios::out|ios::binary|ios::trunc);
-//		if(!ofs){
-//			std::cout<<"error:unable to open input file: "<<file<<std::endl;
-//		}
-//		//解析数据
-//		std::list<int16_t>::iterator liter;
-//		int16_t buf[lcache.size()] = {0};
-//		int id = 0;
-//		for(liter = _lcache.begin();liter!=_lcache.end();liter++,id++){
-//			buf[id] = *liter;
-//		}
-//		ofs.write((char*)buf,2*lcache.size());
-//		cout<<"write start cache file success!"<<endl;
-//		ofs.close();
-//	}
-
 
 private:
     ros::NodeHandle _nh;
