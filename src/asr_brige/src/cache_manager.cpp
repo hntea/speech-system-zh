@@ -46,7 +46,7 @@ public:
 		_sb1 = _nh.subscribe(_sub_name1,50,audioDataCallback);
 		_sb2 = _nh.subscribe(_sub_name2,50,vadCallback);
 		_pub1 = _nh.advertise<audio_msgs::AudioData>("asr_brige/cache_data",1000);
-		_pub2 = _nh.advertise<std_msgs::String>("asr_brige/cache_state",20);
+		_pub2 = _nh.advertise<std_msgs::String>("asr_brige/cache_state",10);
 		ros::spin();
 	}
 	~CacheManger(){
@@ -56,46 +56,57 @@ public:
 
 
 	static void  audioDataCallback(const audio_msgs::AudioData &msgs){
-		ROS_INFO_THROTTLE(60,"Cache manager,everything is ok!");
 		std::vector<int16_t> vec(msgs.data);
 		audio_msgs::AudioData delay_msgs;
 		delay_msgs.data.resize(msgs.data_size);
 		delay_msgs.data_size = msgs.data_size;
+
+		createDelayMessage(delay_msgs,vec);
+		if(_start){
+			pubStateMessage("cache_start");
+			_start = false;
+		}
+		if(_end){
+			pubStateMessage("cache_end");
+			_end = false;
+		}
+
+		_pub1.publish(delay_msgs);
+	}
+	/*
+	 * 端点检测回调
+	 * 注意：
+	 * 		如果两个消息回调频率过快
+	 * 		则认为是误判
+	 * */
+	static void  vadCallback(const std_msgs::String &msgs){
+		if(std::strcmp(msgs.data.c_str(),"start") == 0)
+			_start = true;
+		else
+			_end = true;
+	}
+
+	/*
+	 * 函数功能：发布状态消息
+	 * 参数说明：
+	 * 			flag: start or end
+	 * */
+	static void pubStateMessage(std::string flag){
+		std_msgs::String msgs;
+		msgs.data = flag;
+		ROS_INFO("[CacheManger]:%s",flag.c_str());
+		_pub2.publish(msgs);
+	}
+
+	static void createDelayMessage(audio_msgs::AudioData& delay_msgs,std::vector<int16_t>& vec){
 		//发送缓存
 		std::list<int16_t>::iterator liter;
 		//构造延迟消息-取链表头数据
 		for(int i=0;i<delay_msgs.data_size;i++){
-			//拿头
 			std::list<int16_t>::iterator liter = _lcache.begin();
 			delay_msgs.data[i] = *liter;
-			//去头
 			_lcache.pop_front();
-			//尾部更新
 			_lcache.push_back(vec[i]);
-		}
-		//在接到后端点状态后，延时发送状态
-		if(_end_state){
-			_end_setp+=msgs.data_size;
-			if(_end_setp >= _lcache.size()){
-				std_msgs::String end;
-				end.data = "cache_end";
-				_pub2.publish(end);
-				_end_setp = 0;
-				_end_state = false;
-			}
-		}
-		_pub1.publish(delay_msgs);
-
-	}
-
-	static void  vadCallback(const std_msgs::String &msgs){
-		if(std::strcmp(msgs.data.c_str(),"start") == 0){
-			//发送起始信号
-			std_msgs::String start;
-			start.data = "cache_start";
-			_pub2.publish(start);
-		}else{
-			_end_state = true;
 		}
 	}
 
@@ -105,15 +116,20 @@ private:
 
     std::string _sub_name1,_sub_name2;
     int _cache_time;
-    static bool _end_state;
+    static bool _start,_end;
     static float _end_setp;
     static ros::Publisher _pub1,_pub2;
     static std::list<int16_t> _lcache;
 };
-bool CacheManger::_end_state = false;
+
+bool CacheManger::_end = false,
+	 CacheManger::_start = false;
+
 float  CacheManger::_end_setp = 0;
-ros::Publisher CacheManger::_pub1,
+
+ros::Publisher  CacheManger::_pub1,
 				CacheManger::_pub2;
+
 std::list<int16_t> CacheManger::_lcache;
 }
 
