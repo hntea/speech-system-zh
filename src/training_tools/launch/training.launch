@@ -2,7 +2,9 @@
 
   	<!-- -->
 	<node name="energy_and_zero_average" pkg="training_tools" type="energy_and_zero_average.py" output="screen">
-		<param name="workspace" value="/home/hntea/.SpeechSystem/statistic-features"/>
+	  	<!-- 
+		<param name="workspace" value="/home/hntea/.SpeechSystem/statistic-features/"/>
+		-->
   	</node>
   	
 </launch>
