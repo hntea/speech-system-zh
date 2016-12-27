@@ -13,6 +13,8 @@
 #include <fstream>
 #include <list>
 #include <vector>
+#include <atomic>
+#include <pthread.h>
 
 #include <unistd.h>
 #include <sys/types.h>
@@ -77,15 +79,15 @@ public:
 
 	static void  stateCallback(const std_msgs::String &msgs){
 		if(std::strcmp(msgs.data.c_str(),"cache_start") == 0){
-			allocalFile(_workspace);
 			_start = true;
 		}else{
 			//写入文件
+			allocalFile(_workspace);
 			Aquila::SignalSource signal(_64cache,_signal.getSampleFrequency());
 			Aquila::WaveFile wav(_wavfile);
 			wav.save(signal,_wavfile);
 			writePcm(_pcmfile,_16cache);
-			ROS_INFO("File [%d] created success!",_fileID-1);
+			ROS_INFO("[FileManger]:[%d] created success!\n",_fileID-1);
 			std_msgs::String pcm_msgs;
 			pcm_msgs.data = _pcmfile.c_str();
 			std_msgs::String wav_msgs;
@@ -99,8 +101,15 @@ public:
 		}
 	}
 
-
+	/*
+	 * 函数功能：分配文件名
+	 * 参数说明：
+	 * 			workspace:工作目录
+	 * 			max_id:缓存大小
+	 * */
 	static void allocalFile(std::string workspace,const int max_id = 10){
+
+
 		std::string wav = ".wav";
 		std::string pcm = ".pcm";
 		std::stringstream s_wav;
@@ -109,11 +118,25 @@ public:
 		if(_fileID == max_id){
 			_fileID = 0;
 		}
+		//这部分不是线程安全的。
 		s_wav<<workspace<<_fileID<<wav;
 		s_pcm<<workspace<<_fileID<<pcm;
 		_wavfile = s_wav.str();
 		_pcmfile = s_pcm.str();
 		_fileID++;
+
+//		char *wavbuf = new char[128];
+//		char *pcmbuf = new char[128];
+//		std::snprintf(wavbuf,16,"%s%d.wav",workspace.c_str(),_fileID);
+//		std::snprintf(pcmbuf,16,"%s%d.wav",workspace.c_str(),_fileID);
+//		if(_fileID == max_id){
+//			_fileID = 0;
+//		}
+//		_wavfile = wavbuf;
+//		_pcmfile = pcmbuf;
+//		delete []wavbuf;
+//		delete []pcmbuf;
+//		_fileID++;
 	}
 
 	static void writePcm(std::string file,std::vector<int16_t>& src){
