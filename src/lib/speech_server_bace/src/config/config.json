@@ -14,9 +14,9 @@
        		"sample_rate" : 16000,
        		"result_type" : "xml",
        		"result_encoding" : "UTF-8", 
-       		"asr_res_path" : "fo|/home/hntea/sofeWareDesign/rosProject/src/kinect_speech/msc/localasr/asr/common.jet",
+       		"model" : "fo|/home/hntea/sofeWareDesign/rosProject/src/kinect_speech/msc/localasr/asr/common.jet",
        		"grm_build_path" : "/home/hntea/sofeWareDesign/rosProject/src/kinect_speech/msc/localasr/asr/GrmBuilld",
-       		"bnf_file_path" : "/home/hntea/sofeWareDesign/rosProject/src/kinect_speech/src/config/call.bnf"
+       		"bnf_file" : "/home/hntea/sofeWareDesign/rosProject/src/kinect_speech/src/config/call.bnf"
        }
     },
 
