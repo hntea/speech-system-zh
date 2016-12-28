@@ -26,6 +26,7 @@
 4. **语音端点检测算法**：时域双特征双阈值
 3. **科大讯飞在线听写**
 4. **科大讯飞离线命令词识别**
+5. **百度在线语音识别**
 5. **rqt_plot**： 辅助包打印音频信号
 
 ##包依赖
@@ -62,19 +63,38 @@
 
 7. **asr_brige**
    该包主要用于 生成音频文件、缓存器（语音端点前后的数据）；用于桥接百度服务与讯飞等服务器或本地处理
-8. **lib**
+8. **asr_server**
+   该功能包使用第三方提供的语音服务，分在线语音识别与离线命令词识别，目前在线支持百度和讯飞，离线只有讯飞	
+8. **system_launch**
+   用于一键启动配置过的功能包
+   
+9. **lib**
    该包包括第三方库、自己开发的类库
 
 9. **plot_data**
    该包主要目的是用于配合 rqt_plot 工具，方便分析音频信号
    
-                                    
-
 ##使用方法
 
 1. 创建工作目录
 
-	建议在 home 目录下创建 **~/.SpeechSystem/** 并将 speech_server_bace 中的文件复制到此处；科大讯飞的库需要改成自己申请的，把 libmic.so 代替，并且把本地识别库也一并替换。
+	建议在 home 目录下创建 **~/.SpeechSystem/** 并将 speech_server_bace 中的文件复制到此处；科大讯飞的库需要改成自己申请的，把 libmic.so 代替，并且把本地识别库也一并替换。详细目录结构如下所示：
+```
+hntea@HnteaPC:~$ tree ./.SpeechSystem/ -d
+./.SpeechSystem/
+├── audio-file		//存放 asr_brage 中 filemanager 节点产生的音频文件
+├── baidu			//存放token
+├── config			//存放第三方语音服务配置参数
+├── statistic-features	//存放统计特征参数
+└── xf-source			//存放科大讯飞资源
+    ├── asr-local-model
+    │   └── asr
+    │       └── GrmBuilld
+    │           └── temp
+    └── msc				
+        └── 22624bb0d1c739e1b32af5966240821b
+11 directories
+```
 
 2. 配置启动文件
     
