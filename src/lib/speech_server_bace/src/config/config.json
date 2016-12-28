@@ -8,21 +8,9 @@
     "rate"  :   16000
   },
 
-  "audioDevice" : {
-    "recorder" : {
-    	"usekinect" : true  ,
-	    "kinect" : "plughw:2,0",
-	    "logitech" : "plughw:1,0"
-    },
-    "player" : "default"
-  },
-
-	"userWordsFilePath" : "/home/hntea/sofeWareDesign/rosProject/src/kinect_speech/src/config/userwords.txt",
-
   "speechServer" : {
-
     "xunfei" : {
-      "use" : true,
+      "userWordsFilePath" : "/home/hntea/sofeWareDesign/rosProject/src/kinect_speech/src/config/userwords.txt",
       "loginParams" : "appid = 578352a8, work_dir = .",
       "onlineasr":{
       	"session_begin_params" : "sub = iat, domain = iat, language = zh_cn, accent = mandarin, sample_rate = 16000, result_type = plain, result_encoding = utf8"
