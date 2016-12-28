@@ -1,5 +1,12 @@
 #!/usr/bin/env python
 #-*- coding:utf-8 -*-
+#
+#  BaiduVoiceClientAPI.py
+#  Created on: 2016年12月22日
+#  Author: hntea
+# 
+#  文件功能：提供百度语音请求API  
+#
 import urllib2
 import json as js
 import wave
@@ -12,10 +19,11 @@ import datetime
 import uuid
 
 
-class BaiduVoiceManager:
+class BaiduVoiceClientManager:
 
-    '''This is the ASR class,it can read wav/pcm audio fileand post  it to baidu api.
+    '''This is  ASR class,it can read wav or pcm you give and post it to baidu voice server.
         If you want to use this class,please apply your own apikey and secretkey for baidu api.
+        and then write ~/.SpeechSystem/config/config.json
      '''
 
     def __getMacAddress(self):
@@ -75,13 +83,11 @@ class BaiduVoiceManager:
         return isnull
         
           
-    #默认配置文件位置
     def __defaultconfig(self):
           config = os.path.join(os.environ["HOME"],".SpeechSystem/config/config.json")
           return config
     
           
-    #读配置文件
     def __readconfig(self,file):
         with open(file) as fd:
             jsout = js.load(fd)
@@ -122,7 +128,6 @@ class BaiduVoiceManager:
 
 
     def asrprocess(self,file,formate,rate):
-
         with open(file,'rb') as f:
             data = f.read()
             filelen = len(data)
@@ -150,30 +155,26 @@ class BaiduVoiceManager:
         
         result_str = respond.read().decode('utf-8')
         json_resp = js.loads(result_str)
-        
-        print json_resp
         if json_resp.has_key('result'):
             self.__asr_result=json_resp['result'][0]
         else:
             self.__asr_result="Null"
-        print "The result is：%s" %self.__asr_result.encode("utf-8")
-
-
-
+#         print "The result is：%s" %self.__asr_result.encode("utf-8")
+        return self.__asr_result
 
 
     def __init__(self):
-        #读取配置文件
         self.__readconfig(self.__defaultconfig())
-        #创建工作空间
         self.__creatWorkspace(self.__workspace)
-        #创建永久词典
         dbmfile =  self.__creatDbm(self.__workspace,"token")
         self.__updateToken(dbmfile)
-        self.asrprocess("/home/hntea/.SpeechSystem/audio-file/4.wav","wav",16000)
+        
 
 
 
 
-if __name__ == '__main__':
-    BaiduVoiceManager()
+# if __name__ == '__main__':
+#     man = BaiduVoiceClientManager()
+#     print datetime.datetime.now()
+#     print man.asrprocess("/home/hntea/.SpeechSystem/audio-file/8.wav","wav",16000)
+#     print datetime.datetime.now()
