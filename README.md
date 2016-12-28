@@ -2,7 +2,19 @@
 ###**Author:Hntea-hong   From: Findlab404**
 
 ##说明
-该功能包意在结合ROS框架开发出具有中文语音交互功能的语音交互系统；还在开发中..
+该功能包意在结合ROS框架开发出具有中文语音交互功能的语音交互系统；还在开发中..欢迎有兴趣的伙伴加入！
+
+##目前完成的功能有：
+
+1. **音频信号采集**
+2. **音频信号滤波**：预备加重、加窗
+3. **特征提取**：短时过零、对数能量、短时平均幅度差（AMDF）、功率普
+4. **语音端点检测算法**：时域双特征双阈值
+3. **科大讯飞在线听写**
+4. **科大讯飞离线命令词识别**
+5. **百度在线语音识别**
+5. **rqt_plot**： 辅助包打印音频信号
+
 
 ##计划完成的功能
 1. 音频采集
@@ -18,19 +30,7 @@
 8. 离线意图推理
 9. 本地与云端资源调度
 
-##目前完成的功能有：
-
-1. **音频信号采集**
-2. **音频信号滤波**：预备加重、加窗
-3. **特征提取**：短时过零、对数能量、短时平均幅度差（AMDF）、功率普
-4. **语音端点检测算法**：时域双特征双阈值
-3. **科大讯飞在线听写**
-4. **科大讯飞离线命令词识别**
-5. **百度在线语音识别**
-5. **rqt_plot**： 辅助包打印音频信号
-
 ##包依赖
-
 
 [ALSA Install](http://blog.csdn.net/u013494117/article/details/52269463)
  
@@ -38,6 +38,8 @@
 
 [Aquila C++ DSP library](http://aquila-dsp.org/articles/examples/)
 
+**注意**
+Aquila包安装时需要注意：安装后检查 /usr/local/lib/ 目录下是否存在 libOoura_fft.a;如果没有，则需要手动将：/Aquila/build/lib/libOoura_fft.a 复制到上述目录中。
 
 ##各包功能说明
 1. **audio_capture ：**
@@ -55,7 +57,7 @@
 4. **audio_fft_factory**
    该包目的在于提供傅立叶变换：目前只有正变换、逆变换还没处理
 
-5. **speech_VAD**
+5. **speech_vad**
    该包主要是用于语音端点检测，目的是包含多种算法，目前只有双阈值检测算法，其它算法有待添加
 
 6. **training_tools**
@@ -88,9 +90,9 @@ hntea@HnteaPC:~$ tree ./.SpeechSystem/ -d
 ├── statistic-features	//存放统计特征参数
 └── xf-source			//存放科大讯飞资源
     ├── asr-local-model
-    │   └── asr
-    │       └── GrmBuilld
-    │           └── temp
+    │   └── asr
+    │       └── GrmBuilld
+    │           └── temp
     └── msc				
         └── 22624bb0d1c739e1b32af5966240821b
 11 directories
@@ -153,5 +155,3 @@ hntea@HnteaPC:~$ tree ./.SpeechSystem/ -d
 
 
 ##使用示例
-
-
