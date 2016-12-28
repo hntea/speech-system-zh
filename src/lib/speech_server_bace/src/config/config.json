@@ -2,20 +2,14 @@
   "robotName" : "黄豆",
   "mac_address" : "00:e0:4c:06:a6:56",
 
-  "audioInfo" : {
-    "channel" : 1,
-    "sample"  : 16.0,
-    "rate"  :   16000
-  },
-
   "speechServer" : {
     "xunfei" : {
       "userWordsFilePath" : "/home/hntea/sofeWareDesign/rosProject/src/kinect_speech/src/config/userwords.txt",
       "loginParams" : "appid = 578352a8, work_dir = .",
-      "onlineasr":{
-      	"session_begin_params" : "sub = iat, domain = iat, language = zh_cn, accent = mandarin, sample_rate = 16000, result_type = plain, result_encoding = utf8"
+      "online":{
+      	"params" : "sub = iat, domain = iat, language = zh_cn, accent = mandarin, sample_rate = 16000, result_type = plain, result_encoding = utf8"
       },
-       "localasr":{
+       "local":{
        		"engine_type" : "local",
        		"sample_rate" : 16000,
        		"result_type" : "xml",
