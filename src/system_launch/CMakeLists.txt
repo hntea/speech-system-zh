@@ -11,7 +11,7 @@ find_package(catkin REQUIRED COMPONENTS
   audio_fft_factory
   audio_filter
   audio_msgs
-  speech_VAD
+  speech_vad
   training_tools
 )
 

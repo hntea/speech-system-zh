@@ -4,7 +4,7 @@
 	<include file="$(find audio_filter)/launch/filter.launch" />
 	<include file="$(find audio_fft_factory)/launch/fft.launch" />
 	<include file="$(find audio_fectures)/launch/features.launch" />
-  	<include file="$(find speech_VAD)/launch/double_threshold.launch" />
+  	<include file="$(find speech_vad)/launch/double_threshold.launch" />
   	<include file="$(find asr_brige)/launch/brige.launch" />
   	<include file="$(find training_tools)/launch/training.launch" />
   	
