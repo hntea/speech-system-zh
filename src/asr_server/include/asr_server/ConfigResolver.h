@@ -11,27 +11,10 @@
 namespace Hntea {
 
 #include "nlohmann/json.hpp"
+#include "xfparams.h"
 using json = nlohmann::json;
 using namespace std;
 
-typedef struct basic{
-	string  loginParams;
-	string  userWord;
-}XfBasic;
-
-typedef struct online{
-	string  params;
-}XfOnlineASR;
-
-typedef struct local{
-	string engine_type;
-	int sample_rate;
-	string result_type;
-	string result_encoding;
-	string asr_model;
-	string grm_build_path;
-	string bnf_file;
-}XfLocalASR;
 
 class ConfigResolver {
 public:
