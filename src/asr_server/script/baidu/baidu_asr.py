@@ -27,11 +27,11 @@ class BaiduASR:
     def process(self,data):
             print data.data
             result = self.man.asrprocess(data.data,"pcm",self.rate)
-            print result
+            rospy.loginfo(result)
             if(self.isResultValid(result)):
                 self.pub.publish(result)
             else:
-                print "Oh no! Is noise!"
+                rospy.loginfo("Oh no! Is noise!")
 
     def isResultValid(self,result):
         if result == "Null" or "，":
