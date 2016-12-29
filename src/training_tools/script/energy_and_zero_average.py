@@ -157,7 +157,6 @@ class AvergyLevel:
             self.state = True
         
         if self.state:
-            rospy.loginfo("Publish msg and goto sleep about 1 s")
             self.pub.publish("update")
             self.state = False
             sleep(1)
@@ -217,9 +216,7 @@ class AvergyLevel:
             self.eg_total_sum += sum(self.eg_circle_buffer)
             self.eg_max_sum += max(self.eg_circle_buffer)
             self.eg_min_sum +=  min(self.eg_circle_buffer)
-#             print "min_sum = ",self.min_sum
-#             print "max_sum = ",self.max_sum
-#             print "total_sum = ",self.total_sum
+
 
     def zeroCallback(self ,data):
         self.falshBuffer(data.feature,self.zc_circle_buffer)
