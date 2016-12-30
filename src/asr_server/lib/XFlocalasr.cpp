@@ -25,20 +25,13 @@ XFlocalasr::~XFlocalasr(){
 }
 
 /*
- * 状态初始化
+ * 启动/新 会话都必须复位
  * */
-void XFlocalasr::stateRest(){
+void XFlocalasr::rest(){
 	_state.aud_stat = MSP_AUDIO_SAMPLE_FIRST;			//音频状态
 	_state.ep_stat 	= MSP_EP_LOOKING_FOR_SPEECH;		//端点检测
 	_state.rec_stat = MSP_REC_STATUS_SUCCESS;			//识别状态
 	_state.errcode 	= MSP_SUCCESS;					//错误码
-}
-
-/*
- * 新一轮会话之前必须复位
- * */
-void XFlocalasr::rest(){
-	stateRest();
 	if(!_sid.empty()){
 		QISRSessionEnd(_sid.c_str(), NULL);
 		_sid.clear();
@@ -175,13 +168,14 @@ void XFlocalasr::getSid(){
 /*
  * 等待语音识别结束
  * */
-void XFlocalasr::waitAsrComplete(){
+void XFlocalasr::waitAsrComplete(std::string& result){
 	//写入结束帧
 	int err = QISRAudioWrite(_sid.c_str(), NULL, 0, MSP_AUDIO_SAMPLE_LAST,	&_state.ep_stat,&_state.rec_stat);
 	if (MSP_SUCCESS != err)
 	{
 		printf("\nQISRAudioWrite failed, error code:%d\n",err);
-		exit;
+		rest();
+		return;
 	}
 	while (MSP_REC_STATUS_COMPLETE != _state.rec_stat)
 	{
@@ -194,6 +188,7 @@ void XFlocalasr::waitAsrComplete(){
 		{
 			_result = rslt;
 			cout<<_result<<endl;
+			result = _result;
 		}
 		usleep(150*1000);
 	}
@@ -205,7 +200,7 @@ void XFlocalasr::waitAsrComplete(){
  * 参数说明：
  * 			file:识别的音频文件
  * */
-void XFlocalasr::runasr(std::string file){
+void XFlocalasr::runasr(std::string file,std::string& result){
 	ifstream t;
 	//获取文件长度
 	unsigned int length;
@@ -256,21 +251,21 @@ void XFlocalasr::runasr(std::string file){
 		frame_cur += frame_size;
 	}
 
-	waitAsrComplete();
+	waitAsrComplete(result);
 }
 
 /*
- * 语音识别：不使用讯飞端点检测
+ * 语音识别：
  * 参数说明：
  * 			input:识别的音频块
  * 			end:結束幀標誌
+ * 			result：存放识别结果
  * */
-void XFlocalasr::runasr(std::vector<int16_t>& input,bool end){
+void XFlocalasr::runasr(std::vector<int16_t>& input,std::string& result,bool end){
 	//发送起始帧
 	int err;
-	bool finish = false;
 	static bool first_frame = true;
-	cout<<"."<<flush;
+//	cout<<"."<<flush;
 	_state.aud_stat = MSP_AUDIO_SAMPLE_CONTINUE;
 	if(first_frame == true){
 		_state.aud_stat = MSP_AUDIO_SAMPLE_FIRST;
@@ -292,18 +287,12 @@ void XFlocalasr::runasr(std::vector<int16_t>& input,bool end){
 		return;
 	}
 	if (end){
-		waitAsrComplete();
+		waitAsrComplete(result);
 		end = false;
 		first_frame = true;
-		finish = true;
 	}
 }
-/*
- * 获取识别结果
- * */
-std::string XFlocalasr::getResult(){
-	return _result;
-}
+
 /*
  * 更新离线语法词典
  * */

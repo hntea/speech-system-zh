@@ -15,9 +15,8 @@ class ASR {
 public:
 	ASR();
 	virtual ~ASR();
-	virtual void runasr(std::string input);
-	virtual void runasr(std::vector<int16_t>& input,bool end);
-	virtual std::string getResult();
+	virtual void runasr(std::string input,std::string& result);
+	virtual void runasr(std::vector<int16_t>& input,std::string& result,bool end);
 protected:
 	std::string _result;
 };

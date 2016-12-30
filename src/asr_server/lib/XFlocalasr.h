@@ -25,11 +25,6 @@ public:
 	virtual ~XFlocalasr();
 
 	/*
-	 * 状态初始化
-	 * */
-	void stateRest();
-
-	/*
 	 * 会话复位
 	 * */
 	void rest();
@@ -68,26 +63,23 @@ public:
 	/*
 	 * 等待语音识别结束
 	 * */
-	void waitAsrComplete();
+	void waitAsrComplete(string& result);
 
 	/*
 	 * 语音识别
 	 * 参数说明：
 	 * 			file:识别的音频文件
 	 * */
-	void runasr(std::string file);
+	void runasr(std::string file,std::string& result);
 
 	/*
 	 * 语音识别
 	 * 参数说明：
 	 * 			bkinput:识别的音频块
 	 * */
-	void runasr(std::vector<int16_t>& input,bool end);
+	void runasr(std::vector<int16_t>& input,std::string& result,bool end);
 
-	/*
-	 * 获取识别结果
-	 * */
-	std::string getResult();
+
 
 private:
 	XfAsrState 	_state;			//离线命令识别状态
