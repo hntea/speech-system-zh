@@ -10,7 +10,7 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
   std_msgs
 )
-
+add_definitions(-std=c++11)
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
 
@@ -116,6 +116,7 @@ catkin_package(
 # include_directories(include)
 include_directories(
   ${catkin_INCLUDE_DIRS}
+  include/${PROJECT_NAME}
 )
 
 ## Declare a C++ library
@@ -128,17 +129,19 @@ include_directories(
 ## either from message generation or dynamic reconfigure
 # add_dependencies(asr_server ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
+
+
 ## Declare a C++ executable
-# add_executable(asr_server_node src/asr_server_node.cpp)
-
-## Add cmake target dependencies of the executable
-## same as for the library above
-# add_dependencies(asr_server_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-
-## Specify libraries to link a library or executable target against
-# target_link_libraries(asr_server_node
-#   ${catkin_LIBRARIES}
-# )
+add_executable(xf_asr_server 
+	src/xf_asr_server.cpp
+	lib/ASR.cpp
+	lib/ConfigResolver.cpp
+	lib/XFlocalasr.cpp
+)
+target_link_libraries(xf_asr_server
+  ${catkin_LIBRARIES}
+  libmsc.so -ldl -pthread
+)
 
 #############
 ## Install ##

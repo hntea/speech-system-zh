@@ -203,7 +203,7 @@ public:
 			is_start = true;
 			zc_start = false;
 			eg_start = false;
-			ROS_INFO("Recording..");
+			ROS_INFO("[DoubleThreshold]: Start recording..");
 		}else{
 			is_start = false;
 		}
@@ -247,7 +247,7 @@ public:
 
 		//静音判别,局部均值位于历史静音区间则判定为静音
 		if((eg_average<eg_up) && (zc_low < zc_average)){
-				ROS_INFO("End\n");
+				ROS_INFO("[DoubleThreshold]:Ending!");
 				is_endpoint = true;
 		}
 

@@ -21,19 +21,26 @@ void ConfigResolver::process(){
 		cerr<<"Can not open "<<_file<<"!"<<endl;
 		return;
 	}
-	json jload;
+	nlohmann::json jload;
 	ifs>>jload;
 	ifs.close();
 	_basic.userWord 		= jload["speechServer"]["xunfei"]["userWordsFilePath"];
 	_basic.loginParams 		= jload["speechServer"]["xunfei"]["loginParams"];
 	_online.params 			= jload["speechServer"]["xunfei"]["onlineasr"]["params"];
 
-	_local.asr_model 		= jload["speechServer"]["xunfei"]["localasr"]["asr_model"];
+	_local.asr_res_path 	= jload["speechServer"]["xunfei"]["localasr"]["asr_res_path"];
 	_local.engine_type  	= jload["speechServer"]["xunfei"]["localasr"]["engine_type"];
 	_local.grm_build_path 	= jload["speechServer"]["xunfei"]["localasr"]["grm_build_path"];
 	_local.result_encoding 	= jload["speechServer"]["xunfei"]["localasr"]["result_encoding"];
-	_local.sample_rate 		= jload["speechServer"]["xunfei"]["localasr"]["sample_rate"];
 	_local.result_type 		= jload["speechServer"]["xunfei"]["localasr"]["result_type"];
 	_local.bnf_file 		= jload["speechServer"]["xunfei"]["localasr"]["bnf_file"];
+	_local.language			= jload["speechServer"]["xunfei"]["localasr"]["language"];
+	_local.accent			= jload["speechServer"]["xunfei"]["localasr"]["accent"];
+	_local.sample_rate 		= jload["speechServer"]["xunfei"]["localasr"]["sample_rate"];
+	_local.asr_denoise		= jload["speechServer"]["xunfei"]["localasr"]["asr_denoise"];
+	_local.vad_enable       = jload["speechServer"]["xunfei"]["localasr"]["vad_enable"];
+	_local.vad_bos			= jload["speechServer"]["xunfei"]["localasr"]["vad_bos"];
+	_local.vad_eos			= jload["speechServer"]["xunfei"]["localasr"]["vad_eos"];
+
 }
 } /* namespace Hntea */

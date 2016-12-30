@@ -8,20 +8,20 @@
 #ifndef SRC_ASR_SERVER_LIB_CONFIGRESOLVER_H_
 #define SRC_ASR_SERVER_LIB_CONFIGRESOLVER_H_
 
-namespace Hntea {
-
+#include <iostream>
+#include <fstream>
 #include "nlohmann/json.hpp"
+#include <vector>
+#include <algorithm>
 #include "xfparams.h"
-using json = nlohmann::json;
+
+namespace Hntea {
 using namespace std;
-
-
 class ConfigResolver {
 public:
-	ConfigResolver(string file);
+	ConfigResolver(std::string file);
 	virtual ~ConfigResolver();
 	void process();
-protected:
 	XfBasic _basic;
 	XfOnlineASR _online;
 	XfLocalASR _local;
