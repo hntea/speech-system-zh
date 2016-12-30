@@ -15,6 +15,7 @@
 #include <fstream>
 #include <list>
 #include <vector>
+#include <sys/time.h>
 namespace Hntea{
 
 class CacheManger{
@@ -67,8 +68,12 @@ public:
 			_start = false;
 		}
 		if(_end){
-			pubStateMessage("cache_end");
-			_end = false;
+			_end_setp += msgs.data_size;
+			if(_end_setp >= _lcache.size()){
+				pubStateMessage("cache_end");
+				_end = false;
+				_end_setp = 0;
+			}
 		}
 
 		_pub1.publish(delay_msgs);
@@ -76,14 +81,20 @@ public:
 	/*
 	 * 端点检测回调
 	 * 注意：
-	 * 		如果两个消息回调频率过快
-	 * 		则认为是误判
+	 * 		如果两个消息回调频率过快:如抖动
+	 * 		则认为是误判,连续上次状态
 	 * */
 	static void  vadCallback(const std_msgs::String &msgs){
-		if(std::strcmp(msgs.data.c_str(),"start") == 0)
-			_start = true;
-		else
+		if(std::strcmp(msgs.data.c_str(),"start") == 0){
+			if(isTooFast(500))
+				ROS_INFO("==VAD Translate too false! Noise==");
+			else
+				_start = true;
+		}
+		else{
 			_end = true;
+			flashTime();
+		}
 	}
 
 	/*
@@ -110,12 +121,53 @@ public:
 		}
 	}
 
+
+
+	/*
+	 * 判决两个端点出现的时间频率依据
+	 * 前一段结束时间与后一段结束时间
+	 * 刷新历史时间在后端点出现之后
+	 * */
+	static void flashTime(){
+		timeval tv;
+		gettimeofday(&tv, 0);
+		_psec = tv.tv_sec;
+		_pus = tv.tv_usec;
+	}
+
+
+
+	/*
+	 * 回调频率过快判定
+	 * */
+	static bool isTooFast(uint64_t ms){
+//		ROS_INFO("Pre time:[%ld]",_psec);
+		bool isfast;
+		timeval tv;
+		gettimeofday(&tv, 0);
+
+		uint64_t subs = tv.tv_sec - _psec;
+		uint64_t cur_us = tv.tv_usec;
+		uint64_t sub_us = subs*1000*1000+cur_us - _pus;
+		ROS_INFO("sub_ms time:[%ld]",sub_us/1000);
+
+		if (sub_us<(ms*1000)){
+			isfast = true;
+		}else{
+			isfast = false;
+		}
+//		ROS_INFO("Cur time:[%ld]",_psec);
+		return isfast;
+	}
+
+
 private:
     ros::NodeHandle _nh;
     ros::Subscriber _sb1,_sb2;
 
     std::string _sub_name1,_sub_name2;
     int _cache_time;
+    static uint64_t _psec,_pus;	//前一次进入回调的时间
     static bool _start,_end;
     static float _end_setp;
     static ros::Publisher _pub1,_pub2;
@@ -126,6 +178,9 @@ bool CacheManger::_end = false,
 	 CacheManger::_start = false;
 
 float  CacheManger::_end_setp = 0;
+
+uint64_t CacheManger::_psec = 0,
+		CacheManger::_pus = 0;
 
 ros::Publisher  CacheManger::_pub1,
 				CacheManger::_pub2;
