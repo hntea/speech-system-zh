@@ -21,13 +21,13 @@
 #include <pwd.h>
 
 Hntea::XFonlineasr online;
+ros::Publisher pub;
 bool start = false;
 bool end = false;
 
 void  stateCallback(const std_msgs::String &msgs){
 	if(!strcmp(msgs.data.c_str(),"cache_start")){
 		start = true;
-		std::cout<<"stateCallback back"<<std::endl;
 	}else{
 		end = true;
 	}
@@ -35,12 +35,13 @@ void  stateCallback(const std_msgs::String &msgs){
 
 void streamCallback(const audio_msgs::AudioData& msg)
 {
-
 	std::vector<int16_t> vec(msg.data);
 	std::string result;
 	if(end){
 		online.runasr(vec,result,true);
-		std::cout<<"dataStreamCallback = "<<result<<std::endl;
+		std_msgs::String res;
+		res.data = result;
+		pub.publish(res);
 		start = false;
 		end = false;
 	}
@@ -79,6 +80,7 @@ int main(int argc, char **argv)
 	ros::NodeHandle n;
 	ros::Subscriber sub1 = n.subscribe("asr_brige/cache_state", 1000, stateCallback);
 	ros::Subscriber sub2 = n.subscribe("asr_brige/cache_data", 1000, streamCallback);
+	pub = n.advertise<std_msgs::String>("asr_server/xf/online_s_res",1000);
 	ros::spin();
 	return 0;
 }

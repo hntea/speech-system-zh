@@ -22,13 +22,13 @@
 #include <pwd.h>
 
 Hntea::XFonlineasr online;
+ros::Publisher p;
 bool start = false;
 bool end = false;
 
 void  stateCallback(const std_msgs::String &msgs){
 	if(!strcmp(msgs.data.c_str(),"cache_start")){
 		start = true;
-		std::cout<<"stateCallback back"<<std::endl;
 	}else{
 		end = true;
 	}
@@ -38,8 +38,9 @@ void fileCallback(const std_msgs::String& msg){
 	std::cout<<"Online recognize.."<<std::endl;
 	std::string online_res;
 	online.runasr(msg.data,online_res);
-	std::cout<<"file result = "<<online_res<<std::endl;
-
+	std_msgs::String res;
+	res.data = online_res;
+	p.publish(res);
 }
 /*
  * 获取默认配置文件
@@ -71,6 +72,7 @@ int main(int argc, char **argv)
 	ros::NodeHandle n;
 	ros::Subscriber sub1 = n.subscribe("asr_brige/cache_state", 1000, stateCallback);
 	ros::Subscriber sub2 = n.subscribe("asr_brige/pcm_file", 10, fileCallback);
+	p = n.advertise<std_msgs::String>("asr_server/xf/online_f_res",1000);
 	ros::spin();
 	return 0;
 }

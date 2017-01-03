@@ -21,7 +21,7 @@
 #include <pwd.h>
 
 Hntea::XFlocalasr local;
-
+ros::Publisher pub;
 bool start = false;
 bool end = false;
 
@@ -31,7 +31,6 @@ bool end = false;
 void  stateCallback(const std_msgs::String &msgs){
 	if(!strcmp(msgs.data.c_str(),"cache_start")){
 		start = true;
-		std::cout<<"stateCallback back"<<std::endl;
 	}else{
 		end = true;
 	}
@@ -45,7 +44,16 @@ void fileCallback(const std_msgs::String& msg){
 	std::cout<<"fileCallback:"<<std::endl;
 	std::string result;
 	local.runasr(msg.data,result);
-	std::cout<<"fileCallback result = "<<result<<std::endl;
+//	std::cout<<"fileCallback result = "<<result<<std::endl;
+	if(result.empty()){
+		std_msgs::String msgs;
+		msgs.data = "Null";
+		pub.publish(msgs);
+	}else{
+		std_msgs::String msgs;
+		msgs.data = result;
+		pub.publish(msgs);
+	}
 }
 
 
@@ -81,6 +89,7 @@ int main(int argc, char **argv)
 	ros::NodeHandle n;
 	ros::Subscriber sub1 = n.subscribe("asr_brige/cache_state", 1000, stateCallback);
 	ros::Subscriber sub3 = n.subscribe("asr_brige/pcm_file", 10, fileCallback);
+	pub = n.advertise<std_msgs::String>("asr_server/xf/local_f_res",1000);
 	ros::spin();
 	return 0;
 }
