@@ -18,7 +18,7 @@ XFlocalasr::XFlocalasr(XfLocalASR& params):ASR(){
 	composeBuildGrammarParams(params);
 	buildGrammar(params);
 	composeBeginParams(params);
-	rest();
+	reset();
 }
 XFlocalasr::~XFlocalasr(){}
 
@@ -39,7 +39,7 @@ XFlocalasr& XFlocalasr::operator=(const XFlocalasr& another){
 /*
  * 启动/新 会话都必须复位
  * */
-void XFlocalasr::rest(){
+void XFlocalasr::reset(){
 	_state.aud_stat = MSP_AUDIO_SAMPLE_FIRST;			//音频状态
 	_state.ep_stat 	= MSP_EP_LOOKING_FOR_SPEECH;		//端点检测
 	_state.rec_stat = MSP_REC_STATUS_SUCCESS;			//识别状态
@@ -186,7 +186,7 @@ void XFlocalasr::waitAsrComplete(std::string& result){
 	if (MSP_SUCCESS != err)
 	{
 		printf("\n waitAsrComplete() 2-QISRAudioWrite failed, error code:%d\n",err);
-		rest();
+		reset();
 		return;
 	}
 	while (MSP_REC_STATUS_COMPLETE != _state.rec_stat)
@@ -203,7 +203,7 @@ void XFlocalasr::waitAsrComplete(std::string& result){
 		}
 		usleep(150*1000);
 	}
-	rest();
+	reset();
 }
 
 /*
@@ -220,7 +220,7 @@ void XFlocalasr::runasr(std::string file,std::string& result){
 	t.seekg(0, std::ios::end);
 	length = t.tellg();
 	if(length < 1024){
-		rest();			//文件出错，退出并复位
+		reset();			//文件出错，退出并复位
 		return;
 	}
 	t.seekg(0, std::ios::beg);

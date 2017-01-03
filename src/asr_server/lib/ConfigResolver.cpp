@@ -24,9 +24,10 @@ void ConfigResolver::process(){
 	nlohmann::json jload;
 	ifs>>jload;
 	ifs.close();
-	_basic.userWord 		= jload["speechServer"]["xunfei"]["userWordsFilePath"];
+
 	_basic.loginParams 		= jload["speechServer"]["xunfei"]["loginParams"];
 	_online.params 			= jload["speechServer"]["xunfei"]["onlineasr"]["params"];
+	_online.userWord 		= jload["speechServer"]["xunfei"]["onlineasr"]["userWordsFilePath"];
 
 	_local.asr_res_path 	= jload["speechServer"]["xunfei"]["localasr"]["asr_res_path"];
 	_local.engine_type  	= jload["speechServer"]["xunfei"]["localasr"]["engine_type"];

@@ -13,11 +13,11 @@ using namespace std;
 
 typedef struct basic{
 	string  loginParams;			//登录参数
-	string  userWord;				//用户数据表
 }XfBasic;
 
 typedef struct online{
 	string  params;					//在线识别参数
+	string  userWord;				//用户数据表
 }XfOnlineASR;
 
 typedef struct local{

@@ -53,7 +53,7 @@ private:
 	/*
 	 * 会话复位
 	 * */
-	void rest();
+	void reset();
 
 	/*
 	 * 合成语法参数 QISRBuildGrammar() 中的 params
