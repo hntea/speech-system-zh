@@ -75,12 +75,7 @@ public:
 				_16cache.push_back(src[i]);
 			}
 		}
-	}
-
-	static void  stateCallback(const std_msgs::String &msgs){
-		if(std::strcmp(msgs.data.c_str(),"cache_start") == 0){
-			_start = true;
-		}else{
+		if(_end){
 			//写入文件
 			allocalFile(_workspace);
 			Aquila::SignalSource signal(_64cache,_signal.getSampleFrequency());
@@ -98,6 +93,19 @@ public:
 			_64cache.clear();
 			_16cache.clear();
 			_start = false;
+			_end = false;
+		}
+	}
+
+	/*
+	 * 问题：如果连续两个结束标志收到，会导致文件空！
+	 *
+	 * */
+	static void  stateCallback(const std_msgs::String &msgs){
+		if(std::strcmp(msgs.data.c_str(),"cache_start") == 0){
+			_start = true;
+		}else{
+			_end = true;
 		}
 	}
 
@@ -108,7 +116,6 @@ public:
 	 * 			max_id:缓存大小
 	 * */
 	static void allocalFile(std::string workspace,const int max_id = 10){
-
 
 		std::string wav = ".wav";
 		std::string pcm = ".pcm";
@@ -170,7 +177,7 @@ public:
 private:
     ros::NodeHandle _nh;
     ros::Subscriber _sb1,_sb2;
-    static bool _start;
+    static bool _start,_end;
     static int _fileID;
     static std::string _wavfile,_pcmfile,_workspace;
     static std::vector<int16_t> _16cache;
@@ -179,7 +186,8 @@ private:
 
     static Aquila::SignalSource _signal;
 };
-bool FileManager::_start = false;
+bool FileManager::_start = false,
+	 FileManager::_end = false;
 
 int  FileManager::_fileID = 0;
 

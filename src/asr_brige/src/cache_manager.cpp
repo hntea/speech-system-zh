@@ -47,7 +47,7 @@ public:
 		_sb1 = _nh.subscribe(_sub_name1,50,audioDataCallback);
 		_sb2 = _nh.subscribe(_sub_name2,50,vadCallback);
 		_pub1 = _nh.advertise<audio_msgs::AudioData>("asr_brige/cache_data",1000);
-		_pub2 = _nh.advertise<std_msgs::String>("asr_brige/cache_state",10);
+		_pub2 = _nh.advertise<std_msgs::String>("asr_brige/cache_state",1000);
 		ros::spin();
 	}
 	~CacheManger(){
@@ -63,6 +63,7 @@ public:
 		delay_msgs.data_size = msgs.data_size;
 
 		createDelayMessage(delay_msgs,vec);
+		_pub1.publish(delay_msgs);
 		if(_start){
 			pubStateMessage("cache_start");
 			_start = false;
@@ -76,23 +77,29 @@ public:
 			}
 		}
 
-		_pub1.publish(delay_msgs);
+
 	}
 	/*
 	 * 端点检测回调
 	 * 注意：
 	 * 		如果两个消息回调频率过快:如抖动
-	 * 		则认为是误判,连续上次状态
+	 * 		则认为是误判,丢弃该状态！
 	 * */
 	static void  vadCallback(const std_msgs::String &msgs){
+		static bool lock = true;
 		if(std::strcmp(msgs.data.c_str(),"start") == 0){
 			if(isTooFast(500))
 				ROS_INFO("==VAD Translate too false! Noise==");
-			else
+			else{
 				_start = true;
+				lock = false;
+			}
 		}
 		else{
-			_end = true;
+			if(!lock){
+				_end = true;
+				lock = true;
+			}
 			flashTime();
 		}
 	}
