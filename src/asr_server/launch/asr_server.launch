@@ -1,0 +1,39 @@
+<launch>
+
+	<arg name="configfile" default="/home/hntea/.SpeechSystem/config/config.json"/> 
+ 
+   	<!--Using Baidu ASR server -->
+   	<!-- 
+		<node name="baidu_asr" pkg="asr_server" type="baidu_asr.py" output="screen"/>	
+ 	-->
+ 	
+  	<!--Using XunFei ASR server
+  		stream or file,you should select one as follow -->
+  	
+  	<!-- 
+	  	<node name="xf_localasr_stream" pkg="asr_server" type="xf_localasr_stream" output="screen">
+	    		<param name="configfile" value="$(arg name)/>
+	  	</node>
+	-->
+
+	<node name="xf_localasr_file" pkg="asr_server" type="xf_localasr_file" output="screen">
+  		<!--
+    		<param name="configfile" value="$(arg name)/>
+    	-->
+  	</node>
+	
+	
+  	<node name="xf_onlineasr_stream" pkg="asr_server" type="xf_onlineasr_stream" output="screen">
+  		<!--
+    		<param name="configfile" value="$(arg name)/>
+    	-->
+  	</node>
+
+	<!-- 
+	<node name="xf_onlineasr_file" pkg="asr_server" type="xf_onlineasr_file" output="screen">
+    		<param name="configfile" value="$(arg name)/>
+  	</node>
+	-->
+	
+  	
+</launch>
