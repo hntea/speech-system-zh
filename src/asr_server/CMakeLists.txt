@@ -130,15 +130,48 @@ include_directories(
 # add_dependencies(asr_server ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 
-
-## Declare a C++ executable
-add_executable(xf_asr_server 
-	src/xf_asr_server.cpp
+add_executable(xf_localasr_stream 
+	src/xf_localasr_stream.cpp
 	lib/ASR.cpp
 	lib/ConfigResolver.cpp
 	lib/XFlocalasr.cpp
 )
-target_link_libraries(xf_asr_server
+target_link_libraries(xf_localasr_stream
+  ${catkin_LIBRARIES}
+  libmsc.so -ldl -pthread
+)
+
+add_executable(xf_localasr_file 
+	src/xf_localasr_file.cpp
+	lib/ASR.cpp
+	lib/ConfigResolver.cpp
+	lib/XFlocalasr.cpp
+)
+target_link_libraries(xf_localasr_file
+  ${catkin_LIBRARIES}
+  libmsc.so -ldl -pthread
+)
+
+
+add_executable(xf_onlineasr_file 
+	src/xf_onlineasr_file.cpp
+	lib/ASR.cpp
+	lib/ConfigResolver.cpp
+	lib/XFonlineasr.cpp
+)
+target_link_libraries(xf_onlineasr_file
+  ${catkin_LIBRARIES}
+  libmsc.so -ldl -pthread
+)
+
+
+add_executable(xf_onlineasr_stream
+	src/xf_onlineasr_stream.cpp
+	lib/ASR.cpp
+	lib/ConfigResolver.cpp
+	lib/XFonlineasr.cpp
+)
+target_link_libraries(xf_onlineasr_stream
   ${catkin_LIBRARIES}
   libmsc.so -ldl -pthread
 )

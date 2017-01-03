@@ -22,7 +22,7 @@ namespace Hntea {
 class XFlocalasr:public ASR {
 public:
 	XFlocalasr();
-	XFlocalasr(XfLocalASR& params);
+	XFlocalasr(const XfLocalASR& params);
 	virtual ~XFlocalasr();
 
 	XFlocalasr& operator=(const XFlocalasr& another);
@@ -59,7 +59,7 @@ private:
 	 * 合成语法参数 QISRBuildGrammar() 中的 params
 	 * 用于构建语法网络
 	 * */
-	void composeBuildGrammarParams(XfLocalASR& asrparams);
+	void composeBuildGrammarParams(const XfLocalASR& asrparams);
 
 	/*
 	 * 构建语法网络

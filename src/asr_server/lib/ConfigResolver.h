@@ -22,10 +22,14 @@ public:
 	ConfigResolver(std::string file);
 	virtual ~ConfigResolver();
 	void process();
+	XfBasic getXfBasic();
+	XfOnlineASR getXfOnlineParams();
+	XfLocalASR getXfLocalParams();
+
+private:
 	XfBasic _basic;
 	XfOnlineASR _online;
 	XfLocalASR _local;
-private:
 	std::string _file;
 };
 

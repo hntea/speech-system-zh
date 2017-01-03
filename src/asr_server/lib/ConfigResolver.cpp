@@ -14,6 +14,16 @@ ConfigResolver::ConfigResolver(string file):_file(file) {
 }
 ConfigResolver::~ConfigResolver() {}
 
+XfBasic ConfigResolver::getXfBasic(){
+	return this->_basic;
+}
+XfOnlineASR ConfigResolver::getXfOnlineParams(){
+	return this->_online;
+}
+XfLocalASR ConfigResolver::getXfLocalParams(){
+	return this->_local;
+}
+
 void ConfigResolver::process(){
 	std::ifstream ifs(_file);
 	if(!ifs)

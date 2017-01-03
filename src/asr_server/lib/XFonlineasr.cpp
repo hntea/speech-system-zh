@@ -108,6 +108,7 @@ void XFonlineasr::waitAsrComplete(std::string& result){
 		if (MSP_SUCCESS != _state.errcode)
 		{
 			printf("\n waitAsrComplete() 3-QISRGetResult failed, error code: %d\n", _state.errcode);
+			result = "Null";
 			break;
 		}
 		if (NULL != rslt)

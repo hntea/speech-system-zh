@@ -20,7 +20,7 @@ class BaiduASR:
         
         rospy.init_node('baidu_asr', anonymous=True)
         rospy.Subscriber("/asr_brige/pcm_file",String,self.process)
-        self.pub = rospy.Publisher("asr_server/baidu_asr",String,queue_size=10)
+        self.pub = rospy.Publisher("asr_server/baidu/online_f_res",String,queue_size=10)
         rospy.spin()
 
 
@@ -31,7 +31,7 @@ class BaiduASR:
             if(self.isResultValid(result)):
                 self.pub.publish(result)
             else:
-                rospy.loginfo("Oh no! Is noise!")
+                rospy.loginfo("[Baidu Asr] Oh no! Is noise!")
 
     def isResultValid(self,result):
         if result == "Null" or "，":

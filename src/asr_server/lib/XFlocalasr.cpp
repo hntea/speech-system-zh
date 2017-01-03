@@ -14,11 +14,12 @@ XfUserData  XFlocalasr::_userdata;
 XFlocalasr::XFlocalasr():ASR() {
 
 }
-XFlocalasr::XFlocalasr(XfLocalASR& params):ASR(){
+XFlocalasr::XFlocalasr(const XfLocalASR& params):ASR(){
 	composeBuildGrammarParams(params);
 	buildGrammar(params);
 	composeBeginParams(params);
 	reset();
+	cout<<"Ready to run local recognize!"<<endl;
 }
 XFlocalasr::~XFlocalasr(){}
 
@@ -57,7 +58,7 @@ void XFlocalasr::reset(){
  * 合成语法参数 QISRBuildGrammar()
  * 中的 params
  * */
-void XFlocalasr::composeBuildGrammarParams(XfLocalASR& asrparams){
+void XFlocalasr::composeBuildGrammarParams(const XfLocalASR& asrparams){
 	char* buf = new char[512];
 	snprintf(buf, 512,
         "engine_type  = %s, "
@@ -70,7 +71,7 @@ void XFlocalasr::composeBuildGrammarParams(XfLocalASR& asrparams){
 		asrparams.grm_build_path.c_str()
 		);
 	_bgparms = buf;
-	std::cout<<"composeBuildGrammarParams : "<<_bgparms<< std::endl;
+	//std::cout<<"composeBuildGrammarParams : "<<_bgparms<< std::endl;
 	delete []buf;
 }
 /*
@@ -160,7 +161,7 @@ void XFlocalasr::composeBeginParams(const XfLocalASR& asrparams){
 		);
 
 	_begin_params = buf;
-	cout<<endl<<"_begin_params = "<<_begin_params<<endl;
+	//cout<<endl<<"_begin_params = "<<_begin_params<<endl;
     delete []buf;
 }
 
@@ -195,7 +196,9 @@ void XFlocalasr::waitAsrComplete(std::string& result){
 		if (MSP_SUCCESS != _state.errcode)
 		{
 			printf("\n waitAsrComplete() 3-QISRGetResult failed, error code: %d\n", _state.errcode);
+			break;
 		}
+
 		if (NULL != rslt)
 		{
 			_result = rslt;
@@ -237,7 +240,7 @@ void XFlocalasr::runasr(std::string file,std::string& result){
 		//写入第一帧
 		static int frame_cur = 0;
 		const int frame_size = 1024;
-		cout<<"."<<flush;
+		//cout<<"."<<flush;
 		_state.aud_stat = MSP_AUDIO_SAMPLE_CONTINUE;
 		if(frame_cur == 0){
 			_state.aud_stat = MSP_AUDIO_SAMPLE_FIRST;
