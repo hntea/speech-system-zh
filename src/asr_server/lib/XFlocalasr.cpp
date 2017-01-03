@@ -12,16 +12,28 @@ namespace Hntea {
 XfUserData  XFlocalasr::_userdata;
 
 XFlocalasr::XFlocalasr():ASR() {
-	//复位
-
-	//合成语法参数
-
-	//构建识别网络
 
 }
+XFlocalasr::XFlocalasr(XfLocalASR& params):ASR(){
+	composeBuildGrammarParams(params);
+	buildGrammar(params);
+	composeBeginParams(params);
+	rest();
+}
+XFlocalasr::~XFlocalasr(){}
 
-XFlocalasr::~XFlocalasr(){
-	// TODO Auto-generated destructor stub
+
+XFlocalasr& XFlocalasr::operator=(const XFlocalasr& another){
+	if(this == &another)
+		return *this; 				//防止自赋值
+	ASR::operator =(another); 		// 调用父类的赋值运算符重载
+	this->_begin_params = another._begin_params;
+	this->_bgparms = another._bgparms;
+	this->_result = another._result;
+	this->_sid = another._sid;
+	this->_state = another._state;
+	this->_userdata = another._userdata;
+	return *this;
 }
 
 /*
@@ -173,7 +185,7 @@ void XFlocalasr::waitAsrComplete(std::string& result){
 	int err = QISRAudioWrite(_sid.c_str(), NULL, 0, MSP_AUDIO_SAMPLE_LAST,	&_state.ep_stat,&_state.rec_stat);
 	if (MSP_SUCCESS != err)
 	{
-		printf("\nQISRAudioWrite failed, error code:%d\n",err);
+		printf("\n waitAsrComplete() 2-QISRAudioWrite failed, error code:%d\n",err);
 		rest();
 		return;
 	}
@@ -182,12 +194,11 @@ void XFlocalasr::waitAsrComplete(std::string& result){
 		const char* rslt =  QISRGetResult(_sid.c_str(), &_state.rec_stat, 0, &_state.errcode);
 		if (MSP_SUCCESS != _state.errcode)
 		{
-			printf("\nQISRGetResult failed, error code: %d\n", _state.errcode);
+			printf("\n waitAsrComplete() 3-QISRGetResult failed, error code: %d\n", _state.errcode);
 		}
 		if (NULL != rslt)
 		{
 			_result = rslt;
-			cout<<_result<<endl;
 			result = _result;
 		}
 		usleep(150*1000);
@@ -265,7 +276,6 @@ void XFlocalasr::runasr(std::vector<int16_t>& input,std::string& result,bool end
 	//发送起始帧
 	int err;
 	static bool first_frame = true;
-//	cout<<"."<<flush;
 	_state.aud_stat = MSP_AUDIO_SAMPLE_CONTINUE;
 	if(first_frame == true){
 		_state.aud_stat = MSP_AUDIO_SAMPLE_FIRST;
@@ -283,7 +293,7 @@ void XFlocalasr::runasr(std::vector<int16_t>& input,std::string& result,bool end
 	//结束本次会话
 	if (MSP_SUCCESS != err){
 		QISRSessionEnd(_sid.c_str(), NULL);
-		cerr<<"QISRAudioWrite fail ,err = "<<err<<endl;
+		cerr<<"runasr<stream> 1-QISRAudioWrite fail ,err = "<<err<<endl;
 		return;
 	}
 	if (end){

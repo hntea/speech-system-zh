@@ -22,8 +22,34 @@ namespace Hntea {
 class XFlocalasr:public ASR {
 public:
 	XFlocalasr();
+	XFlocalasr(XfLocalASR& params);
 	virtual ~XFlocalasr();
 
+	XFlocalasr& operator=(const XFlocalasr& another);
+
+	/*
+	 * 更新离线语法词典
+	 * */
+	void updateDictionary();
+
+
+	/*
+	 * 语音识别
+	 * 参数说明：
+	 * 			file:识别的音频文件
+	 * */
+	void runasr(std::string file,std::string& result);
+
+	/*
+	 * 语音识别
+	 * 参数说明：
+	 * 			bkinput:识别的音频块
+	 * */
+	void runasr(std::vector<int16_t>& input,std::string& result,bool end);
+
+
+
+private:
 	/*
 	 * 会话复位
 	 * */
@@ -56,32 +82,11 @@ public:
 	void getSid();
 
 	/*
-	 * 更新离线语法词典
-	 * */
-	void updateDictionary();
-
-	/*
 	 * 等待语音识别结束
 	 * */
 	void waitAsrComplete(string& result);
 
-	/*
-	 * 语音识别
-	 * 参数说明：
-	 * 			file:识别的音频文件
-	 * */
-	void runasr(std::string file,std::string& result);
 
-	/*
-	 * 语音识别
-	 * 参数说明：
-	 * 			bkinput:识别的音频块
-	 * */
-	void runasr(std::vector<int16_t>& input,std::string& result,bool end);
-
-
-
-private:
 	XfAsrState 	_state;			//离线命令识别状态
 	string _bgparms;			//语法构建回调ID
 	string _begin_params;		//第一个会话参数
