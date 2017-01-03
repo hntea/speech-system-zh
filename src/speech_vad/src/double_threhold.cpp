@@ -61,8 +61,8 @@ public:
 
 		_sb = _nh.subscribe("audio_zero_crossing",50,zeroCall);
 		_sb2 = _nh.subscribe("audio_energy",50,energyCall);
-		_sb3 = _nh.subscribe("eg_zc_average",2,avgCall);
-		_pub = _nh.advertise<std_msgs::String>("double_threshold_result",20);
+		_sb3 = _nh.subscribe("eg_zc_average",50,avgCall);
+		_pub = _nh.advertise<std_msgs::String>("double_threshold_result",100);
 
 	}
 	virtual ~RosDoubleThrehold(){
