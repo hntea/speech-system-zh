@@ -7,5 +7,6 @@
   	<include file="$(find speech_vad)/launch/double_threshold.launch" />
   	<include file="$(find asr_brige)/launch/brige.launch" />
   	<include file="$(find training_tools)/launch/training.launch" />
+  	<include file="$(find asr_server)/launch/asr_server.launch" />
   	
 </launch>
