@@ -9,7 +9,7 @@
 
 import rospy
 from std_msgs.msg import String
-import BaiduVoiceClientManager as client
+import BaiduASRClientManager as client
 
   
 class BaiduASR:
