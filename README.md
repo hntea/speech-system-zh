@@ -16,22 +16,16 @@
 5. **rqt_plot**： 辅助包打印音频信号
 
 
-##计划完成的功能
-1. 音频采集
-2. 语音信号滤波
-3. 特征提取
-4. rqt_plot画图支持
-3. 语音端点检测
-4. 在线语音识别
+##开发中：
+
 5. 在线语义理解
-6. 在线语音合成
 7. 语音播放
-7. 离线命令词识别
 8. 离线意图推理
 9. 本地与云端资源调度
 
-##包依赖
+##依赖库
 
+###c/c++ 第三方库安装说明
 [ALSA Install](http://blog.csdn.net/u013494117/article/details/52269463)
  
 [c++ json Install](http://blog.csdn.net/u013494117/article/details/53213134)
@@ -40,6 +34,9 @@
 
 **注意**
 Aquila包安装时需要注意：安装后检查 /usr/local/lib/ 目录下是否存在 libOoura_fft.a;如果没有，则需要手动将：/Aquila/build/lib/libOoura_fft.a 复制到上述目录中。
+
+###python 第三方库安装说明
+[python-pinyin](https://github.com/mozillazg/python-pinyin)
 
 ##各包功能说明
 1. **audio_capture ：**
@@ -80,7 +77,7 @@ Aquila包安装时需要注意：安装后检查 /usr/local/lib/ 目录下是否
 
 1. 创建工作目录
 
-	建议在 home 目录下创建 **~/.SpeechSystem/** 并将 speech_server_bace 中的文件复制到此处；科大讯飞的库需要改成自己申请的，把 libmic.so 代替，并且把本地识别库也一并替换。详细目录结构如下所示：
+	建议在 home 目录下创建 **~/.SpeechSystem/** 并将下载科大讯飞 **Linux SDK**，并把 libmic.so 复制到**/usr/local/lib**目录下 ，同时把讯飞 SDK/bin/msc/rec/common.jet 复制到下面的 **xf-source/asr-local-model/asr/**目录下 。详细目录结构如下所示：
 ```
 hntea@HnteaPC:~$ tree ./.SpeechSystem/ -d
 ./.SpeechSystem/
@@ -97,6 +94,7 @@ hntea@HnteaPC:~$ tree ./.SpeechSystem/ -d
         └── 22624bb0d1c739e1b32af5966240821b
 11 directories
 ```
+**注意：凡是用到第三方的语音服务平台，一律使用 config/config.json 文件配置，使用时请配置好自己的资源参数！**
 
 2. 配置启动文件
     
@@ -152,6 +150,10 @@ hntea@HnteaPC:~$ tree ./.SpeechSystem/ -d
    catkin_make .
    ````
 2. 使用示例
+	```
+	roslaunch system_launch system.launch
+	```
+	
 
 
 ##使用示例
