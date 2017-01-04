@@ -172,7 +172,7 @@ void XFonlineasr::runasr(std::string file,std::string& result){
 	err = QISRAudioWrite(_sid.c_str(),(const void*)&buffer[frame_cur],
 			(length-frame_size),MSP_AUDIO_SAMPLE_CONTINUE,&_state.ep_stat,&_state.rec_stat);
 	if (MSP_SUCCESS != err){
-		printf("\nQISRAudioWrite failed, error code:%d\n",err);
+		printf("\n runasr-file-1 QISRAudioWrite failed, error code:%d\n",err);
 		reset();
 	}
 	delete []buffer;
@@ -204,6 +204,8 @@ void XFonlineasr::runasr(std::vector<int16_t>& input,std::string& result,bool en
 		cout<<_sid<<endl;
 		QISRSessionEnd(_sid.c_str(), NULL);
 		cerr<<"runasr<stream> 1-QISRAudioWrite fail ,err = "<<err<<endl;
+		first_frame = true;
+		reset();
 		return;
 	}
 

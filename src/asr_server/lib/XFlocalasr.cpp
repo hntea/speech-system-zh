@@ -297,6 +297,8 @@ void XFlocalasr::runasr(std::vector<int16_t>& input,std::string& result,bool end
 	if (MSP_SUCCESS != err){
 		QISRSessionEnd(_sid.c_str(), NULL);
 		cerr<<"runasr<stream> 1-QISRAudioWrite fail ,err = "<<err<<endl;
+		first_frame = true;
+		reset();
 		return;
 	}
 	if (end){
