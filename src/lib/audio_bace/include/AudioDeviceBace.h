@@ -39,7 +39,7 @@ public:
 	* 参数说明：
 	* 					buf:存储PCM数据
 	* 					size:读取字节数
-	* 	注意：如果需要不同长度的缓存，可以将该函数改成模板，但是模板函数无法分离文件，切记！
+	*
 	* */
 	template <typename T>
 	void read( T* buf,int size);
@@ -53,14 +53,11 @@ public:
 private:
 	std::string _name;
 	enum _MODE _mode;				//录音或播放 0为播放，1为录音
-	_snd_pcm* _handle;					//回话语句柄
-	unsigned int  _rate;					//采样频率
-	char _channle;								//通道数
-	char _sample;								//样本精度
+	_snd_pcm* _handle;				//回话语句柄
+	unsigned int  _rate;			//采样频率
+	char _channle;					//通道数
+	char _sample;					//样本精度
 
-	//缓存
-//	short* _buf;
-//	int _bufsize;
 
 };
 
