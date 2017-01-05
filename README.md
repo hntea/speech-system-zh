@@ -1,10 +1,10 @@
 # speech-system-zh
-###**Author:Hntea-hong   From: Findlab404**
 
-##说明
+
+#说明
 该功能包意在结合ROS框架开发出具有中文语音交互功能的语音交互系统；还在开发中..欢迎有兴趣的伙伴加入！
 
-####系统版本 Ubuntu14.04 / Ros-indigo
+##系统版本 Ubuntu14.04 / Ros-indigo
 
 
 
@@ -22,7 +22,7 @@
 5. **画图辅助**： 打印音频信号
 
 
-##开发中：
+##待开发功能：
 
 7. 语音播放
 8. 离线意图推理
@@ -30,20 +30,21 @@
 
 ##依赖库
 
-###c/c++ 第三方库安装说明
-[ALSA Install](http://blog.csdn.net/u013494117/article/details/52269463)
- 
-[c++ json Install](http://blog.csdn.net/u013494117/article/details/53213134)
-
-[Aquila C++ DSP library](http://aquila-dsp.org/articles/examples/)
+###C/C++ 第三方库安装说明
+####ALSA : [ALSA Install](http://blog.csdn.net/u013494117/article/details/52269463)
+####C\++ Json : [C++ json Install](http://blog.csdn.net/u013494117/article/details/53213134)
+####Aquila : [Aquila C++ DSP library](http://aquila-dsp.org/download/)
+####VLC: `apt-get install libvlccore-dev libvlc-dev`
 
 **注意**
 Aquila包安装时需要注意：安装后检查 /usr/local/lib/ 目录下是否存在 libOoura_fft.a;如果没有，则需要手动将：/Aquila/build/lib/libOoura_fft.a 复制到上述目录中。
 
-###python 第三方库安装说明
-[python-pinyin](https://github.com/mozillazg/python-pinyin)
 
-##各包功能说明
+
+###Python 第三方库安装说明
+####Python-pinyin : [python-pinyin](https://github.com/mozillazg/python-pinyin)
+
+#各包功能说明
 1. **audio_capture ：**
    提供音频捕获功能，只要是通过 ALSA 驱动挂载的音频设备，均可使用该包获取音频信号，默认采样频率16k,单通道、样本长度16位、捕获块大小512字节（建议修改保持256的倍数），各参数可通过启动文件调整
    
@@ -81,7 +82,7 @@ Aquila包安装时需要注意：安装后检查 /usr/local/lib/ 目录下是否
 9. **plot_data**
    该包主要目的是用于配合 rqt_plot 工具，方便分析音频信号
    
-##使用方法
+#使用方法
 
 1. 创建工作目录
 
@@ -165,3 +166,4 @@ hntea@HnteaPC:~$ tree ./.SpeechSystem/ -d
 
 
 ##使用示例
+###**Author:Hntea-hong   From: Findlab404**
