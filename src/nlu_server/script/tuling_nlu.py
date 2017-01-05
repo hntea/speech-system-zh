@@ -27,9 +27,10 @@ class TulingNLU:
 
     def process(self,data):
         print data.data
-        result = self.man.runNLU(data.data)
-        rospy.loginfo(result)
-        self.pub.publish(result) 
+        if data.data != "Null":
+            result = self.man.runNLU(data.data)
+            rospy.loginfo('[TulinNLU: ]'+result)
+            self.pub.publish(result) 
 
 if __name__ == "__main__":
     TulingNLU()
