@@ -127,7 +127,7 @@ class BaiduVoiceClientManager:
             db.close()   
 
 
-    def asrprocess(self,file,formate,rate):
+    def runASR(self,file,formate,rate):
         with open(file,'rb') as f:
             data = f.read()
             filelen = len(data)
