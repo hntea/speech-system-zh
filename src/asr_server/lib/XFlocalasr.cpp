@@ -186,7 +186,7 @@ void XFlocalasr::waitAsrComplete(std::string& result){
 	int err = QISRAudioWrite(_sid.c_str(), NULL, 0, MSP_AUDIO_SAMPLE_LAST,	&_state.ep_stat,&_state.rec_stat);
 	if (MSP_SUCCESS != err)
 	{
-		printf("\n waitAsrComplete() 2-QISRAudioWrite failed, error code:%d\n",err);
+		printf("[XFlocalasr] waitAsrComplete() 2-QISRAudioWrite failed, error code:%d\n",err);
 		reset();
 		return;
 	}
@@ -195,7 +195,7 @@ void XFlocalasr::waitAsrComplete(std::string& result){
 		const char* rslt =  QISRGetResult(_sid.c_str(), &_state.rec_stat, 0, &_state.errcode);
 		if (MSP_SUCCESS != _state.errcode)
 		{
-			printf("\n waitAsrComplete() 3-QISRGetResult failed, error code: %d\n", _state.errcode);
+			printf("[XFlocalasr] waitAsrComplete() 3-QISRGetResult failed, error code: %d\n", _state.errcode);
 			break;
 		}
 
@@ -218,7 +218,7 @@ void XFlocalasr::runasr(std::string file,std::string& result){
 	ifstream t;
 	//获取文件长度
 	unsigned int length;
-	cout<<"asr file is: "<< file <<endl;
+	cout<<"[XFlocalasr] asr file is: "<< file <<endl;
 	t.open(file.c_str());
 	t.seekg(0, std::ios::end);
 	length = t.tellg();
@@ -259,7 +259,7 @@ void XFlocalasr::runasr(std::string file,std::string& result){
 				&_state.rec_stat);
 		if (MSP_SUCCESS != err)
 		{
-			printf("\nQISRAudioWrite failed, error code:%d\n",err);
+			printf("\n [XFlocalasr] QISRAudioWrite failed, error code:%d\n",err);
 			break;
 		}
 		frame_cur += frame_size;
@@ -296,7 +296,7 @@ void XFlocalasr::runasr(std::vector<int16_t>& input,std::string& result,bool end
 	//结束本次会话
 	if (MSP_SUCCESS != err){
 		QISRSessionEnd(_sid.c_str(), NULL);
-		cerr<<"runasr<stream> 1-QISRAudioWrite fail ,err = "<<err<<endl;
+		cerr<<"[XFlocalasr] runasr <block> 1-QISRAudioWrite fail ,err = "<<err<<endl;
 		first_frame = true;
 		reset();
 		return;
