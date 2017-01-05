@@ -1,0 +1,56 @@
+{
+  "robotName" : "黄豆",
+  "mac_address" : "00:23:cd:af:ea:c5",
+
+  "speechServer" : {
+
+    "xunfei" : {
+      "loginParams" : "appid = 5864c12d, work_dir = /home/hntea/.SpeechSystem/xf-source/",
+      "onlineasr":{
+ 	"userWordsFilePath" : "/home/hntea/.SpeechSystem/xf-source/userwords.txt",
+      	"params" : "sub = iat, domain = iat, language = zh_cn, accent = mandarin, sample_rate = 16000, result_type = plain, result_encoding = utf8"
+      },
+      "localasr":{
+       		"engine_type" : "local",
+       		"sample_rate" : 16000,
+       		"result_type" : "xml",
+       		"result_encoding" : "UTF-8", 
+       		"asr_res_path" : "fo|/home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/common.jet",
+       		"grm_build_path" : "/home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/GrmBuilld",
+       		"bnf_file" : "/home/hntea/.SpeechSystem/xf-source/call.bnf",
+		"asr_denoise" : 1,
+		"language" : "zh_cn",
+		"accent" : "mandarin",
+		"vad_enable" : 1,
+		"vad_bos" : 1000,
+		"vad_eos" : 500
+       }
+    },
+
+    "baidu":{
+      "workspace" : "/home/hntea/.SpeechSystem/baidu",
+      "appid" : "8377372",
+      "apikey" : "ZQKcC2sLgwEOlVWSknxVaEbk",
+      "secretkey" : "36b1d1cf593247838cc4246d337544a7",
+      "asrserver" : "http://vop.baidu.com/server_api",
+      "ttsserver" : "http://tsn.baidu.com/text2audio",
+      "ttsParms":{
+      		"tex" : "UTF-8",
+		"lan" : "zh",
+		"ctp" : "1",
+		"cuid" : "00:23:cd:af:ea:c5",
+		"spd" : "5",
+		"pit" : "5",
+		"vol" : "5",
+		"per" : "0"
+       }
+    },
+
+    "tuling":{
+      "use" : false,
+      "server" : "http://www.tuling123.com/openapi/api",
+      "apikey" : "a939719f726e49ec02587eb42a6cd4f7"
+    }
+
+  }
+}
