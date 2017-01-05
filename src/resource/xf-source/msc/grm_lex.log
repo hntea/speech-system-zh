@@ -1,0 +1,645 @@
+============================================================
+Time  2017/01/03 16:00:41 192 
+============================================================
+[2017/01/03 16:00:41 192] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/03 16:00:41 192] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/03 16:00:41 192] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/03 16:00:41 193] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/03 16:00:41 193] grm_lex    251  ISR_MSG_BUILDGRAMMAR  
+[2017/01/03 16:00:41 193] grm_lex    100  grm_type :  bnf  
+[2017/01/03 16:00:41 193] grm_lex    106  engine_type  :  local  
+[2017/01/03 16:00:41 193] grm_lex    106  sample_rate  :  16000  
+[2017/01/03 16:00:41 193] grm_lex    106  asr_res_path  :  fo|/home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/common.jet  
+[2017/01/03 16:00:41 193] grm_lex    106  grm_build_path  :  /home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/GrmBuilld  
+[2017/01/03 16:00:41 215] grm_lex    254  ISR_MSG_BUILDGRAMMAR ret =  0  
+[2017/01/03 16:00:41 304] grm_lex    71   0  call  
+============================================================
+Time  2017/01/03 16:03:44 102 
+============================================================
+[2017/01/03 16:03:44 102] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/03 16:03:44 102] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/03 16:03:44 102] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/03 16:03:44 102] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/03 16:03:44 102] grm_lex    251  ISR_MSG_BUILDGRAMMAR  
+[2017/01/03 16:03:44 102] grm_lex    100  grm_type :  bnf  
+[2017/01/03 16:03:44 102] grm_lex    106  engine_type  :  local  
+[2017/01/03 16:03:44 102] grm_lex    106  sample_rate  :  16000  
+[2017/01/03 16:03:44 102] grm_lex    106  asr_res_path  :  fo|/home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/common.jet  
+[2017/01/03 16:03:44 102] grm_lex    106  grm_build_path  :  /home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/GrmBuilld  
+[2017/01/03 16:03:44 103] grm_lex    254  ISR_MSG_BUILDGRAMMAR ret =  0  
+[2017/01/03 16:03:44 118] grm_lex    71   0  call  
+============================================================
+Time  2017/01/03 16:04:02 790 
+============================================================
+[2017/01/03 16:04:02 790] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/03 16:04:02 790] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/03 16:04:02 790] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/03 16:04:02 790] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/03 16:04:02 790] grm_lex    251  ISR_MSG_BUILDGRAMMAR  
+[2017/01/03 16:04:02 790] grm_lex    100  grm_type :  bnf  
+[2017/01/03 16:04:02 790] grm_lex    106  engine_type  :  local  
+[2017/01/03 16:04:02 790] grm_lex    106  sample_rate  :  16000  
+[2017/01/03 16:04:02 790] grm_lex    106  asr_res_path  :  fo|/home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/common.jet  
+[2017/01/03 16:04:02 790] grm_lex    106  grm_build_path  :  /home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/GrmBuilld  
+[2017/01/03 16:04:02 791] grm_lex    254  ISR_MSG_BUILDGRAMMAR ret =  0  
+[2017/01/03 16:04:02 806] grm_lex    71   0  call  
+============================================================
+Time  2017/01/03 16:05:13 520 
+============================================================
+[2017/01/03 16:05:13 520] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/03 16:05:13 520] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/03 16:05:13 520] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/03 16:05:13 520] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/03 16:05:13 520] grm_lex    251  ISR_MSG_BUILDGRAMMAR  
+[2017/01/03 16:05:13 520] grm_lex    100  grm_type :  bnf  
+[2017/01/03 16:05:13 521] grm_lex    106  engine_type  :  local  
+[2017/01/03 16:05:13 521] grm_lex    106  sample_rate  :  16000  
+[2017/01/03 16:05:13 521] grm_lex    106  asr_res_path  :  fo|/home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/common.jet  
+[2017/01/03 16:05:13 521] grm_lex    106  grm_build_path  :  /home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/GrmBuilld  
+[2017/01/03 16:05:13 523] grm_lex    254  ISR_MSG_BUILDGRAMMAR ret =  0  
+[2017/01/03 16:05:13 538] grm_lex    71   0  call  
+============================================================
+Time  2017/01/03 16:05:36 780 
+============================================================
+[2017/01/03 16:05:36 780] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/03 16:05:36 780] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/03 16:05:36 780] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/03 16:05:36 781] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/03 16:05:36 781] grm_lex    251  ISR_MSG_BUILDGRAMMAR  
+[2017/01/03 16:05:36 781] grm_lex    100  grm_type :  bnf  
+[2017/01/03 16:05:36 781] grm_lex    106  engine_type  :  local  
+[2017/01/03 16:05:36 781] grm_lex    106  sample_rate  :  16000  
+[2017/01/03 16:05:36 781] grm_lex    106  asr_res_path  :  fo|/home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/common.jet  
+[2017/01/03 16:05:36 781] grm_lex    106  grm_build_path  :  /home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/GrmBuilld  
+[2017/01/03 16:05:36 788] grm_lex    254  ISR_MSG_BUILDGRAMMAR ret =  0  
+[2017/01/03 16:05:36 803] grm_lex    71   0  call  
+============================================================
+Time  2017/01/03 16:09:24 290 
+============================================================
+[2017/01/03 16:09:24 290] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/03 16:09:24 290] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/03 16:09:24 290] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/03 16:09:24 290] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/03 16:09:24 290] grm_lex    251  ISR_MSG_BUILDGRAMMAR  
+[2017/01/03 16:09:24 290] grm_lex    100  grm_type :  bnf  
+[2017/01/03 16:09:24 290] grm_lex    106  engine_type  :  local  
+[2017/01/03 16:09:24 290] grm_lex    106  sample_rate  :  16000  
+[2017/01/03 16:09:24 290] grm_lex    106  asr_res_path  :  fo|/home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/common.jet  
+[2017/01/03 16:09:24 290] grm_lex    106  grm_build_path  :  /home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/GrmBuilld  
+[2017/01/03 16:09:24 291] grm_lex    254  ISR_MSG_BUILDGRAMMAR ret =  0  
+[2017/01/03 16:09:24 337] grm_lex    71   0  call  
+============================================================
+Time  2017/01/03 16:20:22 384 
+============================================================
+[2017/01/03 16:20:22 384] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/03 16:20:22 384] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/03 16:20:22 384] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/03 16:20:22 384] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/03 16:20:22 384] grm_lex    251  ISR_MSG_BUILDGRAMMAR  
+[2017/01/03 16:20:22 384] grm_lex    100  grm_type :  bnf  
+[2017/01/03 16:20:22 384] grm_lex    106  engine_type  :  local  
+[2017/01/03 16:20:22 384] grm_lex    106  sample_rate  :  16000  
+[2017/01/03 16:20:22 384] grm_lex    106  asr_res_path  :  fo|/home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/common.jet  
+[2017/01/03 16:20:22 384] grm_lex    106  grm_build_path  :  /home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/GrmBuilld  
+[2017/01/03 16:20:22 385] grm_lex    254  ISR_MSG_BUILDGRAMMAR ret =  0  
+[2017/01/03 16:20:22 406] grm_lex    71   0  call  
+============================================================
+Time  2017/01/03 16:23:34 263 
+============================================================
+[2017/01/03 16:23:34 263] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/03 16:23:34 263] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/03 16:23:34 263] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/03 16:23:34 264] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/03 16:23:34 266] grm_lex    251  ISR_MSG_BUILDGRAMMAR  
+[2017/01/03 16:23:34 266] grm_lex    100  grm_type :  bnf  
+[2017/01/03 16:23:34 266] grm_lex    106  engine_type  :  local  
+[2017/01/03 16:23:34 266] grm_lex    106  sample_rate  :  16000  
+[2017/01/03 16:23:34 266] grm_lex    106  asr_res_path  :  fo|/home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/common.jet  
+[2017/01/03 16:23:34 266] grm_lex    106  grm_build_path  :  /home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/GrmBuilld  
+[2017/01/03 16:23:34 267] grm_lex    254  ISR_MSG_BUILDGRAMMAR ret =  0  
+[2017/01/03 16:23:34 287] grm_lex    71   0  call  
+============================================================
+Time  2017/01/03 16:27:34 609 
+============================================================
+[2017/01/03 16:27:34 609] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/03 16:27:34 609] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/03 16:27:34 609] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/03 16:27:34 609] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/03 16:27:34 611] grm_lex    251  ISR_MSG_BUILDGRAMMAR  
+[2017/01/03 16:27:34 611] grm_lex    100  grm_type :  bnf  
+[2017/01/03 16:27:34 611] grm_lex    106  engine_type  :  local  
+[2017/01/03 16:27:34 611] grm_lex    106  sample_rate  :  16000  
+[2017/01/03 16:27:34 611] grm_lex    106  asr_res_path  :  fo|/home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/common.jet  
+[2017/01/03 16:27:34 611] grm_lex    106  grm_build_path  :  /home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/GrmBuilld  
+[2017/01/03 16:27:34 612] grm_lex    254  ISR_MSG_BUILDGRAMMAR ret =  0  
+[2017/01/03 16:27:34 626] grm_lex    71   0  call  
+============================================================
+Time  2017/01/03 16:28:08 136 
+============================================================
+[2017/01/03 16:28:08 136] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/03 16:28:08 136] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/03 16:28:08 136] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/03 16:28:08 136] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/03 16:28:08 136] grm_lex    251  ISR_MSG_BUILDGRAMMAR  
+[2017/01/03 16:28:08 136] grm_lex    100  grm_type :  bnf  
+[2017/01/03 16:28:08 136] grm_lex    106  engine_type  :  local  
+[2017/01/03 16:28:08 136] grm_lex    106  sample_rate  :  16000  
+[2017/01/03 16:28:08 136] grm_lex    106  asr_res_path  :  fo|/home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/common.jet  
+[2017/01/03 16:28:08 136] grm_lex    106  grm_build_path  :  /home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/GrmBuilld  
+[2017/01/03 16:28:08 140] grm_lex    254  ISR_MSG_BUILDGRAMMAR ret =  0  
+[2017/01/03 16:28:08 150] grm_lex    71   0  call  
+============================================================
+Time  2017/01/03 16:29:00 052 
+============================================================
+[2017/01/03 16:29:00 052] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/03 16:29:00 052] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/03 16:29:00 052] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/03 16:29:00 052] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/03 16:29:00 052] grm_lex    251  ISR_MSG_BUILDGRAMMAR  
+[2017/01/03 16:29:00 052] grm_lex    100  grm_type :  bnf  
+[2017/01/03 16:29:00 052] grm_lex    106  engine_type  :  local  
+[2017/01/03 16:29:00 052] grm_lex    106  sample_rate  :  16000  
+[2017/01/03 16:29:00 052] grm_lex    106  asr_res_path  :  fo|/home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/common.jet  
+[2017/01/03 16:29:00 052] grm_lex    106  grm_build_path  :  /home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/GrmBuilld  
+[2017/01/03 16:29:00 053] grm_lex    254  ISR_MSG_BUILDGRAMMAR ret =  0  
+[2017/01/03 16:29:00 075] grm_lex    71   0  call  
+============================================================
+Time  2017/01/03 16:30:14 889 
+============================================================
+[2017/01/03 16:30:14 889] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/03 16:30:14 889] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/03 16:30:14 889] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/03 16:30:14 889] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/03 16:30:14 889] grm_lex    251  ISR_MSG_BUILDGRAMMAR  
+[2017/01/03 16:30:14 889] grm_lex    100  grm_type :  bnf  
+[2017/01/03 16:30:14 889] grm_lex    106  engine_type  :  local  
+[2017/01/03 16:30:14 889] grm_lex    106  sample_rate  :  16000  
+[2017/01/03 16:30:14 889] grm_lex    106  asr_res_path  :  fo|/home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/common.jet  
+[2017/01/03 16:30:14 889] grm_lex    106  grm_build_path  :  /home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/GrmBuilld  
+[2017/01/03 16:30:14 897] grm_lex    254  ISR_MSG_BUILDGRAMMAR ret =  0  
+[2017/01/03 16:30:14 919] grm_lex    71   0  call  
+============================================================
+Time  2017/01/03 16:30:55 462 
+============================================================
+[2017/01/03 16:30:55 462] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/03 16:30:55 462] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/03 16:30:55 462] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/03 16:30:55 462] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/03 16:30:55 462] grm_lex    251  ISR_MSG_BUILDGRAMMAR  
+[2017/01/03 16:30:55 462] grm_lex    100  grm_type :  bnf  
+[2017/01/03 16:30:55 462] grm_lex    106  engine_type  :  local  
+[2017/01/03 16:30:55 462] grm_lex    106  sample_rate  :  16000  
+[2017/01/03 16:30:55 462] grm_lex    106  asr_res_path  :  fo|/home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/common.jet  
+[2017/01/03 16:30:55 462] grm_lex    106  grm_build_path  :  /home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/GrmBuilld  
+[2017/01/03 16:30:55 463] grm_lex    254  ISR_MSG_BUILDGRAMMAR ret =  0  
+[2017/01/03 16:30:55 475] grm_lex    71   0  call  
+============================================================
+Time  2017/01/03 16:42:01 603 
+============================================================
+[2017/01/03 16:42:01 603] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/03 16:42:01 603] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/03 16:42:01 603] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/03 16:42:01 603] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/03 16:42:01 603] grm_lex    251  ISR_MSG_BUILDGRAMMAR  
+[2017/01/03 16:42:01 603] grm_lex    100  grm_type :  bnf  
+[2017/01/03 16:42:01 603] grm_lex    106  engine_type  :  local  
+[2017/01/03 16:42:01 603] grm_lex    106  sample_rate  :  16000  
+[2017/01/03 16:42:01 603] grm_lex    106  asr_res_path  :  fo|/home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/common.jet  
+[2017/01/03 16:42:01 603] grm_lex    106  grm_build_path  :  /home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/GrmBuilld  
+[2017/01/03 16:42:01 604] grm_lex    254  ISR_MSG_BUILDGRAMMAR ret =  0  
+[2017/01/03 16:42:01 619] grm_lex    71   0  call  
+============================================================
+Time  2017/01/03 16:42:44 721 
+============================================================
+[2017/01/03 16:42:44 721] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/03 16:42:44 721] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/03 16:42:44 721] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/03 16:42:44 721] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/03 16:42:44 721] grm_lex    251  ISR_MSG_BUILDGRAMMAR  
+[2017/01/03 16:42:44 721] grm_lex    100  grm_type :  bnf  
+[2017/01/03 16:42:44 721] grm_lex    106  engine_type  :  local  
+[2017/01/03 16:42:44 721] grm_lex    106  sample_rate  :  16000  
+[2017/01/03 16:42:44 721] grm_lex    106  asr_res_path  :  fo|/home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/common.jet  
+[2017/01/03 16:42:44 721] grm_lex    106  grm_build_path  :  /home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/GrmBuilld  
+[2017/01/03 16:42:44 722] grm_lex    254  ISR_MSG_BUILDGRAMMAR ret =  0  
+[2017/01/03 16:42:44 746] grm_lex    71   0  call  
+============================================================
+Time  2017/01/03 16:45:03 150 
+============================================================
+[2017/01/03 16:45:03 150] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/03 16:45:03 150] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/03 16:45:03 150] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/03 16:45:03 150] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/03 16:45:03 150] grm_lex    251  ISR_MSG_BUILDGRAMMAR  
+[2017/01/03 16:45:03 150] grm_lex    100  grm_type :  bnf  
+[2017/01/03 16:45:03 150] grm_lex    106  engine_type  :  local  
+[2017/01/03 16:45:03 150] grm_lex    106  sample_rate  :  16000  
+[2017/01/03 16:45:03 150] grm_lex    106  asr_res_path  :  fo|/home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/common.jet  
+[2017/01/03 16:45:03 150] grm_lex    106  grm_build_path  :  /home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/GrmBuilld  
+[2017/01/03 16:45:03 151] grm_lex    254  ISR_MSG_BUILDGRAMMAR ret =  0  
+[2017/01/03 16:45:03 160] grm_lex    71   0  call  
+============================================================
+Time  2017/01/03 16:46:16 681 
+============================================================
+[2017/01/03 16:46:16 681] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/03 16:46:16 681] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/03 16:46:16 681] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/03 16:46:16 681] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/03 16:46:16 681] grm_lex    251  ISR_MSG_BUILDGRAMMAR  
+[2017/01/03 16:46:16 681] grm_lex    100  grm_type :  bnf  
+[2017/01/03 16:46:16 681] grm_lex    106  engine_type  :  local  
+[2017/01/03 16:46:16 681] grm_lex    106  sample_rate  :  16000  
+[2017/01/03 16:46:16 681] grm_lex    106  asr_res_path  :  fo|/home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/common.jet  
+[2017/01/03 16:46:16 681] grm_lex    106  grm_build_path  :  /home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/GrmBuilld  
+[2017/01/03 16:46:16 682] grm_lex    254  ISR_MSG_BUILDGRAMMAR ret =  0  
+[2017/01/03 16:46:16 698] grm_lex    71   0  call  
+============================================================
+Time  2017/01/03 17:14:56 115 
+============================================================
+[2017/01/03 17:14:56 115] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/03 17:14:56 115] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/03 17:14:56 115] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/03 17:14:56 115] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/03 17:14:56 115] grm_lex    251  ISR_MSG_BUILDGRAMMAR  
+[2017/01/03 17:14:56 115] grm_lex    100  grm_type :  bnf  
+[2017/01/03 17:14:56 115] grm_lex    106  engine_type  :  local  
+[2017/01/03 17:14:56 115] grm_lex    106  sample_rate  :  16000  
+[2017/01/03 17:14:56 115] grm_lex    106  asr_res_path  :  fo|/home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/common.jet  
+[2017/01/03 17:14:56 115] grm_lex    106  grm_build_path  :  /home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/GrmBuilld  
+[2017/01/03 17:14:56 116] grm_lex    254  ISR_MSG_BUILDGRAMMAR ret =  0  
+[2017/01/03 17:14:56 133] grm_lex    71   0  call  
+============================================================
+Time  2017/01/03 17:16:36 998 
+============================================================
+[2017/01/03 17:16:36 998] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/03 17:16:36 998] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/03 17:16:36 998] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/03 17:16:36 998] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/03 17:16:36 998] grm_lex    251  ISR_MSG_BUILDGRAMMAR  
+[2017/01/03 17:16:36 998] grm_lex    100  grm_type :  bnf  
+[2017/01/03 17:16:36 998] grm_lex    106  engine_type  :  local  
+[2017/01/03 17:16:36 998] grm_lex    106  sample_rate  :  16000  
+[2017/01/03 17:16:36 998] grm_lex    106  asr_res_path  :  fo|/home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/common.jet  
+[2017/01/03 17:16:36 998] grm_lex    106  grm_build_path  :  /home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/GrmBuilld  
+[2017/01/03 17:16:36 999] grm_lex    254  ISR_MSG_BUILDGRAMMAR ret =  0  
+[2017/01/03 17:16:37 015] grm_lex    71   0  call  
+============================================================
+Time  2017/01/03 17:17:38 362 
+============================================================
+[2017/01/03 17:17:38 362] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/03 17:17:38 362] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/03 17:17:38 362] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/03 17:17:38 362] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/03 17:17:38 362] grm_lex    251  ISR_MSG_BUILDGRAMMAR  
+[2017/01/03 17:17:38 362] grm_lex    100  grm_type :  bnf  
+[2017/01/03 17:17:38 362] grm_lex    106  engine_type  :  local  
+[2017/01/03 17:17:38 362] grm_lex    106  sample_rate  :  16000  
+[2017/01/03 17:17:38 362] grm_lex    106  asr_res_path  :  fo|/home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/common.jet  
+[2017/01/03 17:17:38 363] grm_lex    106  grm_build_path  :  /home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/GrmBuilld  
+[2017/01/03 17:17:38 363] grm_lex    254  ISR_MSG_BUILDGRAMMAR ret =  0  
+[2017/01/03 17:17:38 374] grm_lex    71   0  call  
+============================================================
+Time  2017/01/03 17:19:16 852 
+============================================================
+[2017/01/03 17:19:16 852] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/03 17:19:16 852] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/03 17:19:16 852] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/03 17:19:16 862] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/03 17:19:16 862] grm_lex    251  ISR_MSG_BUILDGRAMMAR  
+[2017/01/03 17:19:16 862] grm_lex    100  grm_type :  bnf  
+[2017/01/03 17:19:16 862] grm_lex    106  engine_type  :  local  
+[2017/01/03 17:19:16 862] grm_lex    106  sample_rate  :  16000  
+[2017/01/03 17:19:16 862] grm_lex    106  asr_res_path  :  fo|/home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/common.jet  
+[2017/01/03 17:19:16 862] grm_lex    106  grm_build_path  :  /home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/GrmBuilld  
+[2017/01/03 17:19:16 863] grm_lex    254  ISR_MSG_BUILDGRAMMAR ret =  0  
+[2017/01/03 17:19:16 875] grm_lex    71   0  call  
+============================================================
+Time  2017/01/03 17:20:54 563 
+============================================================
+[2017/01/03 17:20:54 563] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/03 17:20:54 563] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/03 17:20:54 563] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/03 17:20:54 563] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/03 17:20:54 563] grm_lex    251  ISR_MSG_BUILDGRAMMAR  
+[2017/01/03 17:20:54 563] grm_lex    100  grm_type :  bnf  
+[2017/01/03 17:20:54 563] grm_lex    106  engine_type  :  local  
+[2017/01/03 17:20:54 563] grm_lex    106  sample_rate  :  16000  
+[2017/01/03 17:20:54 563] grm_lex    106  asr_res_path  :  fo|/home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/common.jet  
+[2017/01/03 17:20:54 563] grm_lex    106  grm_build_path  :  /home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/GrmBuilld  
+[2017/01/03 17:20:54 565] grm_lex    254  ISR_MSG_BUILDGRAMMAR ret =  0  
+[2017/01/03 17:20:54 582] grm_lex    71   0  call  
+============================================================
+Time  2017/01/03 17:24:44 789 
+============================================================
+[2017/01/03 17:24:44 789] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/03 17:24:44 789] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/03 17:24:44 789] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/03 17:24:44 789] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/03 17:24:44 789] grm_lex    251  ISR_MSG_BUILDGRAMMAR  
+[2017/01/03 17:24:44 789] grm_lex    100  grm_type :  bnf  
+[2017/01/03 17:24:44 789] grm_lex    106  engine_type  :  local  
+[2017/01/03 17:24:44 789] grm_lex    106  sample_rate  :  16000  
+[2017/01/03 17:24:44 789] grm_lex    106  asr_res_path  :  fo|/home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/common.jet  
+[2017/01/03 17:24:44 789] grm_lex    106  grm_build_path  :  /home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/GrmBuilld  
+[2017/01/03 17:24:44 790] grm_lex    254  ISR_MSG_BUILDGRAMMAR ret =  0  
+[2017/01/03 17:24:44 803] grm_lex    71   0  call  
+============================================================
+Time  2017/01/03 17:25:47 843 
+============================================================
+[2017/01/03 17:25:47 843] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/03 17:25:47 843] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/03 17:25:47 843] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/03 17:25:47 843] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/03 17:25:47 843] grm_lex    251  ISR_MSG_BUILDGRAMMAR  
+[2017/01/03 17:25:47 843] grm_lex    100  grm_type :  bnf  
+[2017/01/03 17:25:47 843] grm_lex    106  engine_type  :  local  
+[2017/01/03 17:25:47 843] grm_lex    106  sample_rate  :  16000  
+[2017/01/03 17:25:47 843] grm_lex    106  asr_res_path  :  fo|/home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/common.jet  
+[2017/01/03 17:25:47 843] grm_lex    106  grm_build_path  :  /home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/GrmBuilld  
+[2017/01/03 17:25:47 849] grm_lex    254  ISR_MSG_BUILDGRAMMAR ret =  0  
+[2017/01/03 17:25:47 858] grm_lex    71   0  call  
+============================================================
+Time  2017/01/03 17:28:36 018 
+============================================================
+[2017/01/03 17:28:36 018] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/03 17:28:36 018] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/03 17:28:36 018] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/03 17:28:36 018] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/03 17:28:36 018] grm_lex    251  ISR_MSG_BUILDGRAMMAR  
+[2017/01/03 17:28:36 018] grm_lex    100  grm_type :  bnf  
+[2017/01/03 17:28:36 018] grm_lex    106  engine_type  :  local  
+[2017/01/03 17:28:36 018] grm_lex    106  sample_rate  :  16000  
+[2017/01/03 17:28:36 018] grm_lex    106  asr_res_path  :  fo|/home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/common.jet  
+[2017/01/03 17:28:36 018] grm_lex    106  grm_build_path  :  /home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/GrmBuilld  
+[2017/01/03 17:28:36 019] grm_lex    254  ISR_MSG_BUILDGRAMMAR ret =  0  
+[2017/01/03 17:28:36 040] grm_lex    71   0  call  
+============================================================
+Time  2017/01/03 17:33:32 632 
+============================================================
+[2017/01/03 17:33:32 632] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/03 17:33:32 632] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/03 17:33:32 632] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/03 17:33:32 632] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/03 17:33:32 632] grm_lex    251  ISR_MSG_BUILDGRAMMAR  
+[2017/01/03 17:33:32 632] grm_lex    100  grm_type :  bnf  
+[2017/01/03 17:33:32 632] grm_lex    106  engine_type  :  local  
+[2017/01/03 17:33:32 632] grm_lex    106  sample_rate  :  16000  
+[2017/01/03 17:33:32 632] grm_lex    106  asr_res_path  :  fo|/home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/common.jet  
+[2017/01/03 17:33:32 632] grm_lex    106  grm_build_path  :  /home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/GrmBuilld  
+[2017/01/03 17:33:32 633] grm_lex    254  ISR_MSG_BUILDGRAMMAR ret =  0  
+[2017/01/03 17:33:32 649] grm_lex    71   0  call  
+============================================================
+Time  2017/01/03 17:37:59 643 
+============================================================
+[2017/01/03 17:37:59 643] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/03 17:37:59 643] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/03 17:37:59 643] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/03 17:37:59 643] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/03 17:37:59 643] grm_lex    251  ISR_MSG_BUILDGRAMMAR  
+[2017/01/03 17:37:59 643] grm_lex    100  grm_type :  bnf  
+[2017/01/03 17:37:59 643] grm_lex    106  engine_type  :  local  
+[2017/01/03 17:37:59 643] grm_lex    106  sample_rate  :  16000  
+[2017/01/03 17:37:59 643] grm_lex    106  asr_res_path  :  fo|/home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/common.jet  
+[2017/01/03 17:37:59 643] grm_lex    106  grm_build_path  :  /home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/GrmBuilld  
+[2017/01/03 17:37:59 645] grm_lex    254  ISR_MSG_BUILDGRAMMAR ret =  0  
+[2017/01/03 17:37:59 661] grm_lex    71   0  call  
+============================================================
+Time  2017/01/03 17:38:29 672 
+============================================================
+[2017/01/03 17:38:29 672] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/03 17:38:29 672] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/03 17:38:29 672] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/03 17:38:29 672] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/03 17:38:29 672] grm_lex    251  ISR_MSG_BUILDGRAMMAR  
+[2017/01/03 17:38:29 672] grm_lex    100  grm_type :  bnf  
+[2017/01/03 17:38:29 672] grm_lex    106  engine_type  :  local  
+[2017/01/03 17:38:29 672] grm_lex    106  sample_rate  :  16000  
+[2017/01/03 17:38:29 672] grm_lex    106  asr_res_path  :  fo|/home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/common.jet  
+[2017/01/03 17:38:29 672] grm_lex    106  grm_build_path  :  /home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/GrmBuilld  
+[2017/01/03 17:38:29 673] grm_lex    254  ISR_MSG_BUILDGRAMMAR ret =  0  
+[2017/01/03 17:38:29 694] grm_lex    71   0  call  
+============================================================
+Time  2017/01/03 17:48:54 493 
+============================================================
+[2017/01/03 17:48:54 493] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/03 17:48:54 493] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/03 17:48:54 493] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/03 17:48:54 493] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/03 17:48:54 493] grm_lex    251  ISR_MSG_BUILDGRAMMAR  
+[2017/01/03 17:48:54 493] grm_lex    100  grm_type :  bnf  
+[2017/01/03 17:48:54 493] grm_lex    106  engine_type  :  local  
+[2017/01/03 17:48:54 493] grm_lex    106  sample_rate  :  16000  
+[2017/01/03 17:48:54 493] grm_lex    106  asr_res_path  :  fo|/home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/common.jet  
+[2017/01/03 17:48:54 493] grm_lex    106  grm_build_path  :  /home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/GrmBuilld  
+[2017/01/03 17:48:54 494] grm_lex    254  ISR_MSG_BUILDGRAMMAR ret =  0  
+[2017/01/03 17:48:54 506] grm_lex    71   0  call  
+============================================================
+Time  2017/01/03 17:52:58 015 
+============================================================
+[2017/01/03 17:52:58 015] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/03 17:52:58 015] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/03 17:52:58 015] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/03 17:52:58 015] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/03 17:52:58 015] grm_lex    251  ISR_MSG_BUILDGRAMMAR  
+[2017/01/03 17:52:58 015] grm_lex    100  grm_type :  bnf  
+[2017/01/03 17:52:58 015] grm_lex    106  engine_type  :  local  
+[2017/01/03 17:52:58 015] grm_lex    106  sample_rate  :  16000  
+[2017/01/03 17:52:58 015] grm_lex    106  asr_res_path  :  fo|/home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/common.jet  
+[2017/01/03 17:52:58 015] grm_lex    106  grm_build_path  :  /home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/GrmBuilld  
+[2017/01/03 17:52:58 020] grm_lex    254  ISR_MSG_BUILDGRAMMAR ret =  0  
+[2017/01/03 17:52:58 027] grm_lex    71   0  call  
+============================================================
+Time  2017/01/03 19:13:39 387 
+============================================================
+[2017/01/03 19:13:39 387] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/03 19:13:39 388] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/03 19:13:39 388] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/03 19:13:39 388] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/03 19:13:39 388] grm_lex    251  ISR_MSG_BUILDGRAMMAR  
+[2017/01/03 19:13:39 388] grm_lex    100  grm_type :  bnf  
+[2017/01/03 19:13:39 388] grm_lex    106  engine_type  :  local  
+[2017/01/03 19:13:39 388] grm_lex    106  sample_rate  :  16000  
+[2017/01/03 19:13:39 388] grm_lex    106  asr_res_path  :  fo|/home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/common.jet  
+[2017/01/03 19:13:39 388] grm_lex    106  grm_build_path  :  /home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/GrmBuilld  
+[2017/01/03 19:13:39 389] grm_lex    254  ISR_MSG_BUILDGRAMMAR ret =  0  
+[2017/01/03 19:13:39 400] grm_lex    71   0  call  
+============================================================
+Time  2017/01/03 19:30:03 342 
+============================================================
+[2017/01/03 19:30:03 342] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/03 19:30:03 342] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/03 19:30:03 342] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/03 19:30:03 347] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/03 19:30:03 347] grm_lex    251  ISR_MSG_BUILDGRAMMAR  
+[2017/01/03 19:30:03 347] grm_lex    100  grm_type :  bnf  
+[2017/01/03 19:30:03 347] grm_lex    106  engine_type  :  local  
+[2017/01/03 19:30:03 347] grm_lex    106  sample_rate  :  16000  
+[2017/01/03 19:30:03 347] grm_lex    106  asr_res_path  :  fo|/home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/common.jet  
+[2017/01/03 19:30:03 347] grm_lex    106  grm_build_path  :  /home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/GrmBuilld  
+[2017/01/03 19:30:03 348] grm_lex    254  ISR_MSG_BUILDGRAMMAR ret =  0  
+[2017/01/03 19:30:03 360] grm_lex    71   0  call  
+============================================================
+Time  2017/01/03 19:36:22 639 
+============================================================
+[2017/01/03 19:36:22 639] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/03 19:36:22 639] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/03 19:36:22 639] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/03 19:36:22 639] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/03 19:36:22 639] grm_lex    251  ISR_MSG_BUILDGRAMMAR  
+[2017/01/03 19:36:22 639] grm_lex    100  grm_type :  bnf  
+[2017/01/03 19:36:22 639] grm_lex    106  engine_type  :  local  
+[2017/01/03 19:36:22 639] grm_lex    106  sample_rate  :  16000  
+[2017/01/03 19:36:22 639] grm_lex    106  asr_res_path  :  fo|/home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/common.jet  
+[2017/01/03 19:36:22 639] grm_lex    106  grm_build_path  :  /home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/GrmBuilld  
+[2017/01/03 19:36:22 640] grm_lex    254  ISR_MSG_BUILDGRAMMAR ret =  0  
+[2017/01/03 19:36:22 664] grm_lex    71   0  call  
+============================================================
+Time  2017/01/03 19:39:12 827 
+============================================================
+[2017/01/03 19:39:12 827] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/03 19:39:12 827] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/03 19:39:12 827] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/03 19:39:12 827] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/03 19:39:12 827] grm_lex    251  ISR_MSG_BUILDGRAMMAR  
+[2017/01/03 19:39:12 828] grm_lex    100  grm_type :  bnf  
+[2017/01/03 19:39:12 828] grm_lex    106  engine_type  :  local  
+[2017/01/03 19:39:12 828] grm_lex    106  sample_rate  :  16000  
+[2017/01/03 19:39:12 828] grm_lex    106  asr_res_path  :  fo|/home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/common.jet  
+[2017/01/03 19:39:12 828] grm_lex    106  grm_build_path  :  /home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/GrmBuilld  
+[2017/01/03 19:39:12 828] grm_lex    254  ISR_MSG_BUILDGRAMMAR ret =  0  
+[2017/01/03 19:39:12 855] grm_lex    71   0  call  
+============================================================
+Time  2017/01/04 14:33:53 856 
+============================================================
+[2017/01/04 14:33:53 856] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/04 14:33:53 856] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/04 14:33:53 856] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/04 14:33:53 856] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/04 14:33:53 856] grm_lex    251  ISR_MSG_BUILDGRAMMAR  
+[2017/01/04 14:33:53 856] grm_lex    100  grm_type :  bnf  
+[2017/01/04 14:33:53 856] grm_lex    106  engine_type  :  local  
+[2017/01/04 14:33:53 856] grm_lex    106  sample_rate  :  16000  
+[2017/01/04 14:33:53 856] grm_lex    106  asr_res_path  :  fo|/home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/common.jet  
+[2017/01/04 14:33:53 856] grm_lex    106  grm_build_path  :  /home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/GrmBuilld  
+[2017/01/04 14:33:53 863] grm_lex    254  ISR_MSG_BUILDGRAMMAR ret =  0  
+[2017/01/04 14:33:53 875] grm_lex    71   0  call  
+============================================================
+Time  2017/01/04 14:36:56 640 
+============================================================
+[2017/01/04 14:36:56 640] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/04 14:36:56 640] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/04 14:36:56 640] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/04 14:36:56 640] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/04 14:36:56 640] grm_lex    251  ISR_MSG_BUILDGRAMMAR  
+[2017/01/04 14:36:56 640] grm_lex    100  grm_type :  bnf  
+[2017/01/04 14:36:56 640] grm_lex    106  engine_type  :  local  
+[2017/01/04 14:36:56 640] grm_lex    106  sample_rate  :  16000  
+[2017/01/04 14:36:56 640] grm_lex    106  asr_res_path  :  fo|/home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/common.jet  
+[2017/01/04 14:36:56 640] grm_lex    106  grm_build_path  :  /home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/GrmBuilld  
+[2017/01/04 14:36:56 641] grm_lex    254  ISR_MSG_BUILDGRAMMAR ret =  0  
+[2017/01/04 14:36:56 651] grm_lex    71   0  call  
+============================================================
+Time  2017/01/04 14:58:30 273 
+============================================================
+[2017/01/04 14:58:30 273] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/04 14:58:30 273] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/04 14:58:30 273] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/04 14:58:30 273] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/04 14:58:30 273] grm_lex    251  ISR_MSG_BUILDGRAMMAR  
+[2017/01/04 14:58:30 273] grm_lex    100  grm_type :  bnf  
+[2017/01/04 14:58:30 273] grm_lex    106  engine_type  :  local  
+[2017/01/04 14:58:30 273] grm_lex    106  sample_rate  :  16000  
+[2017/01/04 14:58:30 273] grm_lex    106  asr_res_path  :  fo|/home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/common.jet  
+[2017/01/04 14:58:30 273] grm_lex    106  grm_build_path  :  /home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/GrmBuilld  
+[2017/01/04 14:58:30 274] grm_lex    254  ISR_MSG_BUILDGRAMMAR ret =  0  
+[2017/01/04 14:58:30 288] grm_lex    71   0  call  
+============================================================
+Time  2017/01/04 20:21:09 887 
+============================================================
+[2017/01/04 20:21:09 887] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/04 20:21:09 887] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/04 20:21:09 887] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/04 20:21:09 899] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/04 20:21:09 899] grm_lex    251  ISR_MSG_BUILDGRAMMAR  
+[2017/01/04 20:21:09 899] grm_lex    100  grm_type :  bnf  
+[2017/01/04 20:21:09 900] grm_lex    106  engine_type  :  local  
+[2017/01/04 20:21:09 900] grm_lex    106  sample_rate  :  16000  
+[2017/01/04 20:21:09 900] grm_lex    106  asr_res_path  :  fo|/home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/common.jet  
+[2017/01/04 20:21:09 900] grm_lex    106  grm_build_path  :  /home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/GrmBuilld  
+[2017/01/04 20:21:09 905] grm_lex    254  ISR_MSG_BUILDGRAMMAR ret =  0  
+[2017/01/04 20:21:09 990] grm_lex    71   0  call  
+============================================================
+Time  2017/01/05 11:31:15 938 
+============================================================
+[2017/01/05 11:31:15 938] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/05 11:31:15 957] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/05 11:31:15 957] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/05 11:31:15 957] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/05 11:31:15 957] grm_lex    251  ISR_MSG_BUILDGRAMMAR  
+[2017/01/05 11:31:15 957] grm_lex    100  grm_type :  bnf  
+[2017/01/05 11:31:15 957] grm_lex    106  engine_type  :  local  
+[2017/01/05 11:31:15 957] grm_lex    106  sample_rate  :  16000  
+[2017/01/05 11:31:15 957] grm_lex    106  asr_res_path  :  fo|/home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/common.jet  
+[2017/01/05 11:31:15 957] grm_lex    106  grm_build_path  :  /home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/GrmBuilld  
+[2017/01/05 11:31:15 979] grm_lex    254  ISR_MSG_BUILDGRAMMAR ret =  0  
+[2017/01/05 11:31:16 026] grm_lex    71   0  call  
+============================================================
+Time  2017/01/05 12:07:16 874 
+============================================================
+[2017/01/05 12:07:16 874] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/05 12:07:16 874] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/05 12:07:16 874] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/05 12:07:16 874] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/05 12:07:16 874] grm_lex    251  ISR_MSG_BUILDGRAMMAR  
+[2017/01/05 12:07:16 874] grm_lex    100  grm_type :  bnf  
+[2017/01/05 12:07:16 874] grm_lex    106  engine_type  :  local  
+[2017/01/05 12:07:16 874] grm_lex    106  sample_rate  :  16000  
+[2017/01/05 12:07:16 874] grm_lex    106  asr_res_path  :  fo|/home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/common.jet  
+[2017/01/05 12:07:16 874] grm_lex    106  grm_build_path  :  /home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/GrmBuilld  
+[2017/01/05 12:07:16 877] grm_lex    254  ISR_MSG_BUILDGRAMMAR ret =  0  
+[2017/01/05 12:07:16 973] grm_lex    71   0  call  
+============================================================
+Time  2017/01/05 12:08:32 151 
+============================================================
+[2017/01/05 12:08:32 151] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/05 12:08:32 151] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/05 12:08:32 151] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/05 12:08:32 151] grm_lex    251  ISR_MSG_BUILDGRAMMAR  
+[2017/01/05 12:08:32 151] grm_lex    100  grm_type :  bnf  
+[2017/01/05 12:08:32 151] grm_lex    106  engine_type  :  local  
+[2017/01/05 12:08:32 151] grm_lex    106  sample_rate  :  16000  
+[2017/01/05 12:08:32 151] grm_lex    106  asr_res_path  :  fo|/home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/common.jet  
+[2017/01/05 12:08:32 151] grm_lex    106  grm_build_path  :  /home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/GrmBuilld  
+[2017/01/05 12:08:32 152] grm_lex    254  ISR_MSG_BUILDGRAMMAR ret =  0  
+[2017/01/05 12:08:32 152] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/05 12:08:32 165] grm_lex    71   0  call  
+============================================================
+Time  2017/01/05 12:08:57 919 
+============================================================
+[2017/01/05 12:08:57 919] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/05 12:08:57 919] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/05 12:08:57 919] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/05 12:08:57 919] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/05 12:08:57 919] grm_lex    251  ISR_MSG_BUILDGRAMMAR  
+[2017/01/05 12:08:57 919] grm_lex    100  grm_type :  bnf  
+[2017/01/05 12:08:57 919] grm_lex    106  engine_type  :  local  
+[2017/01/05 12:08:57 919] grm_lex    106  sample_rate  :  16000  
+[2017/01/05 12:08:57 919] grm_lex    106  asr_res_path  :  fo|/home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/common.jet  
+[2017/01/05 12:08:57 919] grm_lex    106  grm_build_path  :  /home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/GrmBuilld  
+[2017/01/05 12:08:57 920] grm_lex    254  ISR_MSG_BUILDGRAMMAR ret =  0  
+[2017/01/05 12:08:57 936] grm_lex    71   0  call  
+============================================================
+Time  2017/01/05 12:09:58 695 
+============================================================
+[2017/01/05 12:09:58 695] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/05 12:09:58 695] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/05 12:09:58 696] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/05 12:09:58 696] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/05 12:09:58 696] grm_lex    251  ISR_MSG_BUILDGRAMMAR  
+[2017/01/05 12:09:58 696] grm_lex    100  grm_type :  bnf  
+[2017/01/05 12:09:58 696] grm_lex    106  engine_type  :  local  
+[2017/01/05 12:09:58 696] grm_lex    106  sample_rate  :  16000  
+[2017/01/05 12:09:58 696] grm_lex    106  asr_res_path  :  fo|/home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/common.jet  
+[2017/01/05 12:09:58 696] grm_lex    106  grm_build_path  :  /home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/GrmBuilld  
+[2017/01/05 12:09:58 697] grm_lex    254  ISR_MSG_BUILDGRAMMAR ret =  0  
+[2017/01/05 12:09:58 715] grm_lex    71   0  call  
