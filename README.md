@@ -81,7 +81,7 @@ Aquila包安装时需要注意：安装后检查 /usr/local/lib/ 目录下是否
 
 1. 创建工作目录
 
-	建议在 home 目录下创建 **~/.SpeechSystem/** 并将下载科大讯飞 **Linux SDK**，并把 libmic.so 复制到**/usr/local/lib**目录下 ，同时把讯飞 SDK/bin/msc/rec/common.jet 复制到下面的 **xf-source/asr-local-model/asr/**目录下 。详细目录结构如下所示：
+	建议在 home 目录下创建 **~/.SpeechSystem/** ，并将 resource/ 目录下的子目录复制到此处，下载科大讯飞 **Linux SDK**，并把 libmic.so 复制到**/usr/local/lib**目录下 ，同时把讯飞 SDK/bin/msc/rec/common.jet 复制到下面的 **xf-source/asr-local-model/asr/**目录下 。详细目录结构如下所示：
 ```
 hntea@HnteaPC:~$ tree ./.SpeechSystem/ -d
 ./.SpeechSystem/
