@@ -41,10 +41,8 @@ void  stateCallback(const std_msgs::String &msgs){
  * */
 void fileCallback(const std_msgs::String& msg){
 	//离线识别
-	std::cout<<"fileCallback:"<<std::endl;
 	std::string result;
 	local.runasr(msg.data,result);
-//	std::cout<<"fileCallback result = "<<result<<std::endl;
 	if(result.empty()){
 		std_msgs::String msgs;
 		msgs.data = "Null";

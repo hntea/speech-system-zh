@@ -39,6 +39,7 @@ void streamCallback(const audio_msgs::AudioData& msg)
 	std::string result;
 	if(end){
 		online.runasr(vec,result,true);
+		printf("[XFonlineASR-BLOCK] result = %s\n",result.c_str());
 		std_msgs::String res;
 		res.data = result;
 		pub.publish(res);

@@ -35,9 +35,9 @@ void  stateCallback(const std_msgs::String &msgs){
 }
 
 void fileCallback(const std_msgs::String& msg){
-	std::cout<<"Online recognize.."<<std::endl;
 	std::string online_res;
 	online.runasr(msg.data,online_res);
+	printf("[XFonlineASR-FILE] result = %s\n",online_res.c_str());
 	std_msgs::String res;
 	res.data = online_res;
 	p.publish(res);
