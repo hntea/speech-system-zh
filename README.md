@@ -4,6 +4,10 @@
 ##说明
 该功能包意在结合ROS框架开发出具有中文语音交互功能的语音交互系统；还在开发中..欢迎有兴趣的伙伴加入！
 
+####系统版本 Ubuntu14.04 / Ros-indigo
+
+
+
 ##目前完成的功能有：
 
 1. **音频信号采集**
@@ -14,12 +18,12 @@
 4. **科大讯飞离线命令词识别**
 5. **百度在线语音识别**
 6. **百度、讯飞在线语音合成**
-5. **rqt_plot**： 辅助包打印音频信号
+7. **图灵在线语义理解**
+5. **画图辅助**： 打印音频信号
 
 
 ##开发中：
 
-5. 在线语义理解
 7. 语音播放
 8. 离线意图推理
 9. 本地与云端资源调度
@@ -81,7 +85,7 @@ Aquila包安装时需要注意：安装后检查 /usr/local/lib/ 目录下是否
 
 1. 创建工作目录
 
-	建议在 home 目录下创建 **~/.SpeechSystem/** ，并将 resource/ 目录下的子目录复制到此处，下载科大讯飞 **Linux SDK**，并把 libmic.so 复制到**/usr/local/lib**目录下 ，同时把讯飞 SDK/bin/msc/rec/common.jet 复制到下面的 **xf-source/asr-local-model/asr/**目录下 。详细目录结构如下所示：
+	建议在 home 目录下创建 **~/.SpeechSystem/** ，并将 **resource/** 目录下的子目录复制到此处；下载科大讯飞 **Linux SDK**，并把 libmic.so 复制到**/usr/local/lib**目录下 ，同时把讯飞 SDK/bin/msc/rec/common.jet 复制到下面的 **xf-source/asr-local-model/asr/**目录下 。详细目录结构如下所示：
 ```
 hntea@HnteaPC:~$ tree ./.SpeechSystem/ -d
 ./.SpeechSystem/
