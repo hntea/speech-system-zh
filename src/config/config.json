@@ -5,7 +5,7 @@
   "speechServer" : {
 
     "xunfei" : {
-      "loginParams" : "appid = 5864c12d, work_dir = /home/hntea/.SpeechSystem/xf-source/",
+      "loginParams" : "appid = xxx, work_dir = xxx",
       "onlineasr":{
  	"userWordsFilePath" : "/home/hntea/.SpeechSystem/xf-source/userwords.txt",
       	"params" : "sub = iat, domain = iat, language = zh_cn, accent = mandarin, sample_rate = 16000, result_type = plain, result_encoding = utf8"
@@ -29,13 +29,13 @@
 
     "baidu":{
       "workspace" : "/home/hntea/.SpeechSystem/baidu",
-      "appid" : "8377372",
-      "apikey" : "ZQKcC2sLgwEOlVWSknxVaEbk",
-      "secretkey" : "36b1d1cf593247838cc4246d337544a7",
+      "appid" : "xxx",
+      "apikey" : "xxxx",
+      "secretkey" : "xxxxx",
       "asrserver" : "http://vop.baidu.com/server_api",
       "ttsserver" : "http://tsn.baidu.com/text2audio",
       "ttsParms":{
-      		"tex" : "UTF-8",
+      	"tex" : "UTF-8",
 		"lan" : "zh",
 		"ctp" : "1",
 		"cuid" : "00:23:cd:af:ea:c5",
@@ -47,7 +47,6 @@
     },
 
     "tuling":{
-      "use" : false,
       "server" : "http://www.tuling123.com/openapi/api",
       "apikey" : "a939719f726e49ec02587eb42a6cd4f7"
     }
