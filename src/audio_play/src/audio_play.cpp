@@ -43,13 +43,21 @@ public:
 		_engine = libvlc_new(0, NULL);
 	    // create a new item
 	    m = libvlc_media_new_path(_engine, file.c_str());
+	    if(m == NULL){
+	    	ROS_INFO("[audio_play] file not exit!");
+	    	return;
+	    }
 
 	    // create a media play playing environment
 	    _mp = libvlc_media_player_new_from_media(m);
+	    if(_mp == NULL){
+	    	ROS_INFO("[audio_play] Create a Media Player object from a Media Err");
+	    	return;
+	    }
 	    libvlc_media_release(m);
 
 	    //play
-	    libvlc_media_player_play(_mp);
+	    int err = libvlc_media_player_play(_mp);
 
 	    //add listen
 	    libvlc_event_manager_t *vlcEventManager = libvlc_media_player_event_manager(_mp);
