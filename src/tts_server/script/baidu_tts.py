@@ -50,7 +50,7 @@ class BaiduTTS:
             
     def process(self,data):
         if(data.data != "Null"):
-            print "Change ",data.data," to speak"
+            rospy.loginfo("正在合成："+data.data)
             file =  self.nameForAudioFile("/tmp/baidu_tts",data.data)
             self.tts_man.runTTS(data.data,file)
             self.pub.publish(file)
