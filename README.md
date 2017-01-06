@@ -19,12 +19,12 @@
 5. **百度在线语音识别**
 6. **百度、讯飞在线语音合成**
 7. **图灵在线语义理解**
+8. **语音播放**：VLC播放引擎，支持大多音频格式
 5. **画图辅助**： 打印音频信号
 
 
 ##待开发功能：
 
-7. 语音播放
 8. 离线意图推理
 9. 本地与云端资源调度
 
@@ -76,7 +76,12 @@ Aquila包安装时需要注意：安装后检查 /usr/local/lib/ 目录下是否
 9. **tts_server**
    该功能包提供语音合成功能，支持百度与讯飞
    
-10. **lib**
+10. **nlu_server**
+   该功能包提供在线语义理解、离线意图推理
+11. **audio_play**
+   音频播放-播放使用默认声卡，VLC播放引擎支持多种音频格式
+
+12.   **lib**
    该包包括第三方库、自己开发的类库
 
 9. **plot_data**
@@ -158,7 +163,10 @@ hntea@HnteaPC:~$ tree ./.SpeechSystem/ -d
    catkin_make --pkg audio_msgs
    catkin_make .
    ````
-2. 使用示例
+2.  当编译通过并配置好相应的文件，先让系统启动一段时间，之后查看** ～/.SpeechSystem/statistic-features/eg_zc_average.json** 文件，查看相应的值，根据该值为**端点检测配置阈值**
+
+
+3.使用示例
 	```
 	roslaunch system_launch system.launch
 	```
