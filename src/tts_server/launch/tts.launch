@@ -1,0 +1,10 @@
+<launch>
+
+  	<!-- -->
+  	<node name="baidu_tts" pkg="tts_server" type="baidu_tts.py" output="screen">
+		<!--
+		<param name="subtopic" value="/asr_server/xf/online_s_res"/>
+		 -->
+  	</node>
+  	
+</launch>
