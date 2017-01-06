@@ -8,5 +8,7 @@
   	<include file="$(find asr_brige)/launch/brige.launch" />
   	<include file="$(find training_tools)/launch/training.launch" />
   	<include file="$(find asr_server)/launch/asr_server.launch" />
+  	<include file="$(find tts_server)/launch/tts.launch" />
+  	<include file="$(find audio_play)/launch/play.launch" />
   	
 </launch>
