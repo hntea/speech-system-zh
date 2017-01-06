@@ -1,0 +1,10 @@
+<launch>
+
+  	<!-- -->
+  	<node name="tuling_nlu" pkg="nlu_server" type="tuling_nlu.py" output="screen">
+		<!--
+		<param name="subtopic" value="/asr_server/xf/online_s_res"/>
+		 -->
+  	</node>
+  	
+</launch>
