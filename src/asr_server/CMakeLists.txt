@@ -130,22 +130,22 @@ include_directories(
 # add_dependencies(asr_server ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 
-add_executable(xf_localasr_stream 
-	src/xf_localasr_stream.cpp
-	lib/ASR.cpp
-	lib/ConfigResolver.cpp
-	lib/XFlocalasr.cpp
+add_executable(xf_localasr_block 
+	src/xf_localasr_block.cpp
+	../lib/xunfei/lib/ASR.cpp
+	../lib/xunfei/lib/ConfigResolver.cpp
+	../lib/xunfei/lib/XFlocalasr.cpp
 )
-target_link_libraries(xf_localasr_stream
+target_link_libraries(xf_localasr_block
   ${catkin_LIBRARIES}
   libmsc.so -ldl -pthread
 )
 
 add_executable(xf_localasr_file 
 	src/xf_localasr_file.cpp
-	lib/ASR.cpp
-	lib/ConfigResolver.cpp
-	lib/XFlocalasr.cpp
+	../lib/xunfei/lib/ASR.cpp
+	../lib/xunfei/lib/ConfigResolver.cpp
+	../lib/xunfei/lib/XFlocalasr.cpp
 )
 target_link_libraries(xf_localasr_file
   ${catkin_LIBRARIES}
@@ -155,9 +155,9 @@ target_link_libraries(xf_localasr_file
 
 add_executable(xf_onlineasr_file 
 	src/xf_onlineasr_file.cpp
-	lib/ASR.cpp
-	lib/ConfigResolver.cpp
-	lib/XFonlineasr.cpp
+	../lib/xunfei/lib/ASR.cpp
+	../lib/xunfei/lib/ConfigResolver.cpp
+	../lib/xunfei/lib/XFonlineasr.cpp
 )
 target_link_libraries(xf_onlineasr_file
   ${catkin_LIBRARIES}
@@ -167,9 +167,9 @@ target_link_libraries(xf_onlineasr_file
 
 add_executable(xf_onlineasr_stream
 	src/xf_onlineasr_stream.cpp
-	lib/ASR.cpp
-	lib/ConfigResolver.cpp
-	lib/XFonlineasr.cpp
+	../lib/xunfei/lib/ASR.cpp
+	../lib/xunfei/lib/ConfigResolver.cpp
+	../lib/xunfei/lib/XFonlineasr.cpp
 )
 target_link_libraries(xf_onlineasr_stream
   ${catkin_LIBRARIES}

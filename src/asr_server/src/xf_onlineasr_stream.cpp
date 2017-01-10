@@ -5,11 +5,9 @@
  *      Author: hntea
  */
 
-#include "../lib/xfparams.h"
-#include "../lib/ASR.h"
-#include "../lib/ConfigResolver.h"
-#include "../lib/XFlocalasr.h"
-#include "../lib/XFonlineasr.h"
+#include "../../lib/xunfei/lib/ConfigResolver.h"
+#include "../../lib/xunfei/lib/XFlocalasr.h"
+#include "../../lib/xunfei/lib/XFonlineasr.h"
 #include <unistd.h>
 #include <ros/ros.h>
 #include "audio_msgs/AudioData.h"
@@ -72,11 +70,11 @@ int main(int argc, char **argv)
 	std::string configfile;
 	ros::param::param<std::string>("~configfile",configfile,defaultFile());
 	Hntea::ConfigResolver parser(configfile);
-	int ret = MSPLogin(NULL, NULL,parser.getXfBasic().loginParams.c_str());
-	if (MSP_SUCCESS != ret)
-		std::cerr<<"MSPLogin failed , Error code:"<<ret<<std::endl;
+//	int ret = MSPLogin(NULL, NULL,parser.getXfBasic().loginParams.c_str());
+//	if (MSP_SUCCESS != ret)
+//		std::cerr<<"MSPLogin failed , Error code:"<<ret<<std::endl;
 
-	online = Hntea::XFonlineasr(parser.getXfOnlineParams());
+	online = Hntea::XFonlineasr(parser.getXfOnlineParams(),parser.getXfBasic());
 
 	ros::NodeHandle n;
 	ros::Subscriber sub1 = n.subscribe("asr_brige/cache_state", 1000, stateCallback);
