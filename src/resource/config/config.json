@@ -5,9 +5,9 @@
   "speechServer" : {
 
     "xunfei" : {
-      "loginParams" : "appid = xxx, work_dir = xxx",
+      "loginParams" : "appid = ???, work_dir = /home/xxx/.SpeechSystem/xf-source/",
       "onlineasr":{
- 	"userWordsFilePath" : "/home/hntea/.SpeechSystem/xf-source/userwords.txt",
+ 	  "userWordsFilePath" : "/home/xxx/.SpeechSystem/xf-source/userwords.txt",
       	"params" : "sub = iat, domain = iat, language = zh_cn, accent = mandarin, sample_rate = 16000, result_type = plain, result_encoding = utf8"
       },
       "localasr":{
@@ -15,9 +15,9 @@
        		"sample_rate" : 16000,
        		"result_type" : "xml",
        		"result_encoding" : "UTF-8", 
-       		"asr_res_path" : "fo|/home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/common.jet",
-       		"grm_build_path" : "/home/hntea/.SpeechSystem/xf-source/asr-local-model/asr/GrmBuilld",
-       		"bnf_file" : "/home/hntea/.SpeechSystem/xf-source/call.bnf",
+       		"asr_res_path" : "fo|/home/xxx/.SpeechSystem/xf-source/asr-local-model/asr/common.jet",
+       		"grm_build_path" : "/home/xxx/.SpeechSystem/xf-source/asr-local-model/asr/GrmBuilld",
+       		"bnf_file" : "/home/xxx/.SpeechSystem/xf-source/call.bnf",
 		"asr_denoise" : 1,
 		"language" : "zh_cn",
 		"accent" : "mandarin",
@@ -28,10 +28,10 @@
     },
 
     "baidu":{
-      "workspace" : "/home/hntea/.SpeechSystem/baidu",
-      "appid" : "xxx",
-      "apikey" : "xxxx",
-      "secretkey" : "xxxxx",
+      "workspace" : "/home/xxx/.SpeechSystem/baidu",
+      "appid" : "???",
+      "apikey" : "???",
+      "secretkey" : "???",
       "asrserver" : "http://vop.baidu.com/server_api",
       "ttsserver" : "http://tsn.baidu.com/text2audio",
       "ttsParms":{
@@ -48,7 +48,7 @@
 
     "tuling":{
       "server" : "http://www.tuling123.com/openapi/api",
-      "apikey" : "xxxxxxxxxxxxxxxxxxxx"
+      "apikey" : "???"
     }
 
   }
