@@ -165,13 +165,13 @@ target_link_libraries(xf_onlineasr_file
 )
 
 
-add_executable(xf_onlineasr_stream
-	src/xf_onlineasr_stream.cpp
+add_executable(xf_onlineasr_block
+	src/xf_onlineasr_block.cpp
 	../lib/xunfei/lib/ASR.cpp
 	../lib/xunfei/lib/ConfigResolver.cpp
 	../lib/xunfei/lib/XFonlineasr.cpp
 )
-target_link_libraries(xf_onlineasr_stream
+target_link_libraries(xf_onlineasr_block
   ${catkin_LIBRARIES}
   libmsc.so -ldl -pthread
 )
