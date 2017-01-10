@@ -8,7 +8,9 @@
   <node name="double_threhold_VAD" pkg="speech_vad" type="double_threhold_VAD" output="screen">
     <param name="energyUpthreshold" value="$(arg energyUpthreshold)"/>
     <param name="zeroUpthreshold" value="$(arg zeroUpthreshold)"/>
-    <param name="jsonfile" value="$(arg jsonfile)"/>
+    <!--
+    	<param name="jsonfile" value="$(arg jsonfile)"/>
+	-->
   </node>
 
 
