@@ -60,12 +60,7 @@ int main(int argc, char **argv)
 	std::string configfile;
 	ros::param::param<std::string>("~configfile",configfile,defaultFile());
 	Hntea::ConfigResolver parser(configfile);
-//	int ret = MSPLogin(NULL, NULL,parser.getXfBasic().loginParams.c_str());
-//	if (MSP_SUCCESS != ret)
-//		std::cerr<<"MSPLogin failed , Error code:"<<ret<<std::endl;
-
 	online = Hntea::XFonlineasr(parser.getXfOnlineParams(),parser.getXfBasic());
-
 
 	ros::NodeHandle n;
 	ros::Subscriber sub1 = n.subscribe("asr_brige/cache_state", 1000, stateCallback);

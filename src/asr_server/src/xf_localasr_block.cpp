@@ -86,8 +86,6 @@ int main(int argc, char **argv)
 	ros::param::param<std::string>("~configfile",configfile,defaultFile());
 	Hntea::ConfigResolver parser(configfile);
 	local = Hntea::XFlocalasr(parser.getXfLocalParams(),parser.getXfBasic());
-
-
 	ros::NodeHandle n;
 	ros::Subscriber sub1 = n.subscribe("asr_brige/cache_state", 1000, stateCallback);
 	ros::Subscriber sub2 = n.subscribe("asr_brige/cache_data", 1000, streamCallback);
