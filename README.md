@@ -34,7 +34,7 @@
 ####ALSA : [ALSA Install](http://blog.csdn.net/u013494117/article/details/52269463)
 ####C\++ Json : [C++ json Install](http://blog.csdn.net/u013494117/article/details/53213134)
 ####Aquila : [Aquila C++ DSP library](http://aquila-dsp.org/download/)
-####VLC: `apt-get install libvlccore-dev libvlc-dev`
+####VLC: `apt-get install libvlccore-dev libvlc-dev` 同时安装 VLC播放器
 
 **注意**
 Aquila包安装时需要注意：安装后检查 /usr/local/lib/ 目录下是否存在 libOoura_fft.a;如果没有，则需要手动将：/Aquila/build/lib/libOoura_fft.a 复制到上述目录中。
