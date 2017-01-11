@@ -137,6 +137,7 @@ class BaiduTtsClientManager:
 
     def __init__(self):
         self.__readconfig(self.__defaultconfig())
+        self.__creatWorkspace(self.__workspace)
         self.__creatWorkspace(self.__tts_dir)
         dbmfile =  self.__creatDbm(self.__workspace,"token")
         self.__updateToken(dbmfile)
