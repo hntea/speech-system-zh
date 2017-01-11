@@ -167,11 +167,23 @@ hntea@HnteaPC:~$ tree ./.SpeechSystem/ -d
    ````
 2.  当编译通过并配置好相应的文件，先让系统启动一段时间，之后查看** ～/.SpeechSystem/statistic-features/eg_zc_average.json** 文件，查看相应的值，根据该值为**端点检测配置阈值**
 
+3. 使用示例
+```
+roslaunch system_launch system.launch
+```
+之后对着麦克风说话，如果没有检测到端点信号，请查看打印消息
 
-3.使用示例
 	```
-	roslaunch system_launch system.launch
+		========== History Noise Leve =========
+	_znoise.up = 269.080780    _znoise.low = 212.797470
+	_enoise.up = 14.152426     _enoise.low = 12.870467
+
+	Recommend you seting as follow:
+					[energyUpthreshold] = [18.152426]
+					[zeroUpthreshhold] = [134.540390]
+	
 	```
+**设置 speech_vad/launch 文件中的参数，过零调高与能量调低以增加灵敏度。**
 	
 
 
