@@ -98,7 +98,6 @@ class BaiduVoiceClientManager:
             self.__ttsserver =  jsout["speechServer"]["baidu"]["ttsserver"]
             self.__asrserver =  jsout["speechServer"]["baidu"]["asrserver"]
             self.__mac_address =  jsout["mac_address"]
-        
         fd.close()
         
     
