@@ -56,6 +56,8 @@ VLC 安装方法:
 
 1. 在Ubuntu软件中心安装 VLC 播放器
 1. 安装开发库
+
+
  ```
  apt-get install libvlccore-dev libvlc-dev
  ```
