@@ -23,8 +23,7 @@ public:
         		   "\n=========================================================\n"
         		,_size,_channle,_sample,_rate,_name.c_str());
 
-        _dev.deviceCfg(_name,_channle,_sample,_rate,MODE_RECPRDER);
-        _dev.init();
+        _dev.config(_name,_channle,_sample,_rate,MODE_RECPRDER,SND_PCM_ACCESS_RW_INTERLEAVED);
         _data = new int16_t[_size];
         //发布消息，缓存空间 50，true 表示其它节点个同步接受信息。
         _pub = _nh.advertise<audio_msgs::AudioData>("audio_data", 50, true);
@@ -56,14 +55,11 @@ private:
     int  _size;
     std::string _name;
     int  _channle,_sample, _rate;
-    enum _MODE _mode;
 };
 
 
 int main (int argc, char **argv)
 {
- ROS_INFO ("Ros Node Name : audio_capture");
-  ROS_INFO("Ros Node Publish Topic : audio_data");
   ros::init(argc, argv, "audio_capture");
   RosAudioCapture server;
 }
