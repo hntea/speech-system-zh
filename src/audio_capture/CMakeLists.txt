@@ -56,6 +56,18 @@ add_executable(audio_capture
 	asound
 )
 
+add_executable(kinect2_capture 
+	src/kinect2_capture.cpp
+	../lib/audio_bace/src/AudioDeviceBace.cpp
+	)
+
+ target_link_libraries(kinect2_capture
+   ${catkin_LIBRARIES}
+	asound
+)
+
+
+
 
 #############
 ## Install ##

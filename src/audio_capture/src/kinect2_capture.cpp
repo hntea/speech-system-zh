@@ -10,7 +10,8 @@
 #include "../../lib/audio_bace/include/AudioDeviceBace.h"
 #include <ros/ros.h>
 #include "audio_msgs/AudioData.h"
-
+#include <iostream>
+#include <eigen3/Eigen/Dense>
 namespace Hntea{
 
 /*
@@ -73,7 +74,7 @@ public:
 		   _dev.readn(_data,_size);
 		   for(int i=0;i<_channle;i++)
 		   {
-			   for(int j=0;j<_size;j++)
+			   for(int j=0;j<=_size;j++)
 			   {
 				   msg.data[j] = _data[i][j];
 			   }
@@ -86,9 +87,6 @@ public:
 	~Kinect2AudioCapture(){
 		free2D(_data,_channle);
 	}
-
-
-
 
 
 private:

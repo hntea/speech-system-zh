@@ -7,10 +7,6 @@
 
 #include "../include/AudioDeviceBace.h"
 AudioDeviceBace::AudioDeviceBace(){}
-//AudioDeviceBace::AudioDeviceBace(std::string name,unsigned int  rate,char channle,
-//		char sample,enum _MODE mode) :
-//		_name(name),_rate(rate),_channle(channle),_sample(sample),_mode(mode),_handle(NULL){
-//}
 
 AudioDeviceBace::~AudioDeviceBace() {}
 
