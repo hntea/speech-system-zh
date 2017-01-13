@@ -10,7 +10,7 @@
 
 ##目前完成的功能有：
 
-1. **音频信号采集**
+1. **音频信号采集**: 支持ALSA挂载设备，Kinect2/logiUSB 摄像头等
 2. **音频信号滤波**：预备加重、加窗
 3. **特征提取**：短时过零、对数能量、短时平均幅度差（AMDF）、功率普
 4. **语音端点检测算法**：时域双特征双阈值
@@ -34,10 +34,28 @@
 ####ALSA : [ALSA Install](http://blog.csdn.net/u013494117/article/details/52269463)
 ####C\++ Json : [C++ json Install](http://blog.csdn.net/u013494117/article/details/53213134)
 ####Aquila : [Aquila C++ DSP library](http://aquila-dsp.org/download/)
-####VLC: `apt-get install libvlccore-dev libvlc-dev` 同时安装 VLC播放器
-
 **注意**
 Aquila包安装时需要注意：安装后检查 /usr/local/lib/ 目录下是否存在 libOoura_fft.a;如果没有，则需要手动将：/Aquila/build/lib/libOoura_fft.a 复制到上述目录中。
+
+####Eigen:[Eigen C++ 矩阵分析库](http://eigen.tuxfamily.org/index.php?title=Main_Page)
+Eigen 安装方法：
+1. 下载最新版本
+1. 解压库文件
+1. 进入库文件目录
+```
+cd ~/eigen-eigen-f562a193118d
+mkdir build
+cmake .
+sudo make install
+```
+
+####VLC: [VLC 多媒体驱动引擎](https://wiki.videolan.org/Documentation:Documentation/)
+VLC 安装方法:
+1. 在Ubuntu软件中心安装 VLC 播放器
+1. 安装开发库
+ ```
+ apt-get install libvlccore-dev libvlc-dev
+ ```
 
 
 
