@@ -39,9 +39,11 @@ Aquila包安装时需要注意：安装后检查 /usr/local/lib/ 目录下是否
 
 ####Eigen:[Eigen C++ 矩阵分析库](http://eigen.tuxfamily.org/index.php?title=Main_Page)
 Eigen 安装方法：
+
 1. 下载最新版本
 1. 解压库文件
 1. 进入库文件目录
+
 ```
 cd ~/eigen-eigen-f562a193118d
 mkdir build
@@ -51,6 +53,7 @@ sudo make install
 
 ####VLC: [VLC 多媒体驱动引擎](https://wiki.videolan.org/Documentation:Documentation/)
 VLC 安装方法:
+
 1. 在Ubuntu软件中心安装 VLC 播放器
 1. 安装开发库
  ```
