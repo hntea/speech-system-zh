@@ -45,6 +45,7 @@ add_message_files(
    FILES
    AudioData.msg
    AudioFeature.msg
+   AudioFeatureSet.msg
    PlotData.msg
    FreqData.msg
 )
