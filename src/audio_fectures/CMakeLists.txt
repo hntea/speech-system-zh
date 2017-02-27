@@ -128,18 +128,19 @@ include_directories(
 ## either from message generation or dynamic reconfigure
 # add_dependencies(audio_fectures ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
-#add_executable(audio_log_energy 
-#	src/time_domain/log_energy.cpp
-#)
+add_executable(feature_set
+	src/feature_set/feature_set.cpp
+	src/feature_set/FeatureSet.cpp
+)
 
-#target_link_libraries(audio_log_energy
-#  ${catkin_LIBRARIES}
-#   libAquila.a
-#)
+target_link_libraries(feature_set
+  ${catkin_LIBRARIES}
+   libAquila.a
+)
 
 
 add_executable(audio_zero_crossing 
-	src/time_domain/zero_crossing.cpp
+	src/time_domain/zero_crossing.cpp 
 )
 target_link_libraries(audio_zero_crossing
    ${catkin_LIBRARIES}
