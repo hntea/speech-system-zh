@@ -98,8 +98,23 @@ float FeatureSet::logEnergy()
 	{
 		energy += ( ( iter[j]*iter[j] ));
 	}
-	return log(energy);
+	return 10*log10(energy);
 
+}
+
+/*
+ * 函数功能：获取MFCC特征集
+ * 参数说明：
+ * 			mfccValues: 特征集存放空间
+ * 			numFeatures:特征序列个数
+ * 返回值：MFCC集
+ * */
+void FeatureSet::mfccFeatures(std::vector<double> &mfccValues, std::size_t numFeatures)
+{
+	mfccValues.resize(numFeatures);
+	Aquila::Mfcc mfcc(m_data.size());
+	Aquila::SignalSource signal(m_data,m_sampleFrequency);
+	mfccValues = mfcc.calculate(signal,numFeatures);
 }
 
 } /* namespace Hntea */

@@ -13,6 +13,7 @@
 #include <numeric>
 #include "aquila/global.h"
 #include "aquila/source/SignalSource.h"
+#include "aquila/transform/Mfcc.h"
 
 namespace Hntea {
 
@@ -44,6 +45,15 @@ public:
 	 * 返回值：对数能量
 	 * */
 	float logEnergy();
+
+	/*
+	 * 函数功能：获取MFCC特征集
+	 * 参数说明：
+	 * 			mfccValues: 特征集存放空间
+	 * 			count:特征序列个数
+	 * 返回值：MFCC集
+	 * */
+	void mfccFeatures(std::vector<double> &mfccValues,std::size_t numFeatures=12);
 
 private:
 

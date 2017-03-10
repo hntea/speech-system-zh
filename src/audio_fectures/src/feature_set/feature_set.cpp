@@ -26,6 +26,15 @@ void callback(const audio_msgs::AudioData &msgs)
 	features_msgs.logenergy = features.logEnergy();
 	features_msgs.mean = features.mean();
 	features_msgs.zerocrossing = features.zeroCrossing();
+
+	std::vector<double> mfccset;
+	features.mfccFeatures(mfccset,12);
+	features_msgs.mfcc.resize(mfccset.size());
+	for(int i=0;i<mfccset.size();i++)
+	{
+		features_msgs.mfcc[i] = mfccset[i];
+	}
+
 	_pub.publish(features_msgs);
 }
 
