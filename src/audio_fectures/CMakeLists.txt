@@ -136,6 +136,7 @@ add_executable(feature_set
 target_link_libraries(feature_set
   ${catkin_LIBRARIES}
    libAquila.a
+   libOoura_fft.a 
 )
 
 

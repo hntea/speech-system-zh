@@ -9,6 +9,38 @@
 
 namespace Hntea {
 
+/*
+ * 函数功能：MFCC 全局特征标准化
+ * 参数说明：
+ * 			input: 输入特征集
+ * 			output: 输出特征集
+ *
+ * 返回值：标准化 MFCC 集全局特征标准化,即归一化均值为0，方差为1
+ * */
+static void mfccCMN(const std::vector<double> &input,std::vector<double> &output)
+{
+	double sum = std::accumulate(std::begin(input), std::end(input), 0.0);
+	double mean = sum / input.size();
+
+	sum = 0;
+
+	for(int i=0;i<input.size();i++)
+	{
+		sum += (mean-input[i])*(mean-input[i]);
+	}
+	sum = sum/input.size();
+
+	double xita = std::sqrt(sum);
+
+	for(int i=0;i<input.size();i++)
+	{
+		output[i] = (input[i]-mean)/xita;
+	}
+
+}
+
+
+
 FeatureSet::FeatureSet():Aquila::SignalSource() {
 	// TODO Auto-generated constructor stub
 
@@ -111,10 +143,26 @@ float FeatureSet::logEnergy()
  * */
 void FeatureSet::mfccFeatures(std::vector<double> &mfccValues, std::size_t numFeatures)
 {
+	std::vector<double> tmp(numFeatures);
+//	std::vector<double> CMN(numFeatures);
+
 	mfccValues.resize(numFeatures);
 	Aquila::Mfcc mfcc(m_data.size());
 	Aquila::SignalSource signal(m_data,m_sampleFrequency);
-	mfccValues = mfcc.calculate(signal,numFeatures);
+	tmp = mfcc.calculate(signal,numFeatures);
+
+	//均值归一 CMM -- 减弱声学信道扭曲带来的影响
+	double sum = std::accumulate(std::begin(tmp), std::end(tmp), 0.0);
+	double mean = sum / tmp.size();
+	for(int i=0;i<numFeatures;i++)
+	{
+		tmp[i] = tmp[i] - mean;
+	}
+
+	mfccCMN(tmp,mfccValues);
 }
+
+
+
 
 } /* namespace Hntea */
