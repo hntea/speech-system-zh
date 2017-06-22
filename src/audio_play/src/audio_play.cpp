@@ -25,6 +25,7 @@ public:
 		ros::param::param<std::string>("~subtopic",_subtopic,"/tts_server/baidu_tts");
 		_sb = _nh.subscribe(_subtopic,10,tts_callback);
 		_pub = _nh.advertise<std_msgs::String>("audio_play/play_state",1000);
+		_engine = libvlc_new(0, NULL);
 		ros::spin();
 	}
 	~AuidoPlayer(){}
@@ -40,7 +41,7 @@ public:
 
 	static void play(std::string file){
 		libvlc_media_t *m;
-		_engine = libvlc_new(0, NULL);
+
 	    // create a new item
 	    m = libvlc_media_new_path(_engine, file.c_str());
 	    if(m == NULL){
@@ -74,7 +75,7 @@ public:
 	    libvlc_media_player_stop(_mp);
 	    // free the media_player
 	    libvlc_media_player_release(_mp);
-	    libvlc_release(_engine);
+//	    libvlc_release(_engine);
 	    _end = false;
 	}
 private:
