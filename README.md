@@ -1,14 +1,10 @@
 # speech-system-zh
+## 说明
+该功能包意在结合ROS框架开发出具有中文语音交互功能的语音交互系统
 
+## 系统版本 Ubuntu14.04 / Ros-indigo
 
-#说明
-该功能包意在结合ROS框架开发出具有中文语音交互功能的语音交互系统；还在开发中..欢迎有兴趣的伙伴加入！
-
-##系统版本 Ubuntu14.04 / Ros-indigo
-
-
-
-##目前完成的功能有：
+## 功能说明：
 
 1. **音频信号采集**: 支持ALSA挂载设备，Kinect2/logiUSB 摄像头等
 2. **音频信号滤波**：预备加重、加窗
@@ -23,26 +19,21 @@
 5. **画图辅助**： 打印音频信号
 
 
-##待开发功能：
+## 依赖库
 
-8. 离线意图推理
-9. 本地与云端资源调度
-
-##依赖库
-
-###C/C++ 第三方库安装说明
-####ALSA : [ALSA Install](http://blog.csdn.net/u013494117/article/details/52269463)
-####C\++ Json : [C++ json Install](http://blog.csdn.net/u013494117/article/details/53213134)
-####Aquila : [Aquila C++ DSP library](http://aquila-dsp.org/download/)
+### C/C++ 第三方库安装说明
+#### ALSA : [ALSA Install](http://blog.csdn.net/u013494117/article/details/52269463)
+#### C\++ Json : [C++ json Install](http://blog.csdn.net/u013494117/article/details/53213134)
+#### Aquila : [Aquila C++ DSP library](http://aquila-dsp.org/download/)
 **注意**
 Aquila包安装时需要注意：安装后检查 /usr/local/lib/ 目录下是否存在 libOoura_fft.a;如果没有，则需要手动将：/Aquila/build/lib/libOoura_fft.a 复制到上述目录中。
 
-####Eigen:[Eigen C++ 矩阵分析库](http://eigen.tuxfamily.org/index.php?title=Main_Page)
+#### Eigen:[Eigen C++ 矩阵分析库](http://eigen.tuxfamily.org/index.php?title=Main_Page)
 Eigen 安装方法：
 
 1. 下载最新版本
-1. 解压库文件
-1. 进入库文件目录
+2. 解压库文件
+3. 进入库文件目录，执行以下命令
 
 ```
 cd ~/eigen-eigen-f562a193118d
@@ -51,11 +42,11 @@ cmake .
 sudo make install
 ```
 
-####VLC: [VLC 多媒体驱动引擎](https://wiki.videolan.org/Documentation:Documentation/)
+#### VLC: [VLC 多媒体驱动引擎](https://wiki.videolan.org/Documentation:Documentation/)
 VLC 安装方法:
 
 1. 在Ubuntu软件中心安装 VLC 播放器
-1. 安装开发库
+2. 安装开发库
 
 
  ```
@@ -64,10 +55,10 @@ VLC 安装方法:
 
 
 
-###Python 第三方库安装说明
-####Python-pinyin : [python-pinyin](https://github.com/mozillazg/python-pinyin)
+### Python 第三方库安装说明
+#### Python-pinyin : [python-pinyin](https://github.com/mozillazg/python-pinyin)
 
-#各包功能说明
+# 各包功能说明
 1. **audio_capture ：**
    提供音频捕获功能，只要是通过 ALSA 驱动挂载的音频设备，均可使用该包获取音频信号，默认采样频率16k,单通道、样本长度16位、捕获块大小512字节（建议修改保持256的倍数），各参数可通过启动文件调整
    
@@ -104,13 +95,10 @@ VLC 安装方法:
 11. **audio_play**
    音频播放-播放使用默认声卡，VLC播放引擎支持多种音频格式
 
-12.   **lib**
-   该包包括第三方库、自己开发的类库
-
-9. **plot_data**
+12. **plot_data**
    该包主要目的是用于配合 rqt_plot 工具，方便分析音频信号
    
-#使用方法
+# 使用方法
 
 1. 创建工作目录
 
@@ -210,5 +198,5 @@ roslaunch system_launch system.launch
 	
 
 
-##使用示例
-###**Author:Hntea-hong   From: Findlab404**
+## 使用示例
+### **Author:Hntea-hong   From: Findlab404**
